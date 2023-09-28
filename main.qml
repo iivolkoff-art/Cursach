@@ -13,7 +13,7 @@ Window {
     title: qsTr("Cursach")
 
 
-    property string windowsVisibleNumber: "1" // mainWindow
+    property string windowsVisibleNumber: "0" // mainWindow
     property string mainVisibleWindows: "3" // centerPages
 
     property color backgroundColor: "#343838"

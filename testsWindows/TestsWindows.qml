@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import './middlePanelTest'
 
 Item{
     id:testsWindows
@@ -12,15 +13,11 @@ Item{
             width: parent.width
             height: parent.height * 0.08
         }
-        Item{
+        MiddlePanel {
             id: middlePanel
-            width: parent.width
-            anchors.top: topPanel.bottom
             anchors.bottom: bottomPanel.top
-            Rectangle{
-                anchors.fill: parent
-                color: "red"
-            }
+            anchors.top: topPanel.bottom
+            width: parent.width
         }
         MyBottomPanel {
             id: bottomPanel

@@ -11,5 +11,6 @@
         <file>mainWindow/testsPage/TestsPage.qml</file>
         <file>testsWindows/TopPanel.qml</file>
         <file>testsWindows/MyBottomPanel.qml</file>
+        <file>testsWindows/middlePanelTest/MiddlePanel.qml</file>
     </qresource>
 </RCC>
