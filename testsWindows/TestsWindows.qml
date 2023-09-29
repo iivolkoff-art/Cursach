@@ -4,6 +4,8 @@ import './middlePanelTest'
 
 Item{
     id:testsWindows
+    property int questionNumber: 1
+    property string pathToQuestion: "C:/Users/Volkov/Pictures/Screenshots/std.png"
     Rectangle{
         anchors.fill: parent
         color: backgroundColor
@@ -23,7 +25,7 @@ Item{
             id: bottomPanel
             anchors.bottom: parent.bottom
             width: parent.width
-            height: parent.height * 0.12
+            height: parent.height * 0.1
 
         }
     }

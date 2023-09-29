@@ -4,7 +4,6 @@ import QtQuick.Controls 2.15
 
 Item{
     id:topPanel
-    property int questionNumber: 8
     Rectangle{
         anchors.fill: parent
         color: backgroundColor
@@ -26,6 +25,7 @@ Item{
                 anchors.fill: parent
                 onClicked: {
                     windowsVisibleNumber = 0
+                    questionNumber = 1
                 }
             }
 

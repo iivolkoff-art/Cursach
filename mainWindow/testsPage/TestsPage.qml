@@ -12,6 +12,7 @@ Item{
         color: backgroundColor
         Rectangle{
             id: firstTestCircle
+            z: 1
             x: Math.random() * (parent.width * 0.8)
             y: parent.height * 0.1
             width: widthCircle
@@ -30,6 +31,42 @@ Item{
                 onClicked: {
                     windowsVisibleNumber = 1
                 }
+            }
+        }
+        Rectangle{
+            id: secondTestCircle
+            z: 1
+            x: Math.random() * (parent.width * 0.8)
+            y: parent.height * 0.3
+            width: widthCircle
+            height: heightCircle
+            color: "#008C9E"
+            radius: width / 2
+            Text{
+                anchors.centerIn: parent
+                font.pixelSize: parent.height * 0.4
+                text: "2"
+                color: "white"
+                font.bold: true
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    windowsVisibleNumber = 1
+                }
+            }
+        }
+        Canvas {
+            anchors.fill: parent
+            z: 0
+            onPaint: {
+                var ctx = getContext("2d");
+                ctx.strokeStyle = "#D9D9D9";
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(firstTestCircle.x + firstTestCircle.width / 2, firstTestCircle.y + firstTestCircle.height / 2);
+                ctx.lineTo(secondTestCircle.x+ secondTestCircle.width / 2, secondTestCircle.y + secondTestCircle.height / 2);
+                ctx.stroke();
             }
         }
 

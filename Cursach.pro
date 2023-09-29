@@ -19,3 +19,7 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+#INCLUDEPATH += C:\Users\Volkov\AppData\Local\Programs\Python\Python311\include
+#INCLUDEPATH += C:\Users\Volkov\AppData\Local\Programs\Python\Python310\include
+#INCLUDEPATH += C:\Users\Volkov\AppData\Local\Programs\Python\Python39\include

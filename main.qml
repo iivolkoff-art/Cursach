@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 import Qt.labs.platform 1.1
 import './mainWindow'
 import './testsWindows'
+import './helloWindow'
 
 
 Window {
@@ -30,6 +31,10 @@ Window {
             anchors.fill: parent
             visible: windowsVisibleNumber == "1" ? true : false
         }
-
+        HelloWindow {
+            id: helloWindow
+            anchors.fill: parent
+            visible: windowsVisibleNumber == "2" ? true : false
+        }
     }
 }
