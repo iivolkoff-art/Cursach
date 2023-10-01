@@ -69,6 +69,5 @@ Item{
                 ctx.stroke();
             }
         }
-
     }
 }
