@@ -7,6 +7,7 @@ import QtQuick.Layouts 1.3
 
 Item{
     id: middlePanel
+    property int choiseIndex: -1
     Rectangle{
         anchors.fill: parent
         color: backgroundColor
@@ -40,7 +41,7 @@ Item{
                 delegate: Rectangle {
                     width: answer.width
                     height: answer.height / 4 - answer.height * 0.02
-                    color: "#878787"
+                    color: choiseIndex === index ? "#00B4CC" : "#878787"
                     radius: (parent.height + parent.width) * 0.01
                     Text{
                         id: answerText
@@ -52,6 +53,7 @@ Item{
                     MouseArea{
                         anchors.fill: parent
                         onClicked: {
+                            choiseIndex = index
                             console.log(index)
                         }
                     }

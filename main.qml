@@ -15,7 +15,7 @@ Window {
 
 
     property string windowsVisibleNumber: "0" // mainWindow
-    property string mainVisibleWindows: "3" // centerPages
+    property string mainVisibleWindows: "3" // centerPage9
 
     property color backgroundColor: "#343838"
 

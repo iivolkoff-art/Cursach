@@ -26,6 +26,7 @@ Item{
                 onClicked: {
                     windowsVisibleNumber = 0
                     questionNumber = 1
+                    middlePanel.choiseIndex = -1
                 }
             }
 
