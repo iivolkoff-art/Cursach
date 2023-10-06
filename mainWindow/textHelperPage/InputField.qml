@@ -27,7 +27,7 @@ Item {
                 font.pixelSize: (parent.width + parent.height) * 0.04
 
                 Keys.onReturnPressed: {
-
+                    inputText.focus = false;
                     chatField.message = inputText.text;
                     inputText.text = "";
                 }
