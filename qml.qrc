@@ -14,5 +14,8 @@
         <file>testsWindows/middlePanelTest/MiddlePanel.qml</file>
         <file>images/test.PNG</file>
         <file>helloWindow/HelloWindow.qml</file>
+        <file>mainWindow/textHelperPage/ChatField.qml</file>
+        <file>mainWindow/textHelperPage/InputField.qml</file>
+        <file>mainWindow/textHelperPage/TextHelperPage.qml</file>
     </qresource>
 </RCC>

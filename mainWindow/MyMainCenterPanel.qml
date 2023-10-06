@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import './profilePage'
 import './settingsPage'
 import './testsPage'
+import './textHelperPage'
 
 
 Item{
@@ -24,5 +25,11 @@ Item{
             anchors.fill: parent
             visible: mainVisibleWindows === "3" ? true : false
         }
+        TextHelperPage {
+            id: textHelperPage
+            anchors.fill: parent
+            visible: mainVisibleWindows === "5" ? true : false
+        }
+
     }
 }

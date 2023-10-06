@@ -38,6 +38,7 @@ Item{
                 anchors.fill: answer
                 model: 4
                 spacing: answer.height * 0.02
+                interactive: false
                 delegate: Rectangle {
                     width: answer.width
                     height: answer.height / 4 - answer.height * 0.02
