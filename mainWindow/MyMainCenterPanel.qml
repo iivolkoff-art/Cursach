@@ -8,6 +8,7 @@ import './textHelperPage'
 
 Item{
     id: mainCenterPanel
+
     Rectangle{
         anchors.fill: parent
         SettingsPage {
@@ -30,6 +31,5 @@ Item{
             anchors.fill: parent
             visible: mainVisibleWindows === "5" ? true : false
         }
-
     }
 }

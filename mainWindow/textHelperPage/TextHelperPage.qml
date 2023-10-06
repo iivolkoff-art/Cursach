@@ -20,6 +20,7 @@ Item{
             width: parent.width
             anchors.top: chatField.bottom
             anchors.bottom: parent.bottom
+
         }
     }
 }

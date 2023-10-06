@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
-
 Item {
     id: chatField
     property color messageColor: "#00DFFC"
@@ -19,7 +18,6 @@ Item {
         spacing: 5
         clip: true
 
-
         ScrollBar.vertical: ScrollBar {
             anchors.right: parent.right
             policy: ScrollBar.AlwaysOff
@@ -34,10 +32,10 @@ Item {
                 id: contentText
                 text: model.messageText
                 color: messageColor
-                font.pixelSize: 18
+                font.pixelSize: (Window.width + Window.height) * 0.02
                 wrapMode: Text.WordWrap
                 anchors.left: parent.left
-                anchors.leftMargin: 10 // Увеличим отступ слева для текста
+                anchors.leftMargin: 10
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
@@ -53,17 +51,17 @@ Item {
         }
     }
 
+    function sendMessage(text, textColor) {
+        messageModel.append({ messageText: text, messageColor: textColor });
+        chatListView.contentY = chatListView.contentHeight - chatListView.height;
+        chatListView.positionViewAtIndex(messageModel.count - 1, ListView.End);
+    }
+
     onMessageChanged: {
         if (message !== "") {
-            messageModel.append({ messageText: message });
-            chatListView.contentY = chatListView.contentHeight - chatListView.height;
-
-            // Плавно прокрутим к последнему добавленному сообщению
-            chatListView.positionViewAtIndex(messageModel.count - 1, ListView.End);
-
+            sendMessage(message, "#00DFFC"); // Пример сообщения с вашей стороны
             message = "";
-            messageColor = "#00DFFC";
+            sendMessage("Ответ на вопрос", "#D9D9D9");
         }
     }
 }
-

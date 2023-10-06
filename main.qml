@@ -6,12 +6,12 @@ import './mainWindow'
 import './testsWindows'
 import './helloWindow'
 
-
 Window {
     width: 640
     height: 480
     visible: true
     title: qsTr("Cursach")
+
 
 
     property string windowsVisibleNumber: "0" // mainWindow
@@ -20,6 +20,7 @@ Window {
     property color backgroundColor: "#343838"
 
     Rectangle{
+
         anchors.fill: parent
         MainWindow {
             id: mainWindow

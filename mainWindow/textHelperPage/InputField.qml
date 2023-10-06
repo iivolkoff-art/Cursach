@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 
-
 Item {
     property string message: inputText.text
     id: inputField
@@ -10,12 +9,12 @@ Item {
     Rectangle {
         id: inputFieldRectangle
         anchors.fill: parent
+
         Rectangle {
             id: inputTextRectangle
             height: parent.height
             width: parent.width
             color: backgroundColor
-
 
             TextInput {
                 id: inputText
@@ -23,13 +22,16 @@ Item {
                 anchors.leftMargin: 15
                 color: "white"
                 verticalAlignment: TextInput.AlignVCenter
-                activeFocusOnPress: true
                 font.pixelSize: (parent.width + parent.height) * 0.04
+                focus: mainVisibleWindows === "5" ? true : false
+
 
                 Keys.onReturnPressed: {
-
                     chatField.message = inputText.text;
-                    inputText.text = "";
+                    hideMarker();
+                }
+                Keys.onBackPressed: {
+                    hideMarker();
                 }
 
                 Text {
@@ -50,4 +52,10 @@ Item {
             color: "grey"
         }
     }
+
+    function hideMarker() {
+        inputText.text = "";
+        inputText.focus = false;
+    }
+
 }

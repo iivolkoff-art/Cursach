@@ -28,6 +28,5 @@ Item{
             anchors.right: parent.right
             height: parent.height * 0.12
         }
-
     }
 }
