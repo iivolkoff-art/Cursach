@@ -17,5 +17,6 @@
         <file>mainWindow/textHelperPage/ChatField.qml</file>
         <file>mainWindow/textHelperPage/InputField.qml</file>
         <file>mainWindow/textHelperPage/TextHelperPage.qml</file>
+        <file>images/rhino_orange.png</file>
     </qresource>
 </RCC>

@@ -27,12 +27,9 @@ Item {
 
 
                 Keys.onReturnPressed: {
-<<<<<<< HEAD
-=======
-                    inputText.focus = false;
->>>>>>> bee127c79afba0fbff7f94f90cc4fd07a3ede3a8
                     chatField.message = inputText.text;
-                    hideMarker();
+                    inputText.text = "";
+                    //hideMarker();
                 }
                 Keys.onBackPressed: {
                     hideMarker();
@@ -58,7 +55,6 @@ Item {
     }
 
     function hideMarker() {
-        inputText.text = "";
         inputText.focus = false;
     }
 
