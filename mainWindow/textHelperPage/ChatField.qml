@@ -1,13 +1,48 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import com.myapp 1.0
 
 Item {
     id: chatField
     property color messageColor: "#00DFFC"
     property string message: ""
+    property bool networkStatus: networkChecker.check()
+    Rectangle{
+        id: blockTextHelper
+        anchors.fill: parent
+        visible: !networkStatus
+        color: backgroundColor
+        Text{
+            id: textConnectionStatus
+            anchors.centerIn: parent
+            color: "white"
+            text: "Нет сети"
+            font.pixelSize: (parent.height + parent.width) * 0.05
+        }
+    }
+
+
+    //    НЕЛЬЗЯ ТАК ДЕЛАТЬ НАХУЙ, ВСЕ ТАЙМЕРЫ МЫ ПРОПИСЫВАЕМ В КЛАССАХ, А ПРО ЭТО ГОВНО ЗАБУДЬТЕ!!!!!
+    //    ВСЯ ЛОГИКА ПРОПИСЫВАЕТСЯ В C++, ЭТО ПРАВИЛА ХОРОШЕГО ТОНА !!!!!
+    /////////////////////////////////////////////////////////
+    Timer {
+        id: repeatTimer
+        interval: 5000
+        running: mainVisibleWindows === "5"
+
+        onTriggered: {
+            networkStatus = networkChecker.check()
+            console.log(networkStatus)
+            repeatTimer.restart();
+        }
+    }
+    ////////////////////////////////////////////////////////////
 
     ListModel {
         id: messageModel
+    }
+    NetworkChecker{
+        id: networkChecker
     }
 
     ListView {
@@ -58,10 +93,10 @@ Item {
     }
 
     onMessageChanged: {
-        if (message !== "") {
+        if (message !== "" && networkStatus === true) {
             sendMessage(message, "#00DFFC"); // Пример сообщения с вашей стороны
             message = "";
-            sendMessage("Ответ на вопрос", "#D9D9D9");
+            sendMessage("Ответ", "#D9D9D9");
         }
     }
 }

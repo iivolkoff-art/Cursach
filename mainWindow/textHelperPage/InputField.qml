@@ -27,10 +27,7 @@ Item {
 
 
                 Keys.onReturnPressed: {
-<<<<<<< HEAD
-=======
                     inputText.focus = false;
->>>>>>> ca5c50861208c1643b9c4ab990c3e385da2117f4
                     chatField.message = inputText.text;
                     inputText.text = "";
                     //hideMarker();
