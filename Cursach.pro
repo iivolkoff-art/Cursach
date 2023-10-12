@@ -6,6 +6,7 @@ QT += network
 
 SOURCES += \
         NetworkChecker.cpp \
+        TextHelper.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -43,4 +44,5 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
 }
 
 HEADERS += \
-    NetworkChecker.h
+    NetworkChecker.h \
+    TextHelper.h

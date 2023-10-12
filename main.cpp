@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "NetworkChecker.h"
+#include "TextHelper.h"
 
 
 int main(int argc, char *argv[])
@@ -9,7 +10,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
-    qmlRegisterType<NetworkChecker>("com.myapp", 1, 0, "NetworkChecker");
+    qmlRegisterType<NetworkChecker>("networkChecker", 1, 0, "NetworkChecker");
+    qmlRegisterType<TextHelper>("textHelper", 1, 0, "TextHelper");
     QQmlApplicationEngine engine;
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));

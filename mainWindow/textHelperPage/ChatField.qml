@@ -1,17 +1,23 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import com.myapp 1.0
+import networkChecker
 
 Item {
     id: chatField
     property color messageColor: "#00DFFC"
     property string message: ""
     property bool networkStatus: networkChecker.check()
+
+    NetworkChecker{
+        id: networkChecker
+    }
+
     Rectangle{
         id: blockTextHelper
         anchors.fill: parent
         visible: !networkStatus
         color: backgroundColor
+        z: 2
         Text{
             id: textConnectionStatus
             anchors.centerIn: parent
@@ -40,9 +46,6 @@ Item {
 
     ListModel {
         id: messageModel
-    }
-    NetworkChecker{
-        id: networkChecker
     }
 
     ListView {
@@ -96,7 +99,7 @@ Item {
         if (message !== "" && networkStatus === true) {
             sendMessage(message, "#00DFFC"); // Пример сообщения с вашей стороны
             message = "";
-            sendMessage("Ответ", "#D9D9D9");
+            sendMessage(textHelper.getDataFromScript(), "#D9D9D9");
         }
     }
 }

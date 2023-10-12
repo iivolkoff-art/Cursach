@@ -1,11 +1,17 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import textHelper
 
 
 Item{
     id: textHelperPage
     property color buttonColor: "#008C9E"
     anchors.fill: parent
+
+    TextHelper{
+        id: textHelper
+    }
+
     Rectangle{
         anchors.fill: parent
         color: backgroundColor

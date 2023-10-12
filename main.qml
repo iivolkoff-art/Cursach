@@ -5,13 +5,13 @@ import Qt.labs.platform 1.1
 import './mainWindow'
 import './testsWindows'
 import './helloWindow'
+import textHelper
 
 Window {
     width: 640
     height: 480
     visible: true
     title: qsTr("GenDev")
-
     property string windowsVisibleNumber: "0" // mainWindow
     property string mainVisibleWindows: "3" // centerPage9
 
