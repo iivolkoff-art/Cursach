@@ -1,9 +1,9 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import './profilePage'
-import './settingsPage'
-import './testsPage'
-import './textHelperPage'
+import 'qrc:/pages/mainWindow/profilePage'
+import 'qrc:/pages/mainWindow/settingsPage'
+import 'qrc:/pages/mainWindow/testsWayPage'
+import 'qrc:/pages/mainWindow/textHelperPage'
 
 
 Item{

@@ -2,12 +2,20 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
+import testsCreater
 
 
 
 Item{
     id: middlePanel
     property int choiseIndex: -1
+    property int testNumber: testsWindows.testNumber
+
+
+    TestsCreater{
+        id: testsCreater
+    }
+
     Rectangle{
         anchors.fill: parent
         color: backgroundColor
@@ -22,7 +30,7 @@ Item{
                 id: name
                 width: parent.width * 0.6
                 height: parent.height * 0.9
-                source: "qrc:/images/test.PNG"
+                source: "qrc:/assets/images/test.PNG"
                 anchors.centerIn: parent
             }
         }
@@ -47,7 +55,7 @@ Item{
                     Text{
                         id: answerText
                         anchors.centerIn: parent
-                        text: "test"
+                        text: testsCreater.getInf()
                         font.pixelSize: (parent.height + parent.width) * 0.07
                         color: backgroundColor
                     }
@@ -63,5 +71,8 @@ Item{
                 orientation: ListView.Vertical
             }
         }
+    }
+    onTestNumberChanged: {
+        answerText.text = testsCreater.getInf()
     }
 }

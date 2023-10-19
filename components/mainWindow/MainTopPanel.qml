@@ -1,8 +1,15 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import testsCreater
+
 
 Item{
     id: mainTopPanel
+    TestsCreater{
+        id: testsCreater
+    }
+
+
     Rectangle{
            anchors.fill: parent
            color: backgroundColor
@@ -15,14 +22,23 @@ Item{
                radius:  (parent.width + parent.height) * 0.3
                color: "#008C9E"
                Text {
+                   id: textLang
                    anchors.centerIn: parent
-                   text: "C++"
+                   text: ""
                    color: "white"
                    font.pixelSize: parent.height * 0.4
                    font.bold: true
                    font.letterSpacing: -1
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignBaseline
+                }
+               MouseArea{
+                   anchors.fill: parent
+                   onClicked: {
+                       testsCreater.createJson()
+                       textLang.text = "C++"
+                       console.log("Вы создали json")
+                    }
                }
            }
            Rectangle{

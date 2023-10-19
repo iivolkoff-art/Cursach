@@ -2,6 +2,10 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import textHelper
 
+import 'qrc:/components/mainWindow/textHelperPanels'
+
+
+
 
 Item{
     id: textHelperPage
@@ -15,18 +19,17 @@ Item{
     Rectangle{
         anchors.fill: parent
         color: backgroundColor
-        ChatField {
+        ChatPanel {
             id: chatField
             anchors.top: parent.top
             width: parent.width
             height: parent.height * 0.9
         }
-        InputField {
+        InputPanel {
             id: inputField
             width: parent.width
             anchors.top: chatField.bottom
             anchors.bottom: parent.bottom
-
         }
     }
 }

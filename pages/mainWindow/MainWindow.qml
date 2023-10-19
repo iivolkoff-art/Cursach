@@ -1,5 +1,6 @@
- import QtQuick 2.12
+import QtQuick 2.12
 import QtQuick.Window 2.12
+import 'qrc:/components/mainWindow'
 
 
 Item{
@@ -8,20 +9,20 @@ Item{
         anchors.fill: parent
         color: backgroundColor
 
-        MyMainTopPanel {
+        MainTopPanel {
             id: mainTopPanel
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
             height: parent.height * 0.08
         }
-        MyMainCenterPanel {
+        MainCenterPanel {
             id: mainCenterPanel
             anchors.bottom: mainBottomPanel.top
             anchors.top: mainTopPanel.bottom
             width: parent.width
         }
-        MyMainBottomPanel {
+        MainBottomPanel {
             id: mainBottomPanel
             anchors.bottom: parent.bottom
             anchors.left: parent.left

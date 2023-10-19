@@ -1,11 +1,12 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import './middlePanelTest'
+import 'qrc:/components/testWindow'
+
 
 Item{
     id:testsWindows
     property int questionNumber: 1
-    property string pathToQuestion: "C:/Users/Volkov/Pictures/Screenshots/std.png"
+    property int testNumber: -1
     Rectangle{
         anchors.fill: parent
         color: backgroundColor
@@ -21,12 +22,11 @@ Item{
             anchors.top: topPanel.bottom
             width: parent.width
         }
-        MyBottomPanel {
+        BottomPanel {
             id: bottomPanel
             anchors.bottom: parent.bottom
             width: parent.width
             height: parent.height * 0.1
-
         }
     }
 }

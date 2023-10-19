@@ -5,13 +5,14 @@ QT += network
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        NetworkChecker.cpp \
-        TextHelper.cpp \
-        main.cpp
+        businessLogic/NetworkChecker/NetworkChecker.cpp\
+        businessLogic/TextHelper/TextHelper.cpp \
+        main.cpp \
+        businessLogic/TestsCreater/testscreater.cpp
 
 RESOURCES += qml.qrc
 
-android: QT_ANDROID_APP_ICON = res:images/test.PNG
+#android: QT_ANDROID_APP_ICON = res:assets/images/test.PNG
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -43,6 +44,9 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
         $$PWD/android
 }
 
+
+
 HEADERS += \
-    NetworkChecker.h \
-    TextHelper.h
+    businessLogic/NetworkChecker/NetworkChecker.h \
+    businessLogic/TextHelper/TextHelper.h \
+    businessLogic/TestsCreater/testscreater.h
