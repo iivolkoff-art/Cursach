@@ -8,14 +8,16 @@ Item{
         color: backgroundColor
         Rectangle{
             id: button
-            anchors.fill: parent
+            anchors.centerIn: parent
+            height: parent.height
+            width: parent.width * 0.9
             //anchors.margins: (parent.width + parent.height) * 0.015
-            color: "#00B4CC"
-            radius: (parent.width + parent.height) * 0.01
+            color: "#103B99"
+            radius: parent.height * 0.3
             Text{
                 anchors.centerIn: parent
                 text: "Продолжить"
-                color: backgroundColor
+                color: "white"
                 font.pixelSize: parent.height * 0.4
                 font.bold: true
             }

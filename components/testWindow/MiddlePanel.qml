@@ -20,57 +20,87 @@ Item{
         anchors.fill: parent
         color: backgroundColor
         Rectangle{
-            id: question
-            anchors.top: parent.top
-            anchors.horizontalCenter: parent.horizontalCenter
+            id: testsBorder
+            anchors.centerIn: parent
             width: parent.width * 0.9
-            height: parent.height * 0.4
-            color: backgroundColor
-            Image {
-                id: name
-                width: parent.width * 0.6
-                height: parent.height * 0.9
-                source: "qrc:/assets/images/test.PNG"
-                anchors.centerIn: parent
-            }
-        }
-        Rectangle{
-            id: answer
-            anchors.top: question.bottom
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: parent.height * 0.01
-            anchors.horizontalCenter: question.horizontalCenter
-            width: question.width
-            color: backgroundColor
-            ListView {
-                anchors.fill: answer
-                model: 4
-                spacing: answer.height * 0.02
-                interactive: false
-                delegate: Rectangle {
-                    width: answer.width
-                    height: answer.height / 4 - answer.height * 0.02
-                    color: choiseIndex === index ? "#00B4CC" : "#878787"
-                    radius: (parent.height + parent.width) * 0.01
-                    Text{
-                        id: answerText
-                        anchors.centerIn: parent
-                        text: testsCreater.getInf()
-                        font.pixelSize: (parent.height + parent.width) * 0.07
-                        color: backgroundColor
-                    }
-                    MouseArea{
-                        anchors.fill: parent
-                        onClicked: {
-                            choiseIndex = index
-                            console.log(index)
-                        }
-                    }
+            height: parent.height * 0.9
+            color: "transparent"
+            border.color: "#4166B7"
+            radius: parent.height * 0.08
+            //z: 4
+            Rectangle{
+                id: question
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width * 0.9
+                height: parent.height * 0.3
+                color: "transparent"
+                Text{
+                    anchors.top: parent.top
+                    font.pixelSize:parent.height  * 0.2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: "#878787"
+                    text: "Вопрос ?"
                 }
 
-                orientation: ListView.Vertical
+                Image {
+                    id: name
+                    width: parent.width * 0.6
+                    height: parent.height * 0.9
+                    source: "qrc:/assets/images/test.PNG"
+                    anchors.centerIn: parent
+                    visible: false
+                }
+                Text{
+                    anchors.centerIn: parent
+                    font.pixelSize:parent.height * 0.3
+                    color: "white"
+                    text: "2+2*4/12 = ?"
+                }
+            }
+            Rectangle{
+                id: answer
+                anchors.top: question.bottom
+                anchors.bottom: testsBorder.bottom
+                //anchors.bottomMargin: parent.height * 0.01
+                anchors.horizontalCenter: question.horizontalCenter
+                width: testsBorder.width
+                color: "transparent"
+                ListView {
+                    anchors.fill: answer
+                    model: 4
+                    spacing: answer.height * 0.05
+                    interactive: false
+                    delegate: Rectangle {
+                        width: parent.width
+                        height: answer.height / 4 * 0.9
+                        color: choiseIndex === index ? "#103B99" : "#4166B7"
+                        radius: parent.height * 0.07
+                        Text{
+                            id: answerText
+                            anchors.left: parent.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: testsCreater.getInf()
+                            font.pixelSize: parent.height * 0.4
+                            anchors.leftMargin: parent.width * 0.01
+                            color: "#FFFFFF"
+                        }
+                        MouseArea{
+                            anchors.fill: parent
+                            onClicked: {
+                                choiseIndex = index
+                                console.log(index)
+                            }
+                        }
+                    }
+
+                    orientation: ListView.Vertical
+                }
             }
         }
+
+
+
     }
     onTestNumberChanged: {
         answerText.text = testsCreater.getInf()

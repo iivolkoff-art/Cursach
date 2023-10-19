@@ -18,7 +18,7 @@ Item{
             y: parent.height * 0.1
             width: widthCircle
             height: heightCircle
-            color: "#008C9E"
+            color: "#4166B7"
             radius: width / 2
             Text{
                 anchors.centerIn: parent
@@ -41,7 +41,7 @@ Item{
             y: parent.height * 0.3
             width: widthCircle
             height: heightCircle
-            color: "#008C9E"
+            color: "#4166B7"
             radius: width / 2
             Text{
                 anchors.centerIn: parent
@@ -63,7 +63,7 @@ Item{
             z: 0
             onPaint: {
                 var ctx = getContext("2d");
-                ctx.strokeStyle = "#D9D9D9";
+                ctx.strokeStyle = "#4E7CE2";
                 ctx.lineWidth = 2;
                 ctx.beginPath();
                 ctx.moveTo(firstTestCircle.x + firstTestCircle.width / 2, firstTestCircle.y + firstTestCircle.height / 2);

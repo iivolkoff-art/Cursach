@@ -40,7 +40,7 @@ Item {
                     text: "message"
                     color: "#aaa"
                     anchors.fill: parent
-                    font.pixelSize: (parent.width + parent.height) * 0.04
+                    font.pixelSize: parent.height * 0.4
                     verticalAlignment: Text.AlignVCenter
                     visible: !inputText.text && !inputText.activeFocus
                 }
@@ -51,7 +51,7 @@ Item {
             anchors.bottom: inputFieldRectangle.top
             height: 1
             width: parent.width
-            color: "grey"
+            color: "#FFFFFF"
         }
     }
 

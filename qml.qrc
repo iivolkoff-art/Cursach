@@ -1,28 +1,31 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-
         <file>pages/testWindow/TestsWindows.qml</file>
-
         <file>pages/mainWindow/MainWindow.qml</file>
         <file>pages/mainWindow/profilePage/ProfilePage.qml</file>
         <file>pages/mainWindow/settingsPage/SettingsPage.qml</file>
         <file>pages/mainWindow/testsWayPage/TestsPage.qml</file>
         <file>pages/mainWindow/textHelperPage/TextHelperPage.qml</file>
-
-
-
         <file>components/testWindow/TopPanel.qml</file>
         <file>components/testWindow/MiddlePanel.qml</file>
         <file>components/testWindow/BottomPanel.qml</file>
-
         <file>components/mainWindow/MainBottomPanel.qml</file>
         <file>components/mainWindow/MainCenterPanel.qml</file>
         <file>components/mainWindow/MainTopPanel.qml</file>
         <file>components/mainWindow/textHelperPanels/ChatPanel.qml</file>
         <file>components/mainWindow/textHelperPanels/InputPanel.qml</file>
         <file>components/mainWindow/MainTopPanel.qml</file>
-
         <file>assets/images/test.PNG</file>
+        <file>assets/images/buttonPanelImages/Profile.png</file>
+        <file>assets/images/buttonPanelImages/BlueProfile.png</file>
+        <file>assets/images/buttonPanelImages/TextHelper.png</file>
+        <file>assets/images/buttonPanelImages/BlueTestWay.png</file>
+        <file>assets/images/buttonPanelImages/TestWay.png</file>
+        <file>assets/images/buttonPanelImages/Settings.png</file>
+        <file>assets/images/buttonPanelImages/BlueSettings.png</file>
+        <file>assets/images/topPanelImages/Lives.png</file>
+        <file>assets/images/topPanelImages/MaketLang.png</file>
+        <file>assets/images/topPanelImages/Points.png</file>
     </qresource>
 </RCC>

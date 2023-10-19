@@ -3,17 +3,14 @@
 #include "businessLogic/NetworkChecker/NetworkChecker.h"
 #include "businessLogic/TextHelper/TextHelper.h"
 #include "businessLogic/TestsCreater/testscreater.h"
-#include <QDir>
+
 
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
-
     QGuiApplication app(argc, argv);
-    QDir dir;
-    dir.mkpath("test");
 
     qmlRegisterType<NetworkChecker>("networkChecker", 1, 0, "NetworkChecker");
     qmlRegisterType<TestsCreater>("testsCreater", 1, 0, "TestsCreater");

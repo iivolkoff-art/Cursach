@@ -1,11 +1,13 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import Qt5Compat.GraphicalEffects
+
 
 
 
 Item{
     id: mainBottomPanel
-    property color buttonColor: "#D9D9D9"
+    property color buttonColor: Qt.rgba(255, 255, 255, 0.5)
     property int constHeight: 640
     property int constWidth: 480
     property int heightCircle: (height / constHeight) * constHeight * 0.5
@@ -28,9 +30,9 @@ Item{
            width: widthCircle
            height: heightCircle
            radius:  (parent.width + parent.height) * 0.3
-           color: buttonColor
-           border.color: visibleCircleBorder === firstCircle ? "#00B4CC" : "transparent"
-           border.width: visibleCircleBorder === firstCircle ? 3 : 0
+           color: visibleCircleBorder === "1" ? "white" : buttonColor
+           border.color: "#FFFFFF"
+           border.width: 1
 
            signal numberChanged(int newNumber)
 
@@ -44,7 +46,6 @@ Item{
        }
        Rectangle{
            id: secondButton
-//            anchors.left: firstButton.right
            property string secondCircle: "2"
            anchors.right: coolButton.left
            anchors.verticalCenter: parent.verticalCenter
@@ -52,9 +53,9 @@ Item{
            width: widthCircle
            height: heightCircle
            radius:  (parent.width + parent.height) * 0.3
-           color: buttonColor
-           border.color: visibleCircleBorder === secondCircle ? "#00B4CC" : "transparent"
-           border.width: visibleCircleBorder === secondCircle ? 3 : 0
+           color: visibleCircleBorder === "2" ? "white" : buttonColor
+           border.color: "#FFFFFF"
+           border.width: 1
 
            MouseArea{
                anchors.fill: parent
@@ -64,6 +65,12 @@ Item{
 
                }
            }
+           Image{
+               anchors.centerIn: parent
+               source: visibleCircleBorder === "2" ? "qrc:/assets/images/buttonPanelImages/BlueSettings.png" : "qrc:/assets/images/buttonPanelImages/Settings.png"
+               width: parent.width * 0.6
+               height: parent.height * 0.6
+            }
        }
        Rectangle{
            id: coolButton
@@ -76,9 +83,9 @@ Item{
            width: widthCircle
            height: heightCircle
            radius:  (parent.width + parent.height) * 0.3
-           color: "#008C9E"
-           border.color: visibleCircleBorder === "3" ? "#00B4CC" : "transparent"
-           border.width: visibleCircleBorder === coolCircle ? 3 : 0
+           color: visibleCircleBorder === "3" ? "white" : buttonColor
+           border.color: "#FFFFFF"
+           border.width: 1
 
            MouseArea{
                anchors.fill: parent
@@ -87,6 +94,12 @@ Item{
                    mainVisibleWindows = coolButton.coolCircle
                }
            }
+           Image{
+               anchors.centerIn: parent
+               source: visibleCircleBorder === "3" ? "qrc:/assets/images/buttonPanelImages/BlueTestWay.png" : "qrc:/assets/images/buttonPanelImages/TestWay.png"
+               width: parent.width * 0.5
+               height: parent.height * 0.5
+            }
        }
        Rectangle{
            id: thirdButton
@@ -98,9 +111,27 @@ Item{
            width: widthCircle
            height: heightCircle
            radius:  (parent.width + parent.height) * 0.3
-           color: buttonColor
-           border.color: visibleCircleBorder === "4" ? "#00B4CC" : "transparent"
-           border.width: visibleCircleBorder === thirdCircle ? 3 : 0
+           color: visibleCircleBorder === "4" ? "white" : buttonColor
+           border.color: "#FFFFFF"
+           border.width: 1
+           //z: 2
+//           DropShadow {
+//               id: thirdShadow
+//               anchors.fill: thirdButton
+//               visible: visibleCircleBorder === "4" ? true : false
+////               horizontalOffset: 3
+////               verticalOffset: 3
+//               radius: 3.0
+//               color: "#ffffff"
+//               source: thirdButton
+//               spread: 0.4 // Значение spread увеличивает размер тени
+//           }
+            Image{
+               anchors.centerIn: parent
+               source: visibleCircleBorder === "4" ? "qrc:/assets/images/buttonPanelImages/BlueProfile.png" : "qrc:/assets/images/buttonPanelImages/Profile.png"
+               width: parent.width * 0.45
+               height: parent.height * 0.6
+            }
 
            MouseArea{
                anchors.fill: parent
@@ -120,9 +151,9 @@ Item{
            width: widthCircle
            height: heightCircle
            radius:  (parent.width + parent.height) * 0.3
-           color: buttonColor
-           border.color: visibleCircleBorder === "5" ? "#00B4CC" : "transparent"
-           border.width: visibleCircleBorder === fourthCircle ? 3 : 0
+           color: visibleCircleBorder === "5" ? "white" : buttonColor
+           border.color: "#FFFFFF"
+           border.width: 1
 
            MouseArea{
                anchors.fill: parent
@@ -132,6 +163,12 @@ Item{
 
                }
            }
+           Image{
+               anchors.centerIn: parent
+               source: "qrc:/assets/images/buttonPanelImages/TextHelper.png"
+               width: parent.width * 0.5
+               height: parent.height * 0.6
+            }
        }
 
    }
@@ -142,7 +179,7 @@ Item{
            right: parent.right
            top: parent.top
        }
-       height: 2
-       color: "#686F6F"
+       height: 1
+       color: "#FFFFFF"
    }
 }

@@ -46,18 +46,19 @@ Item{
                 delegate: Rectangle {
                     width: learnStatus.width / 13.7
                     height: learnStatus.height
-                    color: model.index < questionNumber ? "#00B4CC" : "#878787"
+                    radius: (parent.width + parent.height) * 0.006
+                    color: model.index < questionNumber ? "#4166B7" : "#878787"
                 }
 
                 orientation: ListView.Horizontal
             }
         }
-        Rectangle{
-            id: line
-            anchors.bottom: learnStatusBig.bottom
-            width: learnStatusBig.width
-            height: 1
-            color: "#686F6F"
-        }
+//        Rectangle{
+//            id: line
+//            anchors.bottom: learnStatusBig.bottom
+//            width: learnStatusBig.width
+//            height: 1
+//            color: "#686F6F"
+//        }
     }
 }

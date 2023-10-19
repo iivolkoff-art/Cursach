@@ -21,6 +21,7 @@ Item{
             anchors.bottom: bottomPanel.top
             anchors.top: topPanel.bottom
             width: parent.width
+            anchors.bottomMargin: parent.height * 0.05
         }
         BottomPanel {
             id: bottomPanel

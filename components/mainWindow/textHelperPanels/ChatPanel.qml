@@ -4,7 +4,7 @@ import networkChecker
 
 Item {
     id: chatField
-    property color messageColor: "#00DFFC"
+    property color messageColor: "#4166B7"
     property string message: ""
     property bool networkStatus: networkChecker.check()
 
@@ -23,7 +23,7 @@ Item {
             anchors.centerIn: parent
             color: "white"
             text: "Нет сети"
-            font.pixelSize: (parent.height + parent.width) * 0.05
+            font.pixelSize: parent.height * 0.06
         }
     }
 
@@ -70,7 +70,7 @@ Item {
                 id: contentText
                 text: model.messageText
                 color: messageColor
-                font.pixelSize: (Window.width + Window.height) * 0.02
+                font.pixelSize: parent.height * 0.8
                 wrapMode: Text.WordWrap
                 anchors.left: parent.left
                 anchors.leftMargin: 10

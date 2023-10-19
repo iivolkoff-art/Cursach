@@ -14,17 +14,18 @@ Item{
            anchors.fill: parent
            color: backgroundColor
            Rectangle{
+               id: programLang
                anchors.left: parent.left
                anchors.verticalCenter: parent.verticalCenter
                anchors.leftMargin: parent.width * 0.01
                width: parent.height * 0.7
                height: parent.height * 0.7
                radius:  (parent.width + parent.height) * 0.3
-               color: "#008C9E"
+               color: Qt.rgba(255, 255, 255, 0.5)
                Text {
                    id: textLang
                    anchors.centerIn: parent
-                   text: ""
+                   text: "C++"
                    color: "white"
                    font.pixelSize: parent.height * 0.4
                    font.bold: true
@@ -36,41 +37,84 @@ Item{
                    anchors.fill: parent
                    onClicked: {
                        testsCreater.createJson()
-                       textLang.text = "C++"
                        console.log("Вы создали json")
                     }
                }
            }
+           Image{
+               id: imgPoint
+              anchors.left: programLang.right
+              anchors.leftMargin: parent.width * 0.03
+              anchors.verticalCenter: parent.verticalCenter
+              source: "qrc:/assets/images/topPanelImages/Points.png"
+              width: parent.height * 0.4
+              height: parent.height * 0.4
+           }
            Rectangle{
-               id: pointSize
+               id: points
+               anchors.left: imgPoint.right
+               anchors.verticalCenter: parent.verticalCenter
+               width: parent.height * 0.7
+               anchors.leftMargin: parent.width * 0.02
+               height: parent.height * 0.7
+               color: "transparent" //transparent
+               Text{
+                   id: countPoints
+                   anchors.centerIn: parent
+                   anchors.verticalCenter: parent.verticalCenter
+                   text: "12312"
+                   color: "white"
+                   font.pixelSize: parent.height * 0.4
+                   font.bold: true
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignBaseline
+               }
+            }
+           Image{
+              id: imgLives
+              anchors.left: points.right
+              anchors.leftMargin: parent.width * 0.03
+              anchors.verticalCenter: parent.verticalCenter
+              source: "qrc:/assets/images/topPanelImages/Lives.png"
+              width: parent.height * 0.4
+              height: parent.height * 0.4
+           }
+           Rectangle{
+               id: lives
+               anchors.left: imgLives.right
+               anchors.verticalCenter: parent.verticalCenter
+               width: parent.height * 0.7
+               anchors.leftMargin: parent.width * 0.02
+               height: parent.height * 0.7
+               color: "transparent" //transparent
+               Text{
+                   id: countLives
+                   anchors.centerIn: parent
+                   anchors.verticalCenter: parent.verticalCenter
+                   text: "12312"
+                   color: "white"
+                   font.pixelSize: parent.height * 0.4
+                   font.bold: true
+                   horizontalAlignment: Text.AlignHCenter
+                   verticalAlignment: Text.AlignBaseline
+               }
+            }
+
+           Rectangle{
                anchors.right: parent.right
                anchors.verticalCenter: parent.verticalCenter
                anchors.top: parent.top
                anchors.bottom: parent.bottom
-               width: star.width
+               anchors.rightMargin: parent.width * 0.01
+               width: parent.width * 0.3
                height: parent.height
                //anchors.rightMargin: parent.width * 0.001
                color: "transparent"
-               //color: "red"
-               Text{
-                   id: star
-                   anchors.verticalCenter: parent.verticalCenter
-                   //anchors.left: points.right
-                   anchors.right: parent.right
-                   anchors.rightMargin: mainWindow.width * 0.03
-
-                   text:"*"
-                   font.pixelSize: parent.height * 0.4
-                   color:  "#00B4CC"
-               }
-               Text{
-                   id: points
-                   anchors.verticalCenter: parent.verticalCenter
-                   anchors.right: star.left
-
-                   text:"123"
-                   font.pixelSize: parent.height * 0.4
-                   color:  "white"
+               Image{
+                  anchors.centerIn: parent
+                  source: "qrc:/assets/images/topPanelImages/MaketLang.png"
+                  width: parent.width
+                  height: parent.height * 0.7
                }
            }
 
@@ -83,6 +127,6 @@ Item{
                bottom: parent.bottom
            }
            height: 1
-           color: "#686F6F"
+           color: "#FFFFFF"
        }
 }
