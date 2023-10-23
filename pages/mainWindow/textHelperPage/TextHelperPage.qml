@@ -18,7 +18,7 @@ Item{
 
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         ChatPanel {
             id: chatField
             anchors.top: parent.top

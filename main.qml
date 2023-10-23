@@ -14,8 +14,12 @@ Window {
     title: qsTr("GenDev")
     property string windowsVisibleNumber: "0" // mainWindow
     property string mainVisibleWindows: "3" // centerPage9
+    property bool isDark: true
 
     property color backgroundColor: "#313131"
+    property color whitePanelColor: "#4E7CE2"
+    property color whiteBackgroundColor: "#FFFFFF"
+
 
     Rectangle{
         anchors.fill: parent

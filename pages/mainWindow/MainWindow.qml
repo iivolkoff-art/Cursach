@@ -7,7 +7,7 @@ Item{
     id: mainWindow
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
 
         MainTopPanel {
             id: mainTopPanel

@@ -6,7 +6,7 @@ Item{
     id:topPanel
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         id: learnStatusBig
         Rectangle{
             id: close
@@ -14,7 +14,7 @@ Item{
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height * 0.9
             width: height
-            color: backgroundColor
+            color: "transparent"
             Text{
                 anchors.centerIn: parent
                 text: "X"
@@ -37,7 +37,7 @@ Item{
             anchors.centerIn: parent
             width: parent.width * 0.7
             height: parent.height * 0.2
-            color: backgroundColor
+            color: "transparent"
             ListView {
                 anchors.fill: learnStatus
                 model: 10 // count of mini-rectangle
@@ -47,7 +47,7 @@ Item{
                     width: learnStatus.width / 13.7
                     height: learnStatus.height
                     radius: (parent.width + parent.height) * 0.006
-                    color: model.index < questionNumber ? "#4166B7" : "#878787"
+                    color: model.index < questionNumber ? "#4E7CE2" : "#CFCFCF"
                 }
 
                 orientation: ListView.Horizontal

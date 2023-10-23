@@ -5,7 +5,7 @@ Item{
 
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         Rectangle{
             id: button
             anchors.centerIn: parent

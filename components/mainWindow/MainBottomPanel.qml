@@ -18,7 +18,7 @@ Item{
 
    Rectangle{
        anchors.fill: parent
-       color: backgroundColor
+       color: isDark ? backgroundColor: whitePanelColor
        Rectangle{
            id: firstButton
            //anchors.left: parent.left
@@ -41,6 +41,7 @@ Item{
                onClicked: {
                    visibleCircleBorder = firstButton.firstCircle
                    mainVisibleWindows = firstButton.firstCircle
+                   isDark = isDark ? false : true;
                }
            }
        }

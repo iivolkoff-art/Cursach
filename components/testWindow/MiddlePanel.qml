@@ -18,7 +18,7 @@ Item{
 
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         Rectangle{
             id: testsBorder
             anchors.centerIn: parent
@@ -39,7 +39,7 @@ Item{
                     anchors.top: parent.top
                     font.pixelSize:parent.height  * 0.2
                     anchors.horizontalCenter: parent.horizontalCenter
-                    color: "#878787"
+                    color: isDark ? "#CFCFCF" : "#878787"
                     text: "Вопрос ?"
                 }
 
@@ -54,7 +54,7 @@ Item{
                 Text{
                     anchors.centerIn: parent
                     font.pixelSize:parent.height * 0.3
-                    color: "white"
+                    color: isDark ? "white" : "black"
                     text: "2+2*4/12 = ?"
                 }
             }

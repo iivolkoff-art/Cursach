@@ -9,7 +9,7 @@ Item{
     property int testNumber: -1
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         TopPanel {
             id: topPanel
             anchors.top: parent.top

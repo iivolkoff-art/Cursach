@@ -12,7 +12,7 @@ Item{
 
     Rectangle{
            anchors.fill: parent
-           color: backgroundColor
+           color: isDark ? backgroundColor : whitePanelColor
            Rectangle{
                id: programLang
                anchors.left: parent.left
@@ -105,17 +105,41 @@ Item{
                anchors.verticalCenter: parent.verticalCenter
                anchors.top: parent.top
                anchors.bottom: parent.bottom
-               anchors.rightMargin: parent.width * 0.01
+               anchors.rightMargin: parent.width * 0.03
+               anchors.topMargin: parent.height * 0.18
                width: parent.width * 0.3
                height: parent.height
-               //anchors.rightMargin: parent.width * 0.001
                color: "transparent"
-               Image{
-                  anchors.centerIn: parent
-                  source: "qrc:/assets/images/topPanelImages/MaketLang.png"
-                  width: parent.width
-                  height: parent.height * 0.7
-               }
+               border.width: 1
+               border.color: "white"
+               radius: 17
+                Text{
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.pixelSize: (parent.width * parent.height) * 0.002
+                    anchors.leftMargin: parent.width * 0.1
+                    color: "white"
+                    text: "Язык"
+                }
+                Rectangle{
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: parent.width * 0.03
+
+                    width: parent.width * 0.6
+                    height: parent.height * 0.7
+                    color: "white"
+                    border.width: 1
+                    border.color: "white"
+                    radius: 10
+                    Text{
+                        anchors.centerIn: parent
+                        font.pixelSize: (parent.width * parent.height) * 0.005
+                        anchors.leftMargin: parent.width * 0.1
+                        color: "#4E7CE2"
+                        text: "Русский"
+                    }
+                }
            }
 
        }

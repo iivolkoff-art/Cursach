@@ -16,12 +16,12 @@ Item {
         id: blockTextHelper
         anchors.fill: parent
         visible: !networkStatus
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         z: 2
         Text{
             id: textConnectionStatus
             anchors.centerIn: parent
-            color: "white"
+            color: isDark ? "white" : "black"
             text: "Нет сети"
             font.pixelSize: parent.height * 0.06
         }
@@ -64,7 +64,7 @@ Item {
         delegate: Rectangle {
             width: parent.width
             height: contentText.height + 10
-            color: backgroundColor
+            color: isDark ? backgroundColor : whiteBackgroundColor
 
             Text {
                 id: contentText
@@ -99,7 +99,7 @@ Item {
         if (message !== "" && networkStatus === true) {
             sendMessage(message, "#00DFFC"); // Пример сообщения с вашей стороны
             message = "";
-            sendMessage(textHelper.getDataFromScript(), "#D9D9D9");
+            sendMessage(textHelper.getDataFromScript(), isDark ? "#D9D9D9" : "black");
         }
     }
 }

@@ -10,7 +10,7 @@ Item{
     property int widthCircle: (height / constHeight) * constHeight * 0.1
     Rectangle{
         anchors.fill: parent
-        color: backgroundColor
+        color: isDark ? backgroundColor : whiteBackgroundColor
         Rectangle{
             id: firstTestCircle
             z: 1
@@ -18,7 +18,7 @@ Item{
             y: parent.height * 0.1
             width: widthCircle
             height: heightCircle
-            color: "#4166B7"
+            color: "#4E7CE2"
             radius: width / 2
             Text{
                 anchors.centerIn: parent
@@ -41,7 +41,7 @@ Item{
             y: parent.height * 0.3
             width: widthCircle
             height: heightCircle
-            color: "#4166B7"
+            color: "#4E7CE2"
             radius: width / 2
             Text{
                 anchors.centerIn: parent

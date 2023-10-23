@@ -14,13 +14,13 @@ Item {
             id: inputTextRectangle
             height: parent.height
             width: parent.width
-            color: backgroundColor
+            color: isDark ? backgroundColor : whiteBackgroundColor
 
             TextInput {
                 id: inputText
                 anchors.fill: parent
                 anchors.leftMargin: 15
-                color: "white"
+                color: isDark ? "white" : "black"
                 verticalAlignment: TextInput.AlignVCenter
                 font.pixelSize: (parent.width + parent.height) * 0.04
                 focus: mainVisibleWindows === "5" ? true : false
@@ -51,7 +51,7 @@ Item {
             anchors.bottom: inputFieldRectangle.top
             height: 1
             width: parent.width
-            color: "#FFFFFF"
+            color: isDark ? "#FFFFFF" : "grey"
         }
     }
 
