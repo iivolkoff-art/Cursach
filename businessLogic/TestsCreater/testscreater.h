@@ -10,7 +10,8 @@ class TestsCreater : public QObject
 public:
     TestsCreater();
     Q_INVOKABLE void createJson();
-    Q_INVOKABLE QString getInf();
+    Q_INVOKABLE QString getQuestionOfId(const QString& id);
+    Q_INVOKABLE QString getParametersOfId(const QString& id);
 };
 
 #endif // TESTSCREATER_H

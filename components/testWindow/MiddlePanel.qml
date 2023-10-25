@@ -27,7 +27,6 @@ Item{
             color: "transparent"
             border.color: "#4166B7"
             radius: parent.height * 0.08
-            //z: 4
             Rectangle{
                 id: question
                 anchors.top: parent.top
@@ -55,7 +54,7 @@ Item{
                     anchors.centerIn: parent
                     font.pixelSize:parent.height * 0.3
                     color: isDark ? "white" : "black"
-                    text: "2+2*4/12 = ?"
+                    text: windowsVisibleNumber == 1 ? testsCreater.getQuestionOfId(questionNumber.toString()) : ""
                 }
             }
             Rectangle{
@@ -80,7 +79,7 @@ Item{
                             id: answerText
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
-                            text: testsCreater.getInf()
+                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(questionNumber.toString()) : ""
                             font.pixelSize: parent.height * 0.4
                             anchors.leftMargin: parent.width * 0.01
                             color: "#FFFFFF"
