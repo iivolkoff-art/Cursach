@@ -24,11 +24,13 @@ Item{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    questionNumber += 1
-                    middlePanel.choiseIndex = -1
-                    if(questionNumber > 10){
-                        windowsVisibleNumber = 0
-                        questionNumber = 1
+                    if(middlePanel.choiseIndex !== -1){
+                        questionNumber += 1
+                        middlePanel.choiseIndex = -1
+                        if(questionNumber > 10){
+                            windowsVisibleNumber = 0
+                            questionNumber = 1
+                        }
                     }
                 }
             }
