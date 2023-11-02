@@ -22,7 +22,7 @@ Item{
         Rectangle{
             id: testsBorder
             anchors.centerIn: parent
-            width: parent.width * 0.9
+            width: parent.width * 0.6
             height: parent.height * 0.9
             color: "transparent"
             border.color: "#4166B7"

@@ -107,7 +107,7 @@ Item{
                anchors.bottom: parent.bottom
                anchors.rightMargin: parent.width * 0.03
                anchors.topMargin: parent.height * 0.18
-               width: parent.width * 0.3
+               width: parent.width * 0.15
                height: parent.height
                color: "transparent"
                border.width: 1
@@ -116,7 +116,7 @@ Item{
                 Text{
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: (parent.width * parent.height) * 0.0025
+                    font.pixelSize: (parent.width * parent.height) * 0.002
                     anchors.leftMargin: parent.width * 0.1
                     color: "white"
                     text: "Язык"
@@ -126,7 +126,7 @@ Item{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.rightMargin: parent.width * 0.02
 
-                    width: parent.width * 0.6
+                    width: parent.width * 0.55
                     height: parent.height * 0.8
                     color: "white"
                     border.width: 1
@@ -134,7 +134,7 @@ Item{
                     radius: 15
                     Text{
                         anchors.centerIn: parent
-                        font.pixelSize: (parent.width * parent.height) * 0.004
+                        font.pixelSize: (parent.width * parent.height) * 0.0045
                         anchors.leftMargin: parent.width * 0.1
                         color: "#4E7CE2"
                         text: "Русский"

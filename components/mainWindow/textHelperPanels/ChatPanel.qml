@@ -62,7 +62,7 @@ Item {
         }
 
         delegate: Rectangle {
-            width: parent.width
+            width: contentText.width
             height: contentText.height + 10
             color: isDark ? backgroundColor : whiteBackgroundColor
 
@@ -70,7 +70,7 @@ Item {
                 id: contentText
                 text: model.messageText
                 color: messageColor
-                font.pixelSize: parent.height * 0.8
+                font.pixelSize: chatField.height * 0.05
                 wrapMode: Text.WordWrap
                 anchors.left: parent.left
                 anchors.leftMargin: 10

@@ -99,7 +99,7 @@ Item {
                 //x: index === 0 ? (testsPage.width / 2) - (widthCircle / 2) : (testsPage.width * 0.1) + Math.random() * (testsPage.width * 0.8)
                 y: index === 0 ? parent.height * 0.02 : index * parent.height * 0.13 + parent.height * 0.02
 
-                x: index === 0 ? (testsPage.width / 2) - (widthCircle / 2) : previousCircle.x + (Math.random() - 0.5) * 2 * testsPage.width * 0.15
+                x: index === 0 ? (testsPage.width / 2) - (widthCircle / 2) : previousCircle.x + (Math.random() - 0.5) * 2 * testsPage.width * 0.04
                 property var previousCircle: index === 0 ? this : parent.children[index - 1]
 
                 Text {

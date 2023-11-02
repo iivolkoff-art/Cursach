@@ -22,7 +22,7 @@ Item {
                 anchors.leftMargin: 15
                 color: isDark ? "white" : "black"
                 verticalAlignment: TextInput.AlignVCenter
-                font.pixelSize: (parent.width + parent.height) * 0.04
+                font.pixelSize: (parent.width + parent.height) * 0.02
                 focus: mainVisibleWindows === "5" ? true : false
 
 
