@@ -19,12 +19,12 @@ void TestsCreater::createJson() {
     question1["parameter"] = "хз";
 
     QJsonObject question2;
-    question2["question"] = "2+2=";
-    question2["parameter"] = "4";
+    question2["question"] = "Целочисленный  \n тип данных это?";
+    question2["parameter"] = "int";
 
     QJsonObject question3;
-    question3["question"] = "4+2=";
-    question3["parameter"] = "6";
+    question3["question"] = "С++ является \n компилированным \n или \n интерпретируемым?";
+    question3["parameter"] = "компилированным";
 
     QJsonObject question4;
     question4["question"] = "1+1=";

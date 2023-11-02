@@ -32,14 +32,14 @@ Item{
                 anchors.top: parent.top
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: parent.width * 0.9
-                height: parent.height * 0.3
+                height: parent.height * 0.35
                 color: "transparent"
                 Text{
                     anchors.top: parent.top
                     font.pixelSize:parent.height  * 0.2
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: isDark ? "#CFCFCF" : "#878787"
-                    text: "Вопрос ?"
+                    text: "Вопрос " + questionNumber
                 }
 
                 Image {
@@ -52,7 +52,7 @@ Item{
                 }
                 Text{
                     anchors.centerIn: parent
-                    font.pixelSize:parent.height * 0.3
+                    font.pixelSize:((parent.height + parent.width) * 0.07)
                     color: isDark ? "white" : "black"
                     text: windowsVisibleNumber == 1 ? testsCreater.getQuestionOfId(questionNumber.toString()) : ""
                 }
