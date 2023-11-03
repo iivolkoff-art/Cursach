@@ -1,7 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.3
 import testsCreater
 
 
@@ -52,7 +51,8 @@ Item{
                 }
                 Text{
                     anchors.centerIn: parent
-                    font.pixelSize:((parent.height + parent.width) * 0.07)
+                    font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.07)
+                                                    : ((parent.height + parent.width) * 0.07) / (text.length * 0.045)
                     color: isDark ? "white" : "black"
                     text: windowsVisibleNumber == 1 ? testsCreater.getQuestionOfId(questionNumber.toString()) : ""
                 }
@@ -79,7 +79,8 @@ Item{
                             id: answerText
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
-                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(questionNumber.toString()) : ""
+                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(questionNumber.toString())[index]
+                                                            : ""
                             font.pixelSize: parent.height * 0.4
                             anchors.leftMargin: parent.width * 0.01
                             color: "#FFFFFF"

@@ -27,5 +27,6 @@
         <file>assets/images/topPanelImages/Lives.png</file>
         <file>assets/images/topPanelImages/MaketLang.png</file>
         <file>assets/images/topPanelImages/Points.png</file>
+        <file>pages/testWindow/resultPage/ResultPage.qml</file>
     </qresource>
 </RCC>

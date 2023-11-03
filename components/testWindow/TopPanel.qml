@@ -29,7 +29,6 @@ Item{
                     middlePanel.choiseIndex = -1
                 }
             }
-
         }
 
         Rectangle{

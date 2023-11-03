@@ -28,7 +28,7 @@ Item{
                         questionNumber += 1
                         middlePanel.choiseIndex = -1
                         if(questionNumber > 10){
-                            windowsVisibleNumber = 0
+                            resultPage.visible = true
                             questionNumber = 1
                         }
                     }

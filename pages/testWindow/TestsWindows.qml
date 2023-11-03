@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import 'qrc:/components/testWindow'
+import './resultPage'
 
 
 Item{
@@ -28,6 +29,11 @@ Item{
             anchors.bottom: parent.bottom
             width: parent.width
             height: parent.height * 0.1
+        }
+        ResultPage {
+            id: resultPage
+            anchors.fill: parent
+            visible: false
         }
     }
 }
