@@ -36,5 +36,9 @@
         <file>components/mainWindow/profilePanels/showcasePanels/ShowcasePanelMiddle.qml</file>
         <file>pages/authWindow/AuthorizationPage.qml</file>
         <file>components/mainWindow/profilePanels/authorizationPanels/RegistrationPanel.qml</file>
+        <file>components/mainWindow/profilePage/TriangleButton.qml</file>
+        <file>components/mainWindow/profilePage/CircleWithText.qml</file>
+        <file>components/mainWindow/profilePage/ProfileText.qml</file>
+        <file>components/mainWindow/profilePage/ProfilePageCenter.qml</file>
     </qresource>
 </RCC>
