@@ -13,6 +13,7 @@
         <file>components/mainWindow/MainBottomPanel.qml</file>
         <file>components/mainWindow/MainCenterPanel.qml</file>
         <file>components/mainWindow/MainTopPanel.qml</file>
+        <file>components/mainWindow/profilePage/TriangleButton.qml</file>
         <file>components/mainWindow/textHelperPanels/ChatPanel.qml</file>
         <file>components/mainWindow/textHelperPanels/InputPanel.qml</file>
         <file>components/mainWindow/MainTopPanel.qml</file>
