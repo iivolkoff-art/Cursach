@@ -11,6 +11,8 @@ Item {
     property string passwordInput: passwordTextField.text
     property color placeholderColor: "#d3d3d3"
 
+    property bool passwordShown: false
+
     Rectangle {
         anchors.fill: parent
         color: parent.backColor
@@ -86,7 +88,7 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width + parent.height) * 0.06
                 color: authPanel.baseColor
-                echoMode: TextInput.Password
+                echoMode: !passwordShown ? TextInput.Password : TextInput.Normal
 
                 property string placeholderText: "Введите пароль..."
 
@@ -102,6 +104,32 @@ Item {
                     visible: !passwordTextField.text && !passwordTextField.activeFocus
                 }
             }
+        }
+
+        Rectangle {
+            id: passwordVisibilityButton
+            anchors.left: passwordTextFieldPanel.right
+            anchors.verticalCenter: passwordTextFieldPanel.verticalCenter
+            anchors.leftMargin: passwordTextFieldPanel.width * 0.05
+
+            width: passwordTextFieldPanel.height * 0.8
+            height: passwordTextFieldPanel.height * 0.8
+            radius:  passwordTextFieldPanel.height * 0.8
+
+            color: authPanel.backColor
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    passwordShown = !passwordShown;
+                }
+            }
+            Image {
+                anchors.centerIn: parent
+                source: (!authPanel.passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedDark" : (authPanel.passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeOpenDark" : (!authPanel.passwordShown && !isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedLight" : "qrc:/assets/images/passwordVisibilityImages/eyeOpenLight"
+                width: parent.width * 0.75
+                height: width * 0.7063
+             }
         }
 
 
@@ -193,6 +221,13 @@ Item {
                 radius: 2
                 color: "#4E7CE2"
             }
+
+            onClicked: { submitAuthorization(); }
         }
+    }
+
+    function submitAuthorization()
+    {
+        windowsVisibleNumber = 0;
     }
 }

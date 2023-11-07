@@ -27,6 +27,10 @@
         <file>assets/images/topPanelImages/Lives.png</file>
         <file>assets/images/topPanelImages/MaketLang.png</file>
         <file>assets/images/topPanelImages/Points.png</file>
+		<file>assets/images/passwordVisibilityImages/eyeClosedDark.png</file>
+		<file>assets/images/passwordVisibilityImages/eyeClosedLight.png</file>
+		<file>assets/images/passwordVisibilityImages/eyeOpenDark.png</file>
+		<file>assets/images/passwordVisibilityImages/eyeOpenLight.png</file>
         <file>pages/testWindow/resultPage/ResultPage.qml</file>
         <file>components/mainWindow/profilePanels/authorizationPanels/AuthorizationPanelMiddle.qml</file>
         <file>components/mainWindow/profilePanels/showcasePanels/ShowcasePanelMiddle.qml</file>

@@ -13,7 +13,7 @@ Window {
     height: 480
     visible: true
     title: qsTr("GenDev")
-    property string windowsVisibleNumber: "0" // mainWindow
+    property string windowsVisibleNumber: "2" // mainWindow
     property string mainVisibleWindows: "3" // centerPage
     property bool isDark: true
 
@@ -22,7 +22,7 @@ Window {
     property color whiteBackgroundColor: "#FFFFFF"
 
 
-    Rectangle{
+    Rectangle {
         anchors.fill: parent
         MainWindow {
             id: mainWindow

@@ -20,7 +20,7 @@ Item {
 
             text: "СМЕНИТЬ ПРОФИЛЬ"
             onClicked: {
-                profileMode = 1;
+                windowsVisibleNumber = 2;
             }
         }
 
