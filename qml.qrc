@@ -13,7 +13,6 @@
         <file>components/mainWindow/MainBottomPanel.qml</file>
         <file>components/mainWindow/MainCenterPanel.qml</file>
         <file>components/mainWindow/MainTopPanel.qml</file>
-        <file>components/mainWindow/profilePage/TriangleButton.qml</file>
         <file>components/mainWindow/textHelperPanels/ChatPanel.qml</file>
         <file>components/mainWindow/textHelperPanels/InputPanel.qml</file>
         <file>components/mainWindow/MainTopPanel.qml</file>
@@ -28,5 +27,9 @@
         <file>assets/images/topPanelImages/Lives.png</file>
         <file>assets/images/topPanelImages/MaketLang.png</file>
         <file>assets/images/topPanelImages/Points.png</file>
+        <file>components/mainWindow/profilePage/TriangleButton.qml</file>
+        <file>components/mainWindow/profilePage/CircleWithText.qml</file>
+        <file>components/mainWindow/profilePage/ProfileText.qml</file>
+        <file>components/mainWindow/profilePage/ProfilePageCenter.qml</file>
     </qresource>
 </RCC>
