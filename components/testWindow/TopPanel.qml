@@ -10,7 +10,7 @@ Item{
         id: learnStatusBig
         Rectangle{
             id: close
-            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             height: parent.height * 0.9
             width: height
@@ -29,13 +29,13 @@ Item{
                     middlePanel.choiseIndex = -1
                 }
             }
-
         }
 
         Rectangle{
             id: learnStatus
             anchors.centerIn: parent
-            width: parent.width * 0.7
+            anchors.verticalCenter: parent.verticalCenter
+            width: parent.width * 0.5
             height: parent.height * 0.2
             color: "transparent"
             ListView {

@@ -2,6 +2,7 @@
 #define TESTSCREATER_H
 #include <QString>
 #include <QObject>
+#include <QVector>
 
 
 class TestsCreater : public QObject
@@ -11,7 +12,7 @@ public:
     TestsCreater();
     Q_INVOKABLE void createJson();
     Q_INVOKABLE QString getQuestionOfId(const QString& id);
-    Q_INVOKABLE QString getParametersOfId(const QString& id);
+    Q_INVOKABLE QVector<QString> getParametersOfId(const QString& id);
 };
 
 #endif // TESTSCREATER_H

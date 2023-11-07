@@ -4,7 +4,8 @@
 #include <QFile>
 #include <QString>
 #include <qDebug>
-
+#include <QVector>
+#include <QJsonArray>
 
 TestsCreater::TestsCreater()
 {
@@ -19,12 +20,12 @@ void TestsCreater::createJson() {
     question1["parameter"] = "хз";
 
     QJsonObject question2;
-    question2["question"] = "2+2=";
-    question2["parameter"] = "4";
+    question2["question"] = "Целочисленный  \n тип данных это?";
+    question2["parameter"] = "int";
 
     QJsonObject question3;
-    question3["question"] = "4+2=";
-    question3["parameter"] = "6";
+    question3["question"] = "С++ является \n компилированным \n или \n интерпретируемым?";
+    question3["parameter"] = "компилированным";
 
     QJsonObject question4;
     question4["question"] = "1+1=";
@@ -80,47 +81,40 @@ QString TestsCreater::getQuestionOfId(const QString& id) {
     QFile file("output1.json");
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return QString(); // Не удалось открыть файл, возвращаем пустую строку
+        return QString();
     }
 
-    // Считываем содержимое файла в строку
+
     QString jsonString = file.readAll();
 
-    // Закрываем файл
+
     file.close();
 
-    // Парсим JSON-строку в QJsonDocument
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
 
-    // Получаем корневой объект
     QJsonObject rootObject = jsonDoc.object();
 
-    // Проверяем, существует ли ключ с указанным id
     if (rootObject.contains(id)) {
-        // Получаем объект с указанным id
         QJsonObject obj = rootObject[id].toObject();
 
-        // Проверяем, существует ли ключ "question" в объекте
         if (obj.contains("question")) {
-            // Получаем значение "question" и возвращаем его
             QString question = obj["question"].toString();
             return question;
         }
     }
 
-    return QString(); // Если ключ "question" не найден, возвращаем пустую строку
+    return QString();
 }
 
-
-QString TestsCreater::getParametersOfId(const QString& id) {
+QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
     QFile file("output1.json");
+    QVector<QString> parameters;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return QString();
+        return parameters; // Верните пустой вектор, а не пустой массив []
     }
 
     QString jsonString = file.readAll();
-
     file.close();
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
@@ -129,12 +123,15 @@ QString TestsCreater::getParametersOfId(const QString& id) {
 
     if (rootObject.contains(id)) {
         QJsonObject obj = rootObject[id].toObject();
-
         if (obj.contains("parameter")) {
-            QString question = obj["parameter"].toString();
-            return question;
+            QJsonArray parameterArray = obj["parameter"].toArray();
+            for (int i = 0; i < parameterArray.size(); i++) {
+                if (parameterArray[i].isString()) {
+                    parameters.append(parameterArray[i].toString());
+                }
+            }
         }
     }
 
-    return QString();
+    return parameters;
 }

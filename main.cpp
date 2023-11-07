@@ -12,16 +12,6 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
-//    QDir dir = QDir::currentPath();
-
-//    // Получить список файлов
-//    QStringList files = dir.entryList(QDir::Files);
-//    qDebug() << QDir::currentPath();
-
-//    // Вывести список файлов
-//    for (const QString &file : files) {
-//        qDebug() << file;
-//    }
 
     qmlRegisterType<NetworkChecker>("networkChecker", 1, 0, "NetworkChecker");
     qmlRegisterType<TestsCreater>("testsCreater", 1, 0, "TestsCreater");

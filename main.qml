@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 import Qt.labs.platform 1.1
 import 'pages/mainWindow'
 import 'pages/testWindow'
+import 'pages/authWindow'
 
 import textHelper
 
@@ -12,8 +13,8 @@ Window {
     height: 480
     visible: true
     title: qsTr("GenDev")
-    property string windowsVisibleNumber: "0" // mainWindow
-    property string mainVisibleWindows: "3" // centerPage9
+    property string windowsVisibleNumber: "2" // mainWindow
+    property string mainVisibleWindows: "3" // centerPage
     property bool isDark: true
 
     property color backgroundColor: "#313131"
@@ -21,7 +22,7 @@ Window {
     property color whiteBackgroundColor: "#FFFFFF"
 
 
-    Rectangle{
+    Rectangle {
         anchors.fill: parent
         MainWindow {
             id: mainWindow
@@ -32,6 +33,11 @@ Window {
             id: testsWindows
             anchors.fill: parent
             visible: windowsVisibleNumber == "1" ? true : false
+        }
+        AuthorizationPage {
+            id: authWindow
+            anchors.fill: parent
+            visible: windowsVisibleNumber == "2" ? true : false
         }
     }
 }
