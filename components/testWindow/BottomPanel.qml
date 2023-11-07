@@ -10,7 +10,7 @@ Item{
             id: button
             anchors.centerIn: parent
             height: parent.height
-            width: parent.width * 0.9
+            width: parent.width * 0.6
             //anchors.margins: (parent.width + parent.height) * 0.015
             color: "#103B99"
             radius: parent.height * 0.3
@@ -28,7 +28,7 @@ Item{
                         questionNumber += 1
                         middlePanel.choiseIndex = -1
                         if(questionNumber > 10){
-                            windowsVisibleNumber = 0
+                            resultPage.visible = true
                             questionNumber = 1
                         }
                     }
