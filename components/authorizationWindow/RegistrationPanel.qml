@@ -58,7 +58,7 @@ Item {
 
                 Text {
                     anchors.fill: parent
-                    text: placeholderText
+                    text: parent.placeholderText
                     color: isDark ? placeholderColor : Qt.darker(placeholderColor, 1.5)
                     font.pixelSize: (parent.width + parent.height) * 0.05
                     font.bold: false
@@ -95,7 +95,7 @@ Item {
 
                 Text {
                     anchors.fill: parent
-                    text: placeholderText
+                    text: parent.placeholderText
                     color: isDark ? placeholderColor : Qt.darker(placeholderColor, 1.5)
                     font.pixelSize: (parent.width + parent.height) * 0.05
                     font.bold: false
@@ -215,7 +215,7 @@ Item {
             id: registerButton
             anchors.bottom: submitButton.top
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: panel.height / 50
+            anchors.bottomMargin: registerPanel.height / 50
 
             width: parent.width / 2.25
             height: parent.height / 15
