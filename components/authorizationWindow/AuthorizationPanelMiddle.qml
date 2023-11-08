@@ -24,7 +24,7 @@ Item {
             anchors.topMargin: parent.height / 60;
 
             text: "Чтобы продолжить, \nвойдите в аккаунт"
-            color: authPanel.baseColor
+            color: baseColor
             font.pixelSize: (parent.width + parent.height) * 0.03
             font.bold: true
             font.letterSpacing: -1
@@ -87,7 +87,7 @@ Item {
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width + parent.height) * 0.06
-                color: authPanel.baseColor
+                color: baseColor
                 echoMode: !passwordShown ? TextInput.Password : TextInput.Normal
 
                 property string placeholderText: "Введите пароль..."

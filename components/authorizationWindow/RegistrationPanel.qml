@@ -25,7 +25,7 @@ Item {
             anchors.topMargin: parent.height / 60;
 
             text: "Чтобы продолжить, \nзарегистрируйтесь"
-            color: registerPanel.baseColor
+            color: baseColor
             font.pixelSize: (parent.width + parent.height) * 0.03
             font.bold: true
             font.letterSpacing: -1
@@ -37,13 +37,13 @@ Item {
             id: loginTextFieldPanel
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: titleText.bottom
-            anchors.topMargin: registerPanel.height / 10
+            anchors.topMargin: parent.height / 10
 
             width: parent.width / 2.25
             height: parent.height / 13
 
-            border.color: registerPanel.baseColor
-            color: registerPanel.backColor
+            border.color: baseColor
+            color: backColor
 
             TextInput {
                 id: loginTextField
@@ -51,15 +51,15 @@ Item {
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width + parent.height) * 0.06
-                color: registerPanel.baseColor
+                color: baseColor
 
 
                 property string placeholderText: "Придумайте логин..."
 
                 Text {
                     anchors.fill: parent
-                    text: loginTextField.placeholderText
-                    color: isDark ? registerPanel.placeholderColor : Qt.darker(registerPanel.placeholderColor, 1.5)
+                    text: placeholderText
+                    color: isDark ? placeholderColor : Qt.darker(placeholderColor, 1.5)
                     font.pixelSize: (parent.width + parent.height) * 0.05
                     font.bold: false
                     font.letterSpacing: -1
@@ -74,13 +74,13 @@ Item {
             id: passwordTextFieldPanel
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: loginTextFieldPanel.bottom
-            anchors.topMargin: registerPanel.height / 30
+            anchors.topMargin: parent.height / 30
 
             width: parent.width / 2.25
             height: parent.height / 13
 
-            border.color: registerPanel.baseColor
-            color: registerPanel.backColor
+            border.color: baseColor
+            color: backColor
 
             TextInput {
                 id: passwordTextField
@@ -88,15 +88,15 @@ Item {
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width + parent.height) * 0.06
-                color: registerPanel.baseColor
+                color: baseColor
                 echoMode: !passwordShown ? TextInput.Password : TextInput.Normal
 
                 property string placeholderText: "Придумайте пароль..."
 
                 Text {
                     anchors.fill: parent
-                    text: passwordTextField.placeholderText
-                    color: isDark ? registerPanel.placeholderColor : Qt.darker(registerPanel.placeholderColor, 1.5)
+                    text: placeholderText
+                    color: isDark ? placeholderColor : Qt.darker(placeholderColor, 1.5)
                     font.pixelSize: (parent.width + parent.height) * 0.05
                     font.bold: false
                     font.letterSpacing: -1
@@ -117,7 +117,7 @@ Item {
             height: passwordTextFieldPanel.height * 0.8
             radius:  passwordTextFieldPanel.height * 0.8
 
-            color: registerPanel.backColor
+            color: backColor
 
             MouseArea {
                 anchors.fill: parent
@@ -127,7 +127,7 @@ Item {
             }
             Image {
                 anchors.centerIn: parent
-                source: (!registerPanel.passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedDark" : (registerPanel.passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeOpenDark" : (!registerPanel.passwordShown && !isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedLight" : "qrc:/assets/images/passwordVisibilityImages/eyeOpenLight"
+                source: (!passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedDark" : (passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeOpenDark" : (!passwordShown && !isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedLight" : "qrc:/assets/images/passwordVisibilityImages/eyeOpenLight"
                 width: parent.width * 0.75
                 height: width * 0.7063
              }
@@ -215,7 +215,7 @@ Item {
             id: registerButton
             anchors.bottom: submitButton.top
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: registerPanel.height / 50
+            anchors.bottomMargin: panel.height / 50
 
             width: parent.width / 2.25
             height: parent.height / 15
@@ -226,7 +226,7 @@ Item {
                 text: parent.text
                 font.bold: true
                 opacity: enabled ? 1.0 : 0.3
-                color: registerPanel.baseColor
+                color: baseColor
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -246,7 +246,7 @@ Item {
             id: submitButton
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: registerPanel.height / 30
+            anchors.bottomMargin: parent.height / 30
 
             width: parent.width / 2.25
             height: parent.height / 13
@@ -267,7 +267,7 @@ Item {
             flat: true
             background: Rectangle {
                 opacity: enabled ? 1 : 0.3
-                border.color: registerPanel.baseColor
+                border.color: baseColor
                 border.width: 1
                 radius: 2
                 color: "#4E7CE2"
