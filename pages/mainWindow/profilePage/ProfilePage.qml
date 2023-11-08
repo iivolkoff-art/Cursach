@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Layouts 2.12
-import 'qrc:/components/mainWindow/profilePage'
+import 'qrc:/components/mainWindow/profilePanels'
 
 Item{
     id: profilePage

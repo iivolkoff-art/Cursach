@@ -5,7 +5,7 @@ import QtQuick.Layouts 2.12
 Rectangle{
     id: profilePageCenter
     anchors.fill: parent
-    color: "white"
+    color: isDark ? backgroundColor : whiteBackgroundColor
     property int rowWidth: width / 1.125
 
     property string userName: "Ваше имя"
@@ -31,7 +31,7 @@ Rectangle{
             id: image
             width: 50
             height: 50
-            source: "qrc:/assets/images/buttonPanelImages/BlueProfile.png"
+            source: "qrc:/assets/images/profileImages/EmptyIcon.png"
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
         }
         Item{
@@ -41,6 +41,8 @@ Rectangle{
             Text {
                 id: name
                 font.pixelSize: 25
+                font.underline: true
+                color: isDark ? "white" : "black"
                 font.family: "Jost"
                 text: qsTr(userName)
             }
@@ -52,6 +54,7 @@ Rectangle{
             Text {
                 id: number
                 font.pixelSize: 15
+                color: isDark ? "white" : "black"
                 font.family: "Jost"
                 text: qsTr(userNumber)
             }
@@ -74,6 +77,7 @@ Rectangle{
                         Layout.fillWidth: true
                         Text {
                             anchors.bottom: parent.bottom
+                            color: "white"
                             font.pixelSize: 15
                             font.family: "Jost"
                             text: qsTr("Start")
@@ -115,6 +119,7 @@ Rectangle{
                         Text {
                             anchors.bottom: parent.bottom
                             font.pixelSize: 15
+                            color: "white"
                             font.family: "Jost"
                             text: qsTr("Баллы")
                         }
@@ -156,12 +161,12 @@ Rectangle{
                     width: parent.width * 0.95
                     radius: 90
                     anchors.centerIn: parent
-                    color: "#FFFFFF"
+                    color: !isDark ? whiteBackgroundColor : backgroundColor
                     Rectangle{
                         height: parent.height
                         width: parent.width * partOfLearned
                         radius: parent.radius
-                        color: "#BACFFF"
+                        color: !isDark ? "#BACFFF" : "#92A8D9"
                     }
                 }
                 Text {
@@ -231,6 +236,7 @@ Rectangle{
                 id: text
                 font.pixelSize: 20
                 font.family: "Jost"
+                color: isDark ? "white" : "black"
                 text: qsTr("ID пользователя")
             }
         }
@@ -241,8 +247,8 @@ Rectangle{
             Text {
                 font.pixelSize: 16
                 font.family: "Jost"
-                color: "#CFCFCF"
-                text: qsTr("289367584")
+                color: isDark ? "#878787" : "#CFCFCF"
+                text: qsTr(userId)
             }
         }
     }

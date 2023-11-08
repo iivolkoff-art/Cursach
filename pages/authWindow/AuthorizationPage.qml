@@ -1,6 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import 'qrc:/components/mainWindow/profilePanels/authorizationPanels'
+import 'qrc:/components/authorizationWindow'
 
 
 Item{

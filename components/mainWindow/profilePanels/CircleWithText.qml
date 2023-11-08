@@ -5,7 +5,7 @@ Rectangle{
     height: 25
     width: 25
     radius: width / 2
-    color: "#BACFFF"
+    color: !isDark ? "#BACFFF" : "#92A8D9"
 
     property int pixelSize: 10
     property string fontFamily: "Jost"
