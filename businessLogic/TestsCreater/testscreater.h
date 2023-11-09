@@ -13,6 +13,7 @@ public:
     Q_INVOKABLE void createJson();
     Q_INVOKABLE QString getQuestionOfId(const QString& id);
     Q_INVOKABLE QVector<QString> getParametersOfId(const QString& id);
+    Q_INVOKABLE QString getAnswerOfId(const QString& id);
 };
 
 #endif // TESTSCREATER_H

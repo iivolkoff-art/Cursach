@@ -27,6 +27,8 @@ Item{
                     windowsVisibleNumber = 0
                     questionNumber = 1
                     middlePanel.choiseIndex = -1
+                    possibleAnswer = ""
+                    points = 0
                 }
             }
         }

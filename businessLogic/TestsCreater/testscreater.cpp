@@ -133,3 +133,31 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
 
     return parameters;
 }
+
+QString TestsCreater::getAnswerOfId(const QString& id){
+    QFile file("output1.json");
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return QString();
+    }
+
+    QString jsonString = file.readAll();
+
+    file.close();
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
+
+    QJsonObject rootObject = jsonDoc.object();
+
+    if (rootObject.contains(id)) {
+        QJsonObject obj = rootObject[id].toObject();
+
+        if (obj.contains("answer")) {
+            QString question = obj["answer"].toString();
+            return question;
+        }
+    }
+
+    return QString();
+}
+

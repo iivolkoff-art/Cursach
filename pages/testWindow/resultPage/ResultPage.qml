@@ -29,12 +29,13 @@ Item {
                     questionNumber = 1
                     middlePanel.choiseIndex = -1
                     resultPage.visible = false
+                    points = 0
                 }
             }
         }
         Text{
             anchors.centerIn: parent
-            text: "А ты крутой..."
+            text: "А ты крутой...\n" + points + "/10"
             font.pixelSize: (parent.height + parent.width) * 0.02
             color: isDark ? "white" : "black"
         }

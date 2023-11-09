@@ -1,7 +1,13 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
+import testsCreater
+
+
 Item{
     id:bottomPanel
+    TestsCreater{
+        id: testsCreater
+    }
 
     Rectangle{
         anchors.fill: parent
@@ -24,10 +30,15 @@ Item{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    if(middlePanel.choiseIndex !== -1){
+                    if(possibleAnswer !== ""){
                         questionNumber += 1
                         middlePanel.choiseIndex = -1
+                        if(possibleAnswer === testsCreater.getAnswerOfId(questionNumber - 1)){
+                            points += 1
+                        }
+                        possibleAnswer = ""
                         if(questionNumber > 10){
+                            console.log("POINTS: " + points)
                             resultPage.visible = true
                             questionNumber = 1
                         }
