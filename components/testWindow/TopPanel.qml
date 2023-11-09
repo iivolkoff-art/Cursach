@@ -28,6 +28,7 @@ Item{
                     questionNumber = 1
                     middlePanel.choiseIndex = -1
                     possibleAnswer = ""
+                    rightAnswer = 0
                     points = 0
                 }
             }

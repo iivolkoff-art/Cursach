@@ -33,12 +33,12 @@ Item{
                     if(possibleAnswer !== ""){
                         questionNumber += 1
                         middlePanel.choiseIndex = -1
-                        if(possibleAnswer === testsCreater.getAnswerOfId(questionNumber - 1)){
-                            points += 1
+                        if(possibleAnswer === testsCreater.getObjectFromJson(questionNumber - 1, "answer")){
+                            rightAnswer += 1
+                            points += parseInt(testsCreater.getObjectFromJson(questionNumber - 1, "points"))
                         }
                         possibleAnswer = ""
                         if(questionNumber > 10){
-                            console.log("POINTS: " + points)
                             resultPage.visible = true
                             questionNumber = 1
                         }

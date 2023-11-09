@@ -9,6 +9,7 @@ Item{
     property int questionNumber: 1
     property int testNumber: -1
     property string possibleAnswer: ""
+    property int rightAnswer: 0
     property int points: 0
     Rectangle{
         anchors.fill: parent

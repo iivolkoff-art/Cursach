@@ -29,13 +29,23 @@ Item {
                     questionNumber = 1
                     middlePanel.choiseIndex = -1
                     resultPage.visible = false
+                    rightAnswer = 0
                     points = 0
                 }
             }
         }
         Text{
+            id: pointsText
             anchors.centerIn: parent
-            text: "А ты крутой...\n" + points + "/10"
+            text: "Очки: " + points
+            font.pixelSize: (parent.height + parent.width) * 0.04
+            color: isDark ? "white" : "black"
+        }
+        Text{
+            id: rightAnswerText
+            anchors.bottom: pointsText.top
+            anchors.horizontalCenter: pointsText.horizontalCenter
+            text: "А ты крутой...\n" + rightAnswer + "/10"
             font.pixelSize: (parent.height + parent.width) * 0.02
             color: isDark ? "white" : "black"
         }

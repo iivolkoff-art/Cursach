@@ -77,32 +77,6 @@ void TestsCreater::createJson() {
     }
 }
 
-QString TestsCreater::getQuestionOfId(const QString& id) {
-    QFile file("output1.json");
-
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return QString();
-    }
-
-    QString jsonString = file.readAll();
-
-    file.close();
-
-    QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
-
-    QJsonObject rootObject = jsonDoc.object();
-
-    if (rootObject.contains(id)) {
-        QJsonObject obj = rootObject[id].toObject();
-
-        if (obj.contains("question")) {
-            QString question = obj["question"].toString();
-            return question;
-        }
-    }
-
-    return QString();
-}
 
 QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
     QFile file("output1.json");
@@ -134,7 +108,7 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
     return parameters;
 }
 
-QString TestsCreater::getAnswerOfId(const QString& id){
+QString TestsCreater::getObjectFromJson(const QString& id, const QString& objectJSON){
     QFile file("output1.json");
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -152,8 +126,8 @@ QString TestsCreater::getAnswerOfId(const QString& id){
     if (rootObject.contains(id)) {
         QJsonObject obj = rootObject[id].toObject();
 
-        if (obj.contains("answer")) {
-            QString question = obj["answer"].toString();
+        if (obj.contains(objectJSON)) {
+            QString question = obj[objectJSON].toString();
             return question;
         }
     }

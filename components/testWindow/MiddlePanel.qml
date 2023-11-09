@@ -54,7 +54,7 @@ Item{
                     font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.07)
                                                     : ((parent.height + parent.width) * 0.07) / (text.length * 0.045)
                     color: isDark ? "white" : "black"
-                    text: windowsVisibleNumber == 1 ? testsCreater.getQuestionOfId(questionNumber.toString()) : ""
+                    text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(questionNumber.toString(), "question") : ""
                 }
             }
             Rectangle{
@@ -99,11 +99,8 @@ Item{
                 }
             }
         }
-
-
-
     }
-    onTestNumberChanged: {
-        answerText.text = testsCreater.getInf()
-    }
+//    onTestNumberChanged: {
+//        answerText.text = testsCreater.getInf()
+//    }
 }
