@@ -40,7 +40,6 @@ Item{
                     color: isDark ? "#CFCFCF" : "#878787"
                     text: "Вопрос " + questionNumber
                 }
-
                 Image {
                     id: name
                     width: parent.width * 0.6
@@ -51,8 +50,8 @@ Item{
                 }
                 Text{
                     anchors.centerIn: parent
-                    font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.07)
-                                                    : ((parent.height + parent.width) * 0.07) / (text.length * 0.045)
+                    font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.08)
+                                                    : ((parent.height + parent.width) * 0.08) / (text.length * 0.045)
                     color: isDark ? "white" : "black"
                     text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(questionNumber.toString(), "question") : ""
                 }
