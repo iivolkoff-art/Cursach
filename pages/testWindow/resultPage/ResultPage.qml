@@ -35,19 +35,55 @@ Item {
             }
         }
         Text{
-            id: pointsText
-            anchors.centerIn: parent
-            text: "Очки: " + points
-            font.pixelSize: (parent.height + parent.width) * 0.04
+            id: rightAnswerText
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "А ты крутой... " + rightAnswer + "/10"
+            font.pixelSize: (parent.height + parent.width) * 0.02
             color: isDark ? "white" : "black"
         }
         Text{
-            id: rightAnswerText
-            anchors.bottom: pointsText.top
-            anchors.horizontalCenter: pointsText.horizontalCenter
-            text: "А ты крутой...\n" + rightAnswer + "/10"
-            font.pixelSize: (parent.height + parent.width) * 0.02
+            id: pointsText
+            anchors.top: rightAnswerText.bottom
+            anchors.horizontalCenter: rightAnswerText.horizontalCenter
+            text: "Очки: " + points
+            font.pixelSize: (parent.height + parent.width) * 0.03
             color: isDark ? "white" : "black"
+        }
+        Rectangle{
+            id: stat
+            anchors.top:  pointsText.bottom
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: parent.height * 0.03
+            width: parent.width
+            anchors.horizontalCenter: pointsText.horizontalCenter
+            color: "transparent"
+
+            Repeater{
+                model: 10
+
+                Rectangle{
+                    color: "transparent"
+                    width: stat.width / 2
+                    height: stat.height / 10
+                    anchors.horizontalCenter: stat.horizontalCenter
+                    y: index * (stat.height / 10)
+
+                    Text{
+                        anchors.left: parent.left
+                        text: "Тест " + (index + 1)
+                        color: "grey"
+                        font.pixelSize: (parent.height + parent.width) * 0.07
+                    }
+
+                    Text{
+                        anchors.right: parent.right
+                        text: index % 2 == 0 ? "X" : "*"
+                        color: index % 2 == 0 ? "red" : "green"
+                        font.pixelSize: (parent.height + parent.width) * 0.07
+                    }
+                }
+            }
         }
     }
 }
