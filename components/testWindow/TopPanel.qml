@@ -38,12 +38,12 @@ Item{
             id: learnStatus
             anchors.centerIn: parent
             anchors.verticalCenter: parent.verticalCenter
-            width: parent.width * 0.5
+            width: parent.width * 0.7
             height: parent.height * 0.2
             color: "transparent"
             ListView {
                 anchors.fill: learnStatus
-                model: 10 // count of mini-rectangle
+                model: 10
                 spacing: learnStatus.width * 0.03
 
                 delegate: Rectangle {
@@ -56,12 +56,5 @@ Item{
                 orientation: ListView.Horizontal
             }
         }
-//        Rectangle{
-//            id: line
-//            anchors.bottom: learnStatusBig.bottom
-//            width: learnStatusBig.width
-//            height: 1
-//            color: "#686F6F"
-//        }
     }
 }

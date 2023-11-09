@@ -16,7 +16,7 @@ Item{
             id: button
             anchors.centerIn: parent
             height: parent.height
-            width: parent.width * 0.6
+            width: parent.width * 0.9
             //anchors.margins: (parent.width + parent.height) * 0.015
             color: "#103B99"
             radius: parent.height * 0.3

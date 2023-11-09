@@ -11,7 +11,7 @@ Item {
         Rectangle{
             id: close
             anchors.right: parent.right
-            anchors.margins: (parent.height + parent.width) * 0.005
+            anchors.margins: (parent.height + parent.width) * 0.01
             anchors.top: parent.top
             height: parent.height * 0.1
             width: height

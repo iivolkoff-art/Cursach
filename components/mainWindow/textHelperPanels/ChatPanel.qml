@@ -70,7 +70,7 @@ Item {
                 id: contentText
                 text: model.messageText
                 color: messageColor
-                font.pixelSize: chatField.height * 0.05
+                font.pixelSize: chatField.height * 0.08
                 wrapMode: Text.WordWrap
                 anchors.left: parent.left
                 anchors.leftMargin: 10

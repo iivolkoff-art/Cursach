@@ -101,47 +101,46 @@ Item{
             }
 
            Rectangle{
-               anchors.right: parent.right
-               anchors.verticalCenter: parent.verticalCenter
-               anchors.top: parent.top
-               anchors.bottom: parent.bottom
-               anchors.rightMargin: parent.width * 0.03
-               anchors.topMargin: parent.height * 0.18
-               width: parent.width * 0.15
-               height: parent.height
-               color: "transparent"
-               border.width: 1
-               border.color: "white"
-               radius: 17
-                Text{
-                    anchors.left: parent.left
-                    anchors.verticalCenter: parent.verticalCenter
-                    font.pixelSize: (parent.width * parent.height) * 0.002
-                    anchors.leftMargin: parent.width * 0.1
-                    color: "white"
-                    text: "Язык"
-                }
-                Rectangle{
-                    anchors.right: parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.rightMargin: parent.width * 0.02
+              anchors.right: parent.right
+              anchors.verticalCenter: parent.verticalCenter
+              anchors.top: parent.top
+              anchors.bottom: parent.bottom
+              anchors.rightMargin: parent.width * 0.03
+              anchors.topMargin: parent.height * 0.18
+              width: parent.width * 0.3
+              height: parent.height
+              color: "transparent"
+              border.width: 1
+              border.color: "white"
+              radius: 17
+               Text{
+                   anchors.left: parent.left
+                   anchors.verticalCenter: parent.verticalCenter
+                   font.pixelSize: (parent.width * parent.height) * 0.0025
+                   anchors.leftMargin: parent.width * 0.1
+                   color: "white"
+                   text: "Язык"
+               }
+               Rectangle{
+                   anchors.right: parent.right
+                   anchors.verticalCenter: parent.verticalCenter
+                   anchors.rightMargin: parent.width * 0.02
 
-                    width: parent.width * 0.55
-                    height: parent.height * 0.8
-                    color: "white"
-                    border.width: 1
-                    border.color: "white"
-                    radius: 15
-                    Text{
-                        anchors.centerIn: parent
-                        font.pixelSize: (parent.width * parent.height) * 0.0045
-                        anchors.leftMargin: parent.width * 0.1
-                        color: "#4E7CE2"
-                        text: "Русский"
+                   width: parent.width * 0.6
+                   height: parent.height * 0.8
+                   color: "white"
+                   border.width: 1
+                   border.color: "white"
+                   radius: 15
+                   Text{
+                       anchors.centerIn: parent
+                       font.pixelSize: (parent.width * parent.height) * 0.004
+                       anchors.leftMargin: parent.width * 0.1
+                       color: "#4E7CE2"
+                       text: "Русский"
                     }
                 }
            }
-
        }
        Rectangle {
            id: line
