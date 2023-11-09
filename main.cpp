@@ -5,6 +5,7 @@
 #include "businessLogic/TestsCreater/testscreater.h"
 #include <QDir>
 #include <QDebug>
+#include <QFontDatabase>
 
 int main(int argc, char *argv[])
 {
@@ -28,3 +29,4 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+
