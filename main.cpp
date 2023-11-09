@@ -3,6 +3,7 @@
 #include "businessLogic/NetworkChecker/NetworkChecker.h"
 #include "businessLogic/TextHelper/TextHelper.h"
 #include "businessLogic/TestsCreater/testscreater.h"
+//#include "businessLogic/LoginManager/LoginManager.h"
 #include <QDir>
 #include <QDebug>
 
@@ -12,6 +13,10 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
+
+
+    //qmlRegisterType<LoginManager>("loginManager", 1, 0, "LoginManager");
+
 
     qmlRegisterType<NetworkChecker>("networkChecker", 1, 0, "NetworkChecker");
     qmlRegisterType<TestsCreater>("testsCreater", 1, 0, "TestsCreater");

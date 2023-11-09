@@ -84,9 +84,7 @@ QString TestsCreater::getQuestionOfId(const QString& id) {
         return QString();
     }
 
-
     QString jsonString = file.readAll();
-
 
     file.close();
 
