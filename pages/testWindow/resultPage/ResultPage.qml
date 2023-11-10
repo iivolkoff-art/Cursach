@@ -71,7 +71,7 @@ Item {
 
                     Text{
                         anchors.left: parent.left
-                        text: "Тест " + (index + 1)
+                        text: "Вопрос " + (index + 1)
                         color: "grey"
                         font.pixelSize: (parent.height + parent.width) * 0.07
                     }
