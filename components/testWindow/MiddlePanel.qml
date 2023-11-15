@@ -54,7 +54,7 @@ Item{
                     font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.07)
                                                     : ((parent.height + parent.width) * 0.07) / (text.length * 0.045)
                     color: isDark ? "white" : "black"
-                    text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(questionNumber.toString(), "question") : ""
+                    text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(mainTestNumber ,questionNumber.toString(), "question") : ""
                 }
             }
             Rectangle{

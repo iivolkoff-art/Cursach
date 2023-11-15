@@ -1,10 +1,16 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import 'qrc:/pages/testWindow/resultPage'
+import testsCreater
+import 'qrc:/pages/testWindow'
 
 
 Item {
     id: testsPage
+
+    TestsCreater{
+        id: testsCreater
+    }
 
     property int constHeight: 640
     property int constWidth: 480
@@ -35,12 +41,13 @@ Item {
                     color: "white"
                     font.bold: true
                 }
-
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
+                        //testsCreater.setTestNumber((index + 1).toString())
                         windowsVisibleNumber = 1
                         testsWindows.testNumber = 1
+                        testsWindows.mainTestNumber = (index + 1).toString()
                     }
                 }
             }

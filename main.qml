@@ -14,7 +14,7 @@ Window {
     property string windowsVisibleNumber: "2" // mainWindow
     property string mainVisibleWindows: "3" // centerPage
     property bool isDark: true
-//    visibility: Window.FullScreen
+    //visibility: Window.FullScreen
 
     property color backgroundColor: "#313131"
     property color whitePanelColor: "#4E7CE2"

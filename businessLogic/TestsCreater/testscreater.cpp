@@ -7,6 +7,9 @@
 #include <QVector>
 #include <QJsonArray>
 
+#include <QVariant>
+
+
 TestsCreater::TestsCreater()
 {
 
@@ -108,8 +111,8 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
     return parameters;
 }
 
-QString TestsCreater::getObjectFromJson(const QString& id, const QString& objectJSON){
-    QFile file("output1.json");
+QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString& id, const QString& objectJSON) {
+    QFile file("TestsPartOneCPlus.json");
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return QString();
@@ -121,17 +124,26 @@ QString TestsCreater::getObjectFromJson(const QString& id, const QString& object
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
 
-    QJsonObject rootObject = jsonDoc.object();
+    if (!jsonDoc.isNull() && jsonDoc.isObject()) {
+        QJsonObject rootObject = jsonDoc.object();
 
-    if (rootObject.contains(id)) {
-        QJsonObject obj = rootObject[id].toObject();
+        // Проверяем наличие верхнего уровня с заданным id
+        if (rootObject.contains(testNumber)) {
+            QJsonObject innerObject = rootObject[testNumber].toObject();
 
-        if (obj.contains(objectJSON)) {
-            QString question = obj[objectJSON].toString();
-            return question;
+            // Проверяем наличие внутреннего объекта с заданным id
+            if (innerObject.contains(id)) {
+                QJsonObject obj = innerObject[id].toObject();
+
+                // Проверяем наличие заданного параметра в объекте
+                if (obj.contains(objectJSON)) {
+                    QString question = obj[objectJSON].toString();
+                    qDebug() << "good";
+                    return question;
+                }
+            }
         }
     }
-
+    qDebug() << "bad";
     return QString();
 }
-
