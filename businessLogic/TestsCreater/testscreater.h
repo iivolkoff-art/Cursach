@@ -13,7 +13,7 @@ private:
 public:
     TestsCreater();
     Q_INVOKABLE void createJson();
-    Q_INVOKABLE QVector<QString> getParametersOfId(const QString& id);
+    Q_INVOKABLE QVector<QString> getParametersOfId(const QString& testNumber, const QString& id);
     Q_INVOKABLE QString getObjectFromJson(const QString& testNumber, const QString& id, const QString& objectJSON);
     //Q_INVOKABLE void setTestNumber(QString testNumber);
 };

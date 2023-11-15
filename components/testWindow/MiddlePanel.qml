@@ -79,7 +79,7 @@ Item{
                             id: answerText
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
-                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(questionNumber.toString())[index]
+                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(mainTestNumber, questionNumber.toString())[index]
                                                             : ""
                             font.pixelSize: parent.height * 0.4
                             anchors.leftMargin: parent.width * 0.01

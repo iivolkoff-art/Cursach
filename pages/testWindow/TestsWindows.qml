@@ -11,7 +11,7 @@ Item{
     property string possibleAnswer: ""
     property int rightAnswer: 0
     property int points: 0
-    property string mainTestNumber: "2"
+    property string mainTestNumber: "0"
     Rectangle{
         anchors.fill: parent
         color: isDark ? backgroundColor : whiteBackgroundColor

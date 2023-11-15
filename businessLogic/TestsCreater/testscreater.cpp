@@ -81,8 +81,8 @@ void TestsCreater::createJson() {
 }
 
 
-QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
-    QFile file("output1.json");
+QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, const QString& id) {
+    QFile file("TestsPartOneCPlus.json");
     QVector<QString> parameters;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -95,14 +95,19 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& id) {
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
 
     QJsonObject rootObject = jsonDoc.object();
+    // Проверяем наличие верхнего уровня с заданным id
+    if (rootObject.contains(testNumber)) {
+        QJsonObject innerObject = rootObject[testNumber].toObject();
 
-    if (rootObject.contains(id)) {
-        QJsonObject obj = rootObject[id].toObject();
-        if (obj.contains("parameter")) {
-            QJsonArray parameterArray = obj["parameter"].toArray();
-            for (int i = 0; i < parameterArray.size(); i++) {
-                if (parameterArray[i].isString()) {
-                    parameters.append(parameterArray[i].toString());
+
+        if (rootObject.contains(id)) {
+            QJsonObject obj = rootObject[testNumber][id].toObject();
+            if (obj.contains("parameter")) {
+                QJsonArray parameterArray = obj["parameter"].toArray();
+                for (int i = 0; i < parameterArray.size(); i++) {
+                    if (parameterArray[i].isString()) {
+                        parameters.append(parameterArray[i].toString());
+                    }
                 }
             }
         }
