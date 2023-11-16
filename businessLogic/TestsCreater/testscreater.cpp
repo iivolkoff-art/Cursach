@@ -95,11 +95,8 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, cons
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
 
     QJsonObject rootObject = jsonDoc.object();
-    // Проверяем наличие верхнего уровня с заданным id
     if (rootObject.contains(testNumber)) {
         QJsonObject innerObject = rootObject[testNumber].toObject();
-
-
         if (rootObject.contains(id)) {
             QJsonObject obj = rootObject[testNumber][id].toObject();
             if (obj.contains("parameter")) {
@@ -132,15 +129,10 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
     if (!jsonDoc.isNull() && jsonDoc.isObject()) {
         QJsonObject rootObject = jsonDoc.object();
 
-        // Проверяем наличие верхнего уровня с заданным id
         if (rootObject.contains(testNumber)) {
             QJsonObject innerObject = rootObject[testNumber].toObject();
-
-            // Проверяем наличие внутреннего объекта с заданным id
             if (innerObject.contains(id)) {
                 QJsonObject obj = innerObject[id].toObject();
-
-                // Проверяем наличие заданного параметра в объекте
                 if (obj.contains(objectJSON)) {
                     QString question = obj[objectJSON].toString();
                     qDebug() << "good";

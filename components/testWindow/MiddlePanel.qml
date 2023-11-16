@@ -89,7 +89,7 @@ Item{
                             anchors.fill: parent
                             onClicked: {
                                 choiseIndex = index
-                                possibleAnswer = testsCreater.getParametersOfId(questionNumber.toString())[index]
+                                possibleAnswer = testsCreater.getParametersOfId(mainTestNumber, questionNumber.toString())[index]
                             }
                         }
                     }
