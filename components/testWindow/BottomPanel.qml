@@ -33,9 +33,9 @@ Item{
                     if(possibleAnswer !== ""){
                         questionNumber += 1
                         middlePanel.choiseIndex = -1
-                        if(possibleAnswer === testsCreater.getObjectFromJson(questionNumber - 1, "answer")){
+                        if(possibleAnswer === testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "answer")){
                             rightAnswer += 1
-                            points += parseInt(testsCreater.getObjectFromJson(questionNumber - 1, "points"))
+                            points += parseInt(testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "points"))
                         }
                         possibleAnswer = ""
                         if(questionNumber > 10){

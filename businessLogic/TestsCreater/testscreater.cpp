@@ -97,8 +97,8 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, cons
     QJsonObject rootObject = jsonDoc.object();
     if (rootObject.contains(testNumber)) {
         QJsonObject innerObject = rootObject[testNumber].toObject();
-        if (rootObject.contains(id)) {
-            QJsonObject obj = rootObject[testNumber][id].toObject();
+        if (innerObject.contains(id)) {
+            QJsonObject obj = innerObject[id].toObject();
             if (obj.contains("parameter")) {
                 QJsonArray parameterArray = obj["parameter"].toArray();
                 for (int i = 0; i < parameterArray.size(); i++) {
