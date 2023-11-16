@@ -33,10 +33,13 @@ Item{
                     if(possibleAnswer !== ""){
                         questionNumber += 1
                         middlePanel.choiseIndex = -1
+                        answersArray.push("X")
                         if(possibleAnswer === testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "answer")){
                             rightAnswer += 1
                             points += parseInt(testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "points"))
+                            answersArray[(questionNumber - 2)] = "*"
                         }
+                        console.log(answersArray[(questionNumber - 2)])
                         possibleAnswer = ""
                         if(questionNumber > 10){
                             resultPage.visible = true

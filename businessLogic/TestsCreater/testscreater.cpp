@@ -86,7 +86,7 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, cons
     QVector<QString> parameters;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return parameters; // Верните пустой вектор, а не пустой массив []
+        return parameters;
     }
 
     QString jsonString = file.readAll();
@@ -109,7 +109,6 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, cons
             }
         }
     }
-
     return parameters;
 }
 
@@ -135,12 +134,10 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
                 QJsonObject obj = innerObject[id].toObject();
                 if (obj.contains(objectJSON)) {
                     QString question = obj[objectJSON].toString();
-                    qDebug() << "good";
                     return question;
                 }
             }
         }
     }
-    qDebug() << "bad";
     return QString();
 }

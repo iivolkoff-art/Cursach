@@ -30,6 +30,7 @@ Item{
                     possibleAnswer = ""
                     rightAnswer = 0
                     points = 0
+                    answersArray = []
                 }
             }
         }
@@ -56,12 +57,5 @@ Item{
                 orientation: ListView.Horizontal
             }
         }
-//        Rectangle{
-//            id: line
-//            anchors.bottom: learnStatusBig.bottom
-//            width: learnStatusBig.width
-//            height: 1
-//            color: "#686F6F"
-//        }
     }
 }

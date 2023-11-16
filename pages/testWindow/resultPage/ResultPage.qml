@@ -31,6 +31,7 @@ Item {
                     resultPage.visible = false
                     rightAnswer = 0
                     points = 0
+                    answersArray = []
                 }
             }
         }
@@ -78,8 +79,8 @@ Item {
 
                     Text{
                         anchors.right: parent.right
-                        text: index % 2 == 0 ? "X" : "*"
-                        color: index % 2 == 0 ? "red" : "green"
+                        text: visible == true ? answersArray[index] : ""
+                        color: text == "*" ? "green" : "red"
                         font.pixelSize: (parent.height + parent.width) * 0.07
                     }
                 }
