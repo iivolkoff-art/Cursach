@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
+import loginManager
 
 Item {
     id: authorizationPanelMiddle
@@ -17,6 +18,10 @@ Item {
     property int formBorderWidth: 2
 
     property bool passwordShown: false
+
+    LoginManager{
+        id: loginManager
+    }
 
     Rectangle {
         id: authForm
@@ -154,6 +159,7 @@ Item {
             color: isDark ? backgroundGray : "white"
 
             TextInput {
+                id: loginTextField
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
@@ -332,6 +338,6 @@ Item {
 
     function submitAuthorization()
     {
-        windowsVisibleNumber = 0;
+        windowsVisibleNumber = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? 0 : 2;
     }
 }

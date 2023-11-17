@@ -1,0 +1,19 @@
+{
+    "root":
+    {
+        "password": "root",
+        "other_data": "456456"
+    },
+
+    "user1":
+    {
+        "password": "123123",
+        "other_data": "456456"
+    },
+
+    "user2":
+    {
+        "password": "456456",
+        "other_data": "789789"
+    }
+}
