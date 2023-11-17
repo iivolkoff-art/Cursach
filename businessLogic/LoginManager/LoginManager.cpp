@@ -12,8 +12,24 @@ LoginManager::LoginManager()
 
 }
 
-void LoginManager::createAccount(){
-    return;
+void LoginManager::createAccount(const QString& accountName, const QString& accountPassword, const QString& accountEmail){
+    QFile file("userdata.json");
+
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) return;
+
+    QJsonDocument JsonDocument = QJsonDocument::fromJson(file.readAll());
+    QJsonObject rootObject = JsonDocument.object();
+    file.close();
+
+    QJsonObject regDetails;
+    regDetails["password"] = accountPassword;
+    regDetails["other_info"] = accountEmail;
+
+    rootObject[accountName] = regDetails;
+    JsonDocument.setObject(rootObject);
+    file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+    file.write(JsonDocument.toJson(QJsonDocument::Indented));
+    file.close();
 }
 
 bool LoginManager::userdataExists() {
