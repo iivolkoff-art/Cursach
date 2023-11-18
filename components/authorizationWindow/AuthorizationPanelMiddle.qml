@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
+import loginManager
 
 Item {
     id: authorizationPanelMiddle
@@ -17,6 +18,11 @@ Item {
     property int formBorderWidth: 2
 
     property bool passwordShown: false
+    property bool loginError: false
+
+    LoginManager{
+        id: loginManager
+    }
 
     Rectangle {
         id: authForm
@@ -154,6 +160,7 @@ Item {
             color: isDark ? backgroundGray : "white"
 
             TextInput {
+                id: loginTextField
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
@@ -273,6 +280,21 @@ Item {
         }
     }
 
+    Text {
+        id: loginErrorLabel
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: submitButton.top
+        anchors.bottomMargin: parent.height * 0.06 * 0.57169
+
+        font.bold: false
+        font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.0375
+        text: loginError ? "Ошибка при вводе пароля или логина" : ""
+        color: "red"
+        font.letterSpacing: -1
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
     Button {
         id: submitButton
         anchors.horizontalCenter: parent.horizontalCenter
@@ -332,6 +354,7 @@ Item {
 
     function submitAuthorization()
     {
-        windowsVisibleNumber = 0;
+        windowsVisibleNumber = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? 0 : 2;
+        loginError = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? false : true;
     }
 }

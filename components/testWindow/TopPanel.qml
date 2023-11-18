@@ -30,6 +30,7 @@ Item{
                     possibleAnswer = ""
                     rightAnswer = 0
                     points = 0
+                    answersArray = []
                 }
             }
         }

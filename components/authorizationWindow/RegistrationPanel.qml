@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
+import loginManager
 
 Item {
     id: registrationPanel
@@ -10,6 +11,7 @@ Item {
     property string registerInput: registerTextField.text
     property string passwordInput: passwordTextField.text
     property string password2Input: password2TextField.text
+    property string emailInput: emailTextField.text
     property color darkBlue: "#4E7CE2"
     property color lightBlue: "#BACFFF"
     property color backgroundGray: "#424242"
@@ -19,6 +21,11 @@ Item {
 
     property bool passwordShown: false
     property bool password2Shown: false
+    property bool passwordErrorShown: false
+
+    LoginManager{
+        id: loginManager
+    }
 
     Rectangle {
         id: registerForm
@@ -156,6 +163,7 @@ Item {
             color: isDark ? backgroundGray : "white"
 
             TextInput {
+                id: registerTextField
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
@@ -191,6 +199,7 @@ Item {
             color: isDark ? backgroundGray : "white"
 
             TextInput {
+                id: emailTextField
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
@@ -373,6 +382,22 @@ Item {
         }
 
         Text {
+            id: passwordsErrorLabel
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: password2TextFieldPanel.bottom
+            anchors.topMargin: parent.height * 0.06 * 0.57169
+
+            font.bold: false
+            font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.0375
+            text: "Неправильно введена информация при регистрации!"
+            color: "red"
+            font.letterSpacing: -1
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            visible: passwordErrorShown
+        }
+
+        Text {
             id: passwordsDontMatchLabel
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: password2TextFieldPanel.bottom
@@ -380,7 +405,7 @@ Item {
 
             font.bold: false
             font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.0375
-            text: password2TextField.text != passwordTextField.text ? "Пароли не совпадают!" : ""
+            text: (password2TextField.text != passwordTextField.text && !passwordErrorShown) ? "Пароли не совпадают!" : ""
             color: "red"
             font.letterSpacing: -1
             horizontalAlignment: Text.AlignHCenter
@@ -422,6 +447,12 @@ Item {
 
     function submitRegistration()
     {
-        isRegistering = false;
+        if ((password2TextField.text == passwordTextField.text && !loginManager.accountExists(registerInput.toString())) && (registerInput != "" && password2Input != "")) {
+            loginManager.createAccount(registerInput, passwordInput, emailInput);
+            isRegistering = false;
+        }
+        else {
+            passwordErrorShown = true;
+        }
     }
 }

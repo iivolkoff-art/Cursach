@@ -11,7 +11,7 @@ Item {
         Rectangle{
             id: close
             anchors.right: parent.right
-            anchors.margins: (parent.height + parent.width) * 0.01
+            anchors.margins: (parent.height + parent.width) * 0.005
             anchors.top: parent.top
             height: parent.height * 0.1
             width: height
@@ -31,6 +31,7 @@ Item {
                     resultPage.visible = false
                     rightAnswer = 0
                     points = 0
+                    answersArray = []
                 }
             }
         }
@@ -78,8 +79,8 @@ Item {
 
                     Text{
                         anchors.right: parent.right
-                        text: index % 2 == 0 ? "X" : "*"
-                        color: index % 2 == 0 ? "red" : "green"
+                        text: visible == true ? answersArray[index] : ""
+                        color: text == "*" ? "green" : "red"
                         font.pixelSize: (parent.height + parent.width) * 0.07
                     }
                 }
