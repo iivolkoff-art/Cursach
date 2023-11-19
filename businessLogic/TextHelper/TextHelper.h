@@ -8,7 +8,7 @@ class TextHelper : public QObject
     Q_OBJECT
 public:
     TextHelper();
-    Q_INVOKABLE QString getDataFromScript();
+    Q_INVOKABLE QString getDataFromScripFroServer();
 };
 
 #endif // TEXTHELPER_H
