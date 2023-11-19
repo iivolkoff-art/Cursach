@@ -99,7 +99,7 @@ Item {
         if (message !== "" && networkStatus === true) {
             sendMessage(message, "#00DFFC"); // Пример сообщения с вашей стороны
             message = "";
-            sendMessage(textHelper.getDataFromScript(), isDark ? "#D9D9D9" : "black");
+            sendMessage(textHelper.getDataFromServerFromScript(), isDark ? "#D9D9D9" : "black");
         }
     }
 }
