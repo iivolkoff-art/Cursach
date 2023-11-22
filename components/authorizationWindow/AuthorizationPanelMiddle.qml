@@ -164,7 +164,7 @@ Item {
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
-                font.pixelSize: (parent.width * 0.2 + parent.height) * 0.08
+                font.pixelSize: (parent.width + parent.height) * 0.05
                 color: authorizationPanelMiddle.baseColor
             }
         }
@@ -200,7 +200,7 @@ Item {
                 anchors.fill: parent
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
-                font.pixelSize: (parent.width * 0.2 + parent.height) * 0.08
+                font.pixelSize: (parent.width + parent.height) * 0.05
                 color: baseColor
                 echoMode: !passwordShown ? TextInput.Password : TextInput.Normal
             }
