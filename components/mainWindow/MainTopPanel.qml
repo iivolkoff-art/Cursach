@@ -36,8 +36,7 @@ Item{
                MouseArea{
                    anchors.fill: parent
                    onClicked: {
-                       testsCreater.createJson()
-                       console.log("Вы создали json")
+                       testsCreater.getFilesFromServer()
                     }
                }
            }

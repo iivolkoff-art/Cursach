@@ -53,7 +53,7 @@ Item{
                     font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.08)
                                                     : ((parent.height + parent.width) * 0.08) / (text.length * 0.045)
                     color: isDark ? "white" : "black"
-                    text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(questionNumber.toString(), "question") : ""
+                    text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(mainTestNumber ,questionNumber.toString(), "question") : ""
                 }
             }
             Rectangle{
@@ -78,7 +78,7 @@ Item{
                             id: answerText
                             anchors.left: parent.left
                             anchors.verticalCenter: parent.verticalCenter
-                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(questionNumber.toString())[index]
+                            text: windowsVisibleNumber == 1 ? testsCreater.getParametersOfId(mainTestNumber, questionNumber.toString())[index]
                                                             : ""
                             font.pixelSize: parent.height * 0.4
                             anchors.leftMargin: parent.width * 0.01
@@ -88,7 +88,7 @@ Item{
                             anchors.fill: parent
                             onClicked: {
                                 choiseIndex = index
-                                possibleAnswer = testsCreater.getParametersOfId(questionNumber.toString())[index]
+                                possibleAnswer = testsCreater.getParametersOfId(mainTestNumber, questionNumber.toString())[index]
                             }
                         }
                     }
