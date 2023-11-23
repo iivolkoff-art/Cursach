@@ -2,6 +2,7 @@
 #include <QProcess>
 #include <qDebug>
 #include <QTcpSocket>
+#include <thread>
 
 TextHelper::TextHelper()
 {
@@ -10,17 +11,16 @@ TextHelper::TextHelper()
 
 QString TextHelper::getDataFromScripFroServer() {
     QTcpSocket socket;
-    socket.connectToHost("192.168.43.24", 55555); // IP адрес и порт сервера
+    socket.connectToHost("127.0.0.1", 55555); // IP адрес и порт сервера
     QString result;
-
     if(socket.waitForConnected(3000)) {
         qDebug() << "Connected to server";
 
-        // Отправляем сообщение на сервер
+        //To server
         socket.write("Hello from client");
 
-        // Ждем ответ от сервера
         if(socket.waitForReadyRead(3000)) {
+            //From server
             result = QString(socket.readAll());
             qDebug() << "Response from server: " << result;
         }

@@ -9,6 +9,9 @@ class TextHelper : public QObject
 public:
     TextHelper();
     Q_INVOKABLE QString getDataFromScripFroServer();
+
+signals:
+    void serverResponseReceived(const QString &response);
 };
 
 #endif // TEXTHELPER_H
