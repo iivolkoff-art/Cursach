@@ -81,7 +81,7 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
 void TestsCreater::getFilesFromServer(){
     std::thread t1([=]{
         QTcpSocket socket;
-        socket.connectToHost("127.0.0.1", 55555);
+        socket.connectToHost("192.168.43.24", 55555);
         if (socket.waitForConnected(3000)){
             socket.write("File");
             if(socket.waitForReadyRead(3000)) {
