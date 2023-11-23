@@ -33,7 +33,7 @@ Item {
         radius: formRadius
         border.width: formBorderWidth
         color: isDark ? backColor : whiteBackgroundColor
-
+        border.color: "#4E7CE2"
         height: parent.height * 0.38375
         width: parent.width
 
@@ -45,6 +45,7 @@ Item {
             height: parent.height * 0.163
             radius: formRadius
             border.width: formBorderWidth
+            border.color: "#4E7CE2"
 
             color: darkBlue
 
@@ -94,6 +95,7 @@ Item {
             height: parent.height * 0.163
             radius: formRadius
             border.width: formBorderWidth
+            border.color: "#4E7CE2"
 
             color: lightBlue
 
@@ -166,6 +168,7 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width + parent.height) * 0.05
                 color: authorizationPanelMiddle.baseColor
+                focus: authWindow.isRegistering ? false : true
             }
         }
 
@@ -203,6 +206,7 @@ Item {
                 font.pixelSize: (parent.width + parent.height) * 0.05
                 color: baseColor
                 echoMode: !passwordShown ? TextInput.Password : TextInput.Normal
+                focus: authWindow.isRegistering ? false : true
             }
         }
 
@@ -229,7 +233,7 @@ Item {
                 source: (!authorizationPanelMiddle.passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedDark" : (authorizationPanelMiddle.passwordShown && isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeOpenDark" : (!authorizationPanelMiddle.passwordShown && !isDark) ? "qrc:/assets/images/passwordVisibilityImages/eyeClosedLight" : "qrc:/assets/images/passwordVisibilityImages/eyeOpenLight"
                 width: parent.width * 0.75
                 height: width * 0.7063
-             }
+            }
         }
 
         Text {

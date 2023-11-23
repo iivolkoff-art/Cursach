@@ -36,6 +36,7 @@ Item {
         radius: formRadius
         border.width: formBorderWidth
         color: isDark ? backColor : whiteBackgroundColor
+        border.color: "#4E7CE2"
 
         height: parent.height * 0.67125
         width: parent.width
@@ -48,7 +49,7 @@ Item {
             height: parent.height * 0.163 * 0.57169
             radius: formRadius
             border.width: formBorderWidth
-
+            border.color: "#4E7CE2"
             color: lightBlue
 
             Rectangle {
@@ -97,6 +98,7 @@ Item {
             height: parent.height * 0.163 * 0.57169
             radius: formRadius
             border.width: formBorderWidth
+            border.color: "#4E7CE2"
 
             color: darkBlue
 
@@ -169,6 +171,7 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width * 0.2 + parent.height) * 0.08
                 color: registrationPanel.baseColor
+                focus: authWindow.isRegistering ? true : false
             }
         }
 
@@ -205,6 +208,7 @@ Item {
                 horizontalAlignment: TextInput.AlignHCenter
                 font.pixelSize: (parent.width * 0.2 + parent.height) * 0.08
                 color: registrationPanel.baseColor
+                focus: authWindow.isRegistering ? true : false
             }
         }
 
@@ -242,6 +246,7 @@ Item {
                 font.pixelSize: (parent.width * 0.2 + parent.height) * 0.08
                 color: baseColor
                 echoMode: !passwordShown ? TextInput.Password : TextInput.Normal
+                focus: authWindow.isRegistering ? true : false
             }
         }
 
@@ -305,6 +310,7 @@ Item {
                 font.pixelSize: (parent.width * 0.2 + parent.height) * 0.08
                 color: baseColor
                 echoMode: !password2Shown ? TextInput.Password : TextInput.Normal
+                focus: authWindow.isRegistering ? true : false
             }
         }
 
