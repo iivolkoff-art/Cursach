@@ -36,7 +36,7 @@ Item {
         radius: formRadius
         border.width: formBorderWidth
         color: isDark ? backColor : whiteBackgroundColor
-
+        border.color: "#4E7CE2"
         height: parent.height * 0.67125
         width: parent.width
 
@@ -48,7 +48,7 @@ Item {
             height: parent.height * 0.163 * 0.57169
             radius: formRadius
             border.width: formBorderWidth
-
+            border.color: "#4E7CE2"
             color: lightBlue
 
             Rectangle {
@@ -97,7 +97,7 @@ Item {
             height: parent.height * 0.163 * 0.57169
             radius: formRadius
             border.width: formBorderWidth
-
+            border.color: "#4E7CE2"
             color: darkBlue
 
             Rectangle {
