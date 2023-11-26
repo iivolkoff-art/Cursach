@@ -1,12 +1,18 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import testsCreater
-
+import 'qrc:/pages/testWindow'
 
 Item{
     id:bottomPanel
     TestsCreater{
         id: testsCreater
+    }
+
+    function popUpOpen(color, text){
+        popUp.popUpColor = color
+        popUp.popUpText = text
+        popUp.visible = true
     }
 
     Rectangle{
@@ -17,7 +23,6 @@ Item{
             anchors.centerIn: parent
             height: parent.height
             width: parent.width * 0.6
-            //anchors.margins: (parent.width + parent.height) * 0.015
             color: "#103B99"
             radius: parent.height * 0.3
             Text{
@@ -31,20 +36,18 @@ Item{
                 anchors.fill: parent
                 onClicked: {
                     if(possibleAnswer !== ""){
-                        questionNumber += 1
-                        middlePanel.choiseIndex = -1
                         answersArray.push("X")
-                        if(possibleAnswer === testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "answer")){
+                        if(possibleAnswer === testsCreater.getObjectFromJson(mainTestNumber, questionNumber, "answer")){
                             rightAnswer += 1
-                            points += parseInt(testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "points"))
-                            answersArray[(questionNumber - 2)] = "*"
+                            points += parseInt(testsCreater.getObjectFromJson(mainTestNumber, questionNumber, "points"))
+                            answersArray[(questionNumber - 1)] = "*"
+                            popUpOpen("green", "Good")
                         }
-                        console.log(answersArray[(questionNumber - 2)])
+                        else{
+                            popUpOpen("red", "Bad")
+                        }
+                        console.log(answersArray[(questionNumber - 1)])
                         possibleAnswer = ""
-                        if(questionNumber > 10){
-                            resultPage.visible = true
-                            questionNumber = 1
-                        }
                     }
                 }
             }

@@ -27,18 +27,19 @@
         <file>assets/images/topPanelImages/Lives.png</file>
         <file>assets/images/topPanelImages/MaketLang.png</file>
         <file>assets/images/topPanelImages/Points.png</file>
-		<file>assets/images/passwordVisibilityImages/eyeClosedDark.png</file>
-		<file>assets/images/passwordVisibilityImages/eyeClosedLight.png</file>
-		<file>assets/images/passwordVisibilityImages/eyeOpenDark.png</file>
-		<file>assets/images/passwordVisibilityImages/eyeOpenLight.png</file>
-		<file>assets/images/profileImages/EmptyIcon.png</file>
+        <file>assets/images/passwordVisibilityImages/eyeClosedDark.png</file>
+        <file>assets/images/passwordVisibilityImages/eyeClosedLight.png</file>
+        <file>assets/images/passwordVisibilityImages/eyeOpenDark.png</file>
+        <file>assets/images/passwordVisibilityImages/eyeOpenLight.png</file>
+        <file>assets/images/profileImages/EmptyIcon.png</file>
         <file>pages/testWindow/resultPage/ResultPage.qml</file>
-        <file>components/authorizationWindow/AuthorizationPanelMiddle.qml</file>        
-		<file>components/authorizationWindow/RegistrationPanel.qml</file>
+        <file>components/authorizationWindow/AuthorizationPanelMiddle.qml</file>
+        <file>components/authorizationWindow/RegistrationPanel.qml</file>
         <file>pages/authWindow/AuthorizationPage.qml</file>
         <file>components/mainWindow/profilePanels/TriangleButton.qml</file>
         <file>components/mainWindow/profilePanels/CircleWithText.qml</file>
         <file>components/mainWindow/profilePanels/ProfileText.qml</file>
         <file>components/mainWindow/profilePanels/ProfilePageCenter.qml</file>
+        <file>pages/testWindow/PopUp.qml</file>
     </qresource>
 </RCC>

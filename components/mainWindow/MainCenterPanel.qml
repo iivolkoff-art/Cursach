@@ -10,6 +10,7 @@ Item{
     id: mainCenterPanel
 
     Rectangle{
+        id: test
         anchors.fill: parent
         SettingsPage {
             id: settingsPage

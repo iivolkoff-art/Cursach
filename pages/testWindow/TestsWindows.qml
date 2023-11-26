@@ -13,6 +13,7 @@ Item{
     property int points: 0
     property string mainTestNumber: "0"
     property var answersArray: []
+
     Rectangle{
         anchors.fill: parent
         color: isDark ? backgroundColor : whiteBackgroundColor
@@ -35,6 +36,12 @@ Item{
             width: parent.width
             height: parent.height * 0.1
         }
+        PopUp {
+            id: popUp
+            anchors.fill: parent
+            visible: false
+        }
+
         ResultPage {
             id: resultPage
             anchors.fill: parent

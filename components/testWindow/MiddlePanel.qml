@@ -93,13 +93,9 @@ Item{
                             }
                         }
                     }
-
                     orientation: ListView.Vertical
                 }
             }
         }
     }
-//    onTestNumberChanged: {
-//        answerText.text = testsCreater.getInf()
-//    }
 }
