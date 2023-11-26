@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import testsCreater
-
+import 'qrc:/pages/testWindow'
 
 Item{
     id:bottomPanel
@@ -9,6 +9,11 @@ Item{
         id: testsCreater
     }
 
+    function popUpOpen(color, text){
+        popUp.popUpColor = color
+        popUp.popUpText = text
+        popUp.visible = true
+    }
     Rectangle{
         anchors.fill: parent
         color: isDark ? backgroundColor : whiteBackgroundColor
@@ -31,19 +36,18 @@ Item{
                 anchors.fill: parent
                 onClicked: {
                     if(possibleAnswer !== ""){
-                        questionNumber += 1
-                        middlePanel.choiseIndex = -1
                         answersArray.push("X")
-                        if(possibleAnswer === testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "answer")){
+                        if(possibleAnswer === testsCreater.getObjectFromJson(mainTestNumber, questionNumber, "answer")){
                             rightAnswer += 1
-                            points += parseInt(testsCreater.getObjectFromJson(mainTestNumber, questionNumber - 1, "points"))
-                            answersArray[(questionNumber - 2)] = "*"
+                            points += parseInt(testsCreater.getObjectFromJson(mainTestNumber, questionNumber, "points"))
+                            answersArray[(questionNumber - 1)] = "*"
+                            popUpOpen("green", "Good")
                         }
+                        else{
+                            popUpOpen("red", "Bad")
+                        }
+                        console.log(answersArray[(questionNumber - 1)])
                         possibleAnswer = ""
-                        if(questionNumber > 10){
-                            resultPage.visible = true
-                            questionNumber = 1
-                        }
                     }
                 }
             }

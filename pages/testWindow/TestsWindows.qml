@@ -35,6 +35,12 @@ Item{
             width: parent.width
             height: parent.height * 0.1
         }
+        PopUp {
+            id: popUp
+            anchors.fill: parent
+            visible: false
+        }
+
         ResultPage {
             id: resultPage
             anchors.fill: parent
