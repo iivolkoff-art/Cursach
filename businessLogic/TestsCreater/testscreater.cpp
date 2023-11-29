@@ -108,11 +108,11 @@ void TestsCreater::getFilesFromServer(){
     t1.detach();
 }
 
-int TestsCreater::getTestsCount(){
+uint8_t TestsCreater::getTestsCount(){
     QFile file("TestsPartOneCPlus.json");
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return int();
+        return uint8_t();
     }
 
     QString jsonString = file.readAll();
