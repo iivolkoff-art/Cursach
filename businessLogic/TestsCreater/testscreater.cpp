@@ -107,3 +107,22 @@ void TestsCreater::getFilesFromServer(){
     });
     t1.detach();
 }
+
+int TestsCreater::getTestsCount(){
+    QFile file("TestsPartOneCPlus.json");
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return int();
+    }
+
+    QString jsonString = file.readAll();
+
+    file.close();
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
+
+    QJsonObject json = jsonDoc.object();
+    int testCount = json.keys().count();
+
+    return testCount;
+}

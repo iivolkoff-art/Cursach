@@ -22,7 +22,7 @@ Item {
         color: isDark ? backgroundColor : whiteBackgroundColor
 
         Repeater {
-            model: 7
+            model: testsCircleCount
             Rectangle {
                 width: widthCircle
                 height: heightCircle

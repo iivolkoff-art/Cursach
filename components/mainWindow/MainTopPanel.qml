@@ -33,14 +33,21 @@ Item{
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignBaseline
                 }
-               MouseArea{
-                   anchors.fill: parent
-                   onClicked: {
-                       //testsCreater.createJson()
-                       //console.log("Вы создали json")
-                        testsCreater.getFilesFromServer()
-                    }
-               }
+               Timer{
+                  id: timer
+                  interval: 500
+                  onTriggered: {
+                       testsCircleCount = testsCreater.getTestsCount()
+                  }
+              }
+
+              MouseArea{
+                  anchors.fill: parent
+                  onClicked: {
+                      testsCreater.getFilesFromServer()
+                      timer.start()
+                   }
+              }
            }
            Image{
                id: imgPoint
