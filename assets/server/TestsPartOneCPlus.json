@@ -9,7 +9,8 @@
             ],
             "points": "15",
             "answer": "яп",
-            "question": "Что такое С++?"
+            "question": "Что такое С++?",
+            "explanation": "Потомучто дауны"
         },
         "2": {
             "parameter":[
@@ -20,7 +21,8 @@
             ],
             "points": "30",
             "answer": "int",
-            "question": "Целочисленный тип данных это?"
+            "question": "Целочисленный тип данных это?",
+            "explanation": "Потомучто дауны"
         },
         "3": {
             "parameter":[
@@ -31,7 +33,8 @@
             ],
             "points": "45",
             "answer": "компилированный",
-            "question": "С++ является компилированным или  интерпретируемым?"
+            "question": "С++ является компилированным или  интерпретируемым?",
+            "explanation": "Потомучто дауны"
         },
         "4": {
             "parameter":[
@@ -42,7 +45,8 @@
             ],
             "points": "5",
             "answer": "2",
-            "question": "1+1="
+            "question": "1+1=",
+            "explanation": "Потомучто дауны"
         },
         "5": {
             "parameter":[
@@ -53,7 +57,8 @@
             ],
             "points": "5",
             "answer": "1",
-            "question": "1+0="
+            "question": "1+0=",
+            "explanation": "Потомучто дауны"
         },
         "6": {
             "parameter":[
@@ -64,7 +69,8 @@
             ],
             "points": "5",
             "answer": "3",
-            "question": "1+2="
+            "question": "1+2=",
+            "explanation": "Потомучто дауны"
         },
         "7": {
             "parameter":[
@@ -75,7 +81,8 @@
             ],
             "points": "5",
             "answer": "4",
-            "question": "2+2="
+            "question": "2+2=",
+            "explanation": "Потомучто дауны"
         },
         "8": {
             "parameter":[
@@ -97,7 +104,8 @@
             ],
             "points": "5",
             "answer": "2",
-            "question": "1+1="
+            "question": "1+1=",
+            "explanation": "Потомучто дауны"
         },
         "10": {
             "parameter":[
@@ -108,7 +116,8 @@
             ],
             "points": "100",
             "answer": "Сашка 100% лучшая",
-            "question": "Сашка лучшая?"
+            "question": "Сашка лучшая?",
+            "explanation": "Потомучто дауны"
         }
     },
     "2":{
@@ -121,7 +130,8 @@
             ],
             "points": "15",
             "answer": "яп",
-            "question": "2"
+            "question": "2",
+            "explanation": "Потомучто дауны"
         },
         "2": {
             "parameter":[
@@ -132,7 +142,8 @@
             ],
             "points": "30",
             "answer": "int",
-            "question": "Целочисленный тип данных это?2"
+            "question": "Целочисленный тип данных это?2",
+            "explanation": "Потомучто дауны"
         },
         "3": {
             "parameter":[
@@ -143,7 +154,8 @@
             ],
             "points": "45",
             "answer": "компилированный",
-            "question": "С++ является компилированным или  интерпретируемым?"
+            "question": "С++ является компилированным или  интерпретируемым?",
+            "explanation": "Потомучто дауны"
         },
         "4": {
             "parameter":[
@@ -154,7 +166,8 @@
             ],
             "points": "5",
             "answer": "2",
-            "question": "1+1="
+            "question": "1+1=",
+            "explanation": "Потомучто дауны"
         },
         "5": {
             "parameter":[
@@ -165,7 +178,8 @@
             ],
             "points": "5",
             "answer": "1",
-            "question": "1+0="
+            "question": "1+0=",
+            "explanation": "Потомучто дауны"
         },
         "6": {
             "parameter":[
@@ -176,7 +190,8 @@
             ],
             "points": "5",
             "answer": "3",
-            "question": "1+2="
+            "question": "1+2=",
+            "explanation": "Потомучто дауны"
         },
         "7": {
             "parameter":[
@@ -187,7 +202,8 @@
             ],
             "points": "5",
             "answer": "4",
-            "question": "2+2="
+            "question": "2+2=",
+            "explanation": "Потомучто дауны"
         },
         "8": {
             "parameter":[
@@ -198,7 +214,8 @@
             ],
             "points": "5",
             "answer": "6",
-            "question": "4+2="
+            "question": "4+2=",
+            "explanation": "Потомучто дауны"
         },
         "9": {
             "parameter":[
@@ -209,7 +226,8 @@
             ],
             "points": "5",
             "answer": "2",
-            "question": "1+1="
+            "question": "1+1=",
+            "explanation": "Потомучто дауны"
         },
         "10": {
             "parameter":[
@@ -220,7 +238,8 @@
             ],
             "points": "100",
             "answer": "Сашка 100% лучшая",
-            "question": "Сашка лучшая?"
+            "question": "Сашка лучшая?",
+            "explanation": "Потомучто дауны"
         }
     }
 }
