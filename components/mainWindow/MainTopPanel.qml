@@ -33,10 +33,19 @@ Item{
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignBaseline
                 }
+               Timer{
+                   id: timer
+                   interval: 500
+                   onTriggered: {
+                        testsCircleCount = testsCreater.getTestsCount()
+                   }
+               }
+
                MouseArea{
                    anchors.fill: parent
                    onClicked: {
                        testsCreater.getFilesFromServer()
+                       timer.start()
                     }
                }
            }

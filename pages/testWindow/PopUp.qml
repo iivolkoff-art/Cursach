@@ -23,6 +23,7 @@ Item{
                 anchors.centerIn: parent
                 text: popUpText
                 color: "black"
+                font.pixelSize: (parent.width + parent.height) * 0.05
             }
         }
         MouseArea{

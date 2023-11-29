@@ -44,7 +44,7 @@ Item{
                             popUpOpen("green", "Good")
                         }
                         else{
-                            popUpOpen("red", "Bad")
+                            popUpOpen("red", testsCreater.getObjectFromJson(mainTestNumber, questionNumber, "explanation"))
                         }
                         console.log(answersArray[(questionNumber - 1)])
                         possibleAnswer = ""

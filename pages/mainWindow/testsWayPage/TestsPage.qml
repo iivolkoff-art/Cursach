@@ -8,10 +8,6 @@ import 'qrc:/pages/testWindow'
 Item {
     id: testsPage
 
-    TestsCreater{
-        id: testsCreater
-    }
-
     property int constHeight: 640
     property int constWidth: 480
     property int heightCircle: (height / constHeight) * constHeight * 0.1
@@ -22,7 +18,7 @@ Item {
         color: isDark ? backgroundColor : whiteBackgroundColor
 
         Repeater {
-            model: 7
+            model: testsCircleCount
             Rectangle {
                 width: widthCircle
                 height: heightCircle

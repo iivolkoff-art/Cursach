@@ -51,7 +51,7 @@ Item{
                 Text{
                     anchors.centerIn: parent
                     font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.08)
-                                                    : ((parent.height + parent.width) * 0.08) / (text.length * 0.045)
+                                                    : ((parent.height + parent.width) * 0.08) / (text.length * 0.07)
                     color: isDark ? "white" : "black"
                     text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(mainTestNumber ,questionNumber.toString(), "question") : ""
                 }
