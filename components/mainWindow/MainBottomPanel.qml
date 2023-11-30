@@ -13,7 +13,6 @@ Item{
 
     property string visibleCircleBorder: "3"
 
-
    Rectangle{
        anchors.fill: parent
        color: isDark ? backgroundColor: whitePanelColor
@@ -40,6 +39,7 @@ Item{
                    visibleCircleBorder = firstButton.firstCircle
                    mainVisibleWindows = firstButton.firstCircle
                    isDark = isDark ? false : true;
+                   settingsManager.setSetting("appTheme", isDark.toString())
                }
            }
        }

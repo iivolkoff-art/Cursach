@@ -4,6 +4,7 @@
 #include "businessLogic/TextHelper/TextHelper.h"
 #include "businessLogic/TestsCreater/testscreater.h"
 #include "businessLogic/LoginManager/LoginManager.h"
+#include "businessLogic/SettingsManager/SettingsManager.h"
 #include <QDir>
 #include <QDebug>
 #include <QFontDatabase>
@@ -14,8 +15,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
+    SettingsManager sm;
 
-
+    qmlRegisterType<SettingsManager>("settingsManager", 1, 0, "SettingsManager");
     qmlRegisterType<LoginManager>("loginManager", 1, 0, "LoginManager");
     qmlRegisterType<NetworkChecker>("networkChecker", 1, 0, "NetworkChecker");
     qmlRegisterType<TestsCreater>("testsCreater", 1, 0, "TestsCreater");
