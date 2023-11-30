@@ -1,8 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-
-
-
+//import Qt5Compat.GraphicalEffects
+import QtQuick.Controls 2.15
 
 Item{
     id: mainBottomPanel
@@ -13,7 +12,6 @@ Item{
     property int widthCircle: (height / constHeight) * constHeight * 0.5
 
     property string visibleCircleBorder: "3"
-
 
    Rectangle{
        anchors.fill: parent
@@ -41,6 +39,7 @@ Item{
                    visibleCircleBorder = firstButton.firstCircle
                    mainVisibleWindows = firstButton.firstCircle
                    isDark = isDark ? false : true;
+                   settingsManager.setSetting("appTheme", isDark.toString())
                }
            }
        }
@@ -154,13 +153,11 @@ Item{
            color: visibleCircleBorder === "5" ? "white" : buttonColor
            border.color: "#FFFFFF"
            border.width: 1
-
            MouseArea{
                anchors.fill: parent
                onClicked: {
                    visibleCircleBorder = fourthButton.fourthCircle
                    mainVisibleWindows = fourthButton.fourthCircle
-
                }
            }
            Image{
