@@ -50,8 +50,12 @@ Item{
                 }
                 Text{
                     anchors.centerIn: parent
-                    font.pixelSize:text.length < 15 ? ((parent.height + parent.width) * 0.08)
-                                                    : ((parent.height + parent.width) * 0.08) / (text.length * 0.07)
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    width: parent.width
+                    height: parent.height
+                    wrapMode: Text.Wrap
+                    font.pixelSize: (parent.height + parent.width) * 0.03
                     color: isDark ? "white" : "black"
                     text: windowsVisibleNumber == 1 ? testsCreater.getObjectFromJson(mainTestNumber ,questionNumber.toString(), "question") : ""
                 }
