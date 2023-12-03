@@ -80,6 +80,7 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
 
 void TestsCreater::getFilesFromServer(){
     std::thread t1([=]{
+        QFile newFile("TestsPartOneCPlus.json");
         QTcpSocket socket;
         socket.connectToHost("127.0.0.1", 55555);
         if (socket.waitForConnected(3000)){
@@ -87,7 +88,6 @@ void TestsCreater::getFilesFromServer(){
             if(socket.waitForReadyRead(3000)) {
                 //From server
                 QByteArray fileData = socket.readAll();
-                QFile newFile("TestsPartOneCPlus.json");
                 if (newFile.open(QIODevice::WriteOnly)) {
                     newFile.write(fileData);
                     newFile.close();

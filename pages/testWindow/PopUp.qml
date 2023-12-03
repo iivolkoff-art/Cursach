@@ -14,16 +14,20 @@ Item{
         color: infColor
         Rectangle{
             anchors.centerIn: parent
-            width: parent.width * 0.4
-            height: parent.height * 0.2
+            width: parent.width * 0.5
+            height: parent.height * 0.3
             color: popUpColor
             radius: (parent.width + parent.height) * 0.01
             border.color: "black"
             Text{
-                anchors.centerIn: parent
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                width: parent.width
+                height: parent.height
                 text: popUpText
+                wrapMode: Text.Wrap
                 color: "black"
-                font.pixelSize: (parent.width + parent.height) * 0.05
+                font.pixelSize: (parent.width + parent.height) * 0.03
             }
         }
         MouseArea{
