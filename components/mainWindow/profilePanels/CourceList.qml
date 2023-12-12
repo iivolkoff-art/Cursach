@@ -3,7 +3,7 @@ import QtQuick 2.12
 Item {
     id: courceList
     property string color: 'while'
-    property int radius: 0
+    property int varRadius: 0
 
     property variant courses: ["Java,15",""]
     property var fsize
@@ -45,7 +45,7 @@ Item {
 //                color: "transparent"
                 height: courceList.height
                 width: courceList.width
-                radius: courceList.radius
+                radius: courceList.varRadius
 
                 Text {
                     anchors.left: parent.left
@@ -101,7 +101,7 @@ Item {
                 delegate: Rectangle {
                     height: courceList.height
                     width: courceList.width
-                    radius: courceList.radius
+                    radius: courceList.varRadius
                     border.color: courceList.color
                     border.width: 1
 
