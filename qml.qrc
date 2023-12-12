@@ -41,5 +41,6 @@
         <file>components/mainWindow/profilePanels/ProfileText.qml</file>
         <file>components/mainWindow/profilePanels/ProfilePageCenter.qml</file>
         <file>pages/testWindow/PopUp.qml</file>
+        <file>components/mainWindow/profilePanels/CourceList.qml</file>
     </qresource>
 </RCC>
