@@ -186,6 +186,7 @@ Rectangle{
             }
         }
         CourceList{
+            id: l
             anchors.topMargin: 2
             anchors.top: big.bottom
             height: parent.height * 0.1
@@ -195,9 +196,10 @@ Rectangle{
             fsize: (layout.height + layout.width * 0.2) * 0.03
         }
 
-        }
 
 //        Item{
+//            id: t
+//            anchors.top: l.bottom
 //            width: number.width
 //            height: number.paintedHeight
 //            Text {
@@ -209,7 +211,9 @@ Rectangle{
 //            }
 //        }
 
+
 //        Item{
+//            anchors.top: t.bottom
 //            width: number.width
 //            height: number.paintedHeight
 //            Text {
@@ -220,8 +224,7 @@ Rectangle{
 //            }
 //        }
 
-
-
+    }
 
 }
 

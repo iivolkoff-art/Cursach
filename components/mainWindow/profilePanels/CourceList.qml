@@ -15,6 +15,7 @@ Item {
         anchors.fill: parent
         model: nestedModel
         delegate: categoryDelegate
+        interactive: false
     }
 
     ListModel {
