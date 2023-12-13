@@ -120,11 +120,25 @@ Rectangle{
                 }
             }
             Rectangle{
-                anchors.top:filds.bottom
-                anchors.horizontalCenter:
+                anchors.top: filds.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
                 width: name.width
-                height: name.heigh
+                height: name.height
                 color: "red"
+                radius: 15
+
+                Text {
+                    anchors.fill: parent
+                    font.pixelSize: parent.height * 0.5
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    color: isDark ? "white" : "black"
+                    text: "Сохранить изменения"
+                }
+
+                MouseArea {
+
+                }
             }
         }
         Rectangle {
