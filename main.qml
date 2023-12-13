@@ -28,11 +28,12 @@ Window {
     property color whitePanelColor: "#4E7CE2"
     property color whiteBackgroundColor: "#FFFFFF"
 
+    property string accountLogin: ""
     property string userName: "Скрипко Егор"
     property string userNumber: +375445555555
     property int userScore: 23
     property double partOfLearned: 0.56
-    property int countOfLanguages: 2
+    property int countOfLanguages: 1
 
     property string name: value
 

@@ -5,6 +5,7 @@ QT += network gui
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        businessLogic/AccountManager/AccountManager.cpp \
         businessLogic/LoginManager/LoginManager.cpp \
         businessLogic/NetworkChecker/NetworkChecker.cpp\
         businessLogic/SettingsManager/SettingsManager.cpp \
@@ -51,6 +52,7 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
 
 
 HEADERS += \
+    businessLogic/AccountManager/AccountManager.h \
     businessLogic/LoginManager/LoginManager.h \
     businessLogic/NetworkChecker/NetworkChecker.h \
     businessLogic/SettingsManager/SettingsManager.h \

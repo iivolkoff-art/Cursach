@@ -23,7 +23,7 @@ void LoginManager::createAccount(const QString& accountName, const QString& acco
 
     QJsonObject regDetails;
     regDetails["password"] = accountPassword;
-    regDetails["other_info"] = accountEmail;
+    regDetails["email"] = accountEmail;
 
     rootObject[accountName] = regDetails;
     JsonDocument.setObject(rootObject);

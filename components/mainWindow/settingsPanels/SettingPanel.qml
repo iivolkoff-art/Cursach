@@ -1,8 +1,13 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
+import accountManager
 
 Rectangle{
+    AccountManager{
+        id: accountManager
+    }
+
     id: settingPanel
     anchors.fill: parent
     color: isDark ? backgroundColor : whiteBackgroundColor
@@ -73,7 +78,6 @@ Rectangle{
 
             Rectangle{
                 anchors.fill: parent
-                anchors.margins:
                 color: "red"
                 Rectangle{
                     anchors.top: parent.top

@@ -5,6 +5,7 @@
 #include "businessLogic/TestsCreater/testscreater.h"
 #include "businessLogic/LoginManager/LoginManager.h"
 #include "businessLogic/SettingsManager/SettingsManager.h"
+#include "businessLogic/AccountManager/AccountManager.h"
 #include <QDir>
 #include <QDebug>
 #include <QFontDatabase>
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<NetworkChecker>("networkChecker", 1, 0, "NetworkChecker");
     qmlRegisterType<TestsCreater>("testsCreater", 1, 0, "TestsCreater");
     qmlRegisterType<TextHelper>("textHelper", 1, 0, "TextHelper");
+    qmlRegisterType<AccountManager>("accountManager", 1, 0, "AccountManager");
     QQmlApplicationEngine engine;
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));

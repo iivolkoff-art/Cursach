@@ -355,6 +355,8 @@ Item {
     function submitAuthorization()
     {
         windowsVisibleNumber = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? 0 : 2;
+        if (windowsVisibleNumber == 0)
+            accountLogin = loginInput.toString();
         loginError = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? false : true;
     }
 }
