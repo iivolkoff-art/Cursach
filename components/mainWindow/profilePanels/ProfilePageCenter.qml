@@ -17,7 +17,7 @@ Rectangle{
         id: layout
         width: rowWidth
         height: parent.height
-        property int radius: 20
+        property int varRadius: 20
         anchors.horizontalCenter: parent.horizontalCenter
 
         Image {
@@ -57,7 +57,7 @@ Rectangle{
                 id: startField
                 height: parent.height
                 width: profilePage.rowWidth / 2
-                radius: layout.radius
+                radius: layout.varRadius
                 color: "#4E7CE2"
                 ColumnLayout  {
                     spacing: 0
@@ -98,7 +98,7 @@ Rectangle{
                 anchors.left: startField.right
                 height: parent.height
                 width: profilePage.rowWidth / 2
-                radius: layout.radius
+                radius: layout.varRadius
                 color: "#4E7CE2"
                 ColumnLayout  {
                     spacing: 0
@@ -139,7 +139,7 @@ Rectangle{
             Rectangle{
                 height: parent.height
                 width: profilePage.rowWidth
-                radius: layout.radius
+                radius: layout.varRadius
                 color: "#4E7CE2"
                 Text {
                     anchors.left: status.left
@@ -160,7 +160,7 @@ Rectangle{
                     Rectangle{
                         height: parent.height
                         width: parent.width * partOfLearned
-                        radius: parent.radius
+                        radius: parent.varRadius
                         color: !isDark ? "#BACFFF" : "#92A8D9"
                     }
                 }
@@ -191,7 +191,7 @@ Rectangle{
             anchors.top: big.bottom
             height: parent.height * 0.1
             width: profilePage.rowWidth
-            radius: layout.radius
+            radius: layout.varRadius
             color: "#4E7CE2"
             fsize: (layout.height + layout.width * 0.2) * 0.03
         }
