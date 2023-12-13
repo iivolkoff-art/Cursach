@@ -71,35 +71,17 @@ Rectangle{
             anchors.right : parent.right
             visible : !isContactInfoShown
 
-            Column {
-                anchors.centerIn: parent
-                spacing : 10
-
-                TextField {
-                    id: second_name
-                    width: parent.width / 2
+            Rectangle{
+                anchors.fill: parent
+                anchors.margins:
+                color: "red"
+                Rectangle{
                     anchors.top: parent.top
-                    placeholderText: "Фамилия"
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
                 }
-
-                TextField {
-                    id: first_name
-                    width: parent.width / 2
-                    anchors.top: second_name.bottom
-                    anchors.bottom: third_name.bottom
-                    placeholderText: "Имя"
-                    anchors.topMargin: 5
-                }
-
-                TextField {
-                    id: third_name
-                    width: parent.width / 2
-                    anchors.top: first_name.bottom
-                    anchors.bottom: parent.bottom
-                    placeholderText: "Отчество"
-                    anchors.topMargin: 5
-                 }
-             }
+            }
         }
         Rectangle {
             id: contactDataContent

@@ -17,11 +17,9 @@ Rectangle{
         id: layout
         width: rowWidth
         height: parent.height
-<<<<<<< HEAD
-        property int radius1: 20
-=======
+
         property int varRadius: 20
->>>>>>> fe5ee8fd00ce06256044aeb4e80a20082bb623bd
+
         anchors.horizontalCenter: parent.horizontalCenter
         color: isDark ? backgroundColor : whiteBackgroundColor
 
@@ -62,11 +60,9 @@ Rectangle{
                 id: startField
                 height: parent.height
                 width: profilePage.rowWidth / 2
-<<<<<<< HEAD
-                radius: layout.radius1
-=======
+
                 radius: layout.varRadius
->>>>>>> fe5ee8fd00ce06256044aeb4e80a20082bb623bd
+
                 color: "#4E7CE2"
                 ColumnLayout  {
                     spacing: 0
@@ -107,11 +103,9 @@ Rectangle{
                 anchors.left: startField.right
                 height: parent.height
                 width: profilePage.rowWidth / 2
-<<<<<<< HEAD
-                radius: layout.radius1
-=======
+
                 radius: layout.varRadius
->>>>>>> fe5ee8fd00ce06256044aeb4e80a20082bb623bd
+
                 color: "#4E7CE2"
                 ColumnLayout  {
                     spacing: 0
@@ -152,11 +146,9 @@ Rectangle{
             Rectangle{
                 height: parent.height
                 width: profilePage.rowWidth
-<<<<<<< HEAD
-                radius: layout.radius1
-=======
+
                 radius: layout.varRadius
->>>>>>> fe5ee8fd00ce06256044aeb4e80a20082bb623bd
+
                 color: "#4E7CE2"
                 Text {
                     anchors.left: status.left
@@ -208,10 +200,9 @@ Rectangle{
             anchors.top: big.bottom
             height: parent.height * 0.1
             width: profilePage.rowWidth
-<<<<<<< HEAD
-=======
+
             property int varRadius: layout.varRadius
->>>>>>> fe5ee8fd00ce06256044aeb4e80a20082bb623bd
+
             color: "#4E7CE2"
             fsize: (layout.height + layout.width * 0.2) * 0.03
         }
