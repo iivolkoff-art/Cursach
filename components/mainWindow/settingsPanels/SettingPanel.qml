@@ -8,83 +8,62 @@ Rectangle{
     color: isDark ? backgroundColor : whiteBackgroundColor
     property bool isContactInfoShown: false
 
-    Row {
-        spacing: 5
-        anchors.fill: parent
+    Item {
+        height: parent.height * 0.1
+        id: tabs
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        Row {
+            spacing: 5
+            anchors.fill: parent
 
-        Rectangle {
-            id: myDataTab
-            width : parent.width / 2
-            height : 300
-            visible: true
-            color : myDataContent.visible ? "lightblue" : "lightgrey"
-            Text {
-                anchors.centerIn: parent
-                text : "Мои данные"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked : {
-                    isContactInfoShown = false
+            Rectangle {
+                id: myDataTab
+                width : parent.width / 2
+                height : parent.height
+                visible: true
+                color : myDataContent.visible ? "lightgrey" : "lightblue"
+                Text {
+                    anchors.centerIn: parent
+                    text : "Мои данные"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked : {
+                        isContactInfoShown = false
+                    }
                 }
             }
-        }
 
-        Rectangle {
-            id: contactDataTab
-            width : parent.width / 2
-            height : 300
-            visible: true
-            color : contactDataContent.visible ? "lightblue" : "lightgrey"
-            Text {
-                anchors.centerIn: parent
-                text : "Контактные данные"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked : {
-                    isContactInfoShown = true
+            Rectangle {
+                id: contactDataTab
+                width : parent.width / 2
+                height : parent.height
+                visible: true
+                color : contactDataContent.visible ? "lightgrey" : "lightblue"
+                Text {
+                    anchors.centerIn: parent
+                    text : "Контактные данные"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked : {
+                        isContactInfoShown = true
+                    }
                 }
             }
-        }
-     }
-
+         }
+    }
     Rectangle {
         id: contentArea
         width : parent.width
-        anchors.top: settingPanel.bottom
-        height : 200
-
-        // Контент для вкладки "Мои данные"
+        anchors.top: tabs.bottom
+        anchors.horizontalCenter : parent.horizontalCenter
+        height : parent.height * 0.5
+        color: isDark ? backgroundColor : whiteBackgroundColor
         Item {
             id: myDataContent
-            anchors.fill : parent
-            visible : isContactInfoShown
-
-            Column {
-                anchors.centerIn: parent
-                spacing : 10
-
-                TextField {
-                    placeholderText: "Номер телефона"
-                    // Дополнительные настройки для поля ввода
-                }
-
-                TextField {
-                    placeholderText: "Электронная почта"
-                    // Дополнительные настройки для поля ввода
-                }
-
-                TextField {
-                    placeholderText: "Дата рождения"
-                    // Дополнительные настройки для поля ввода
-                }
-            }
-        }
-
-        // Контент для вкладки "Контактные данные"
-        Item {
-            id: contactDataContent
             anchors.fill : parent
             visible : !isContactInfoShown
 
@@ -94,20 +73,47 @@ Rectangle{
 
                 TextField {
                     placeholderText: "Фамилия"
-                    // Дополнительные настройки для поля ввода
                 }
 
                 TextField {
                     placeholderText: "Имя"
-                    // Дополнительные настройки для поля ввода
                 }
 
                 TextField {
                     placeholderText: "Отчество"
-                    // Дополнительные настройки для поля ввода
                  }
              }
-         }
+        }
+        Rectangle {
+            id: contactDataContent
+            anchors.fill : parent
+            visible : isContactInfoShown
+
+            anchors.centerIn: parent
+
+            TextField {
+                id: text1
+                anchors.top: parent.top
+                placeholderText: "Номер телефона"
+                height: parent.height * 0.33
+            }
+
+            TextField {
+                id: text2
+                anchors.top: text1.bottom
+                placeholderText: "Электронная почта"
+                height: parent.height * 0.33
+                anchors.topMargin: 5
+            }
+
+            TextField {
+                anchors.top: text2.bottom
+                anchors.bottom: parent.bottom
+                placeholderText: "Дата рождения"
+                height: parent.height * 0.33
+                anchors.topMargin: 5
+            }
+        }
      }
 
 
@@ -117,9 +123,7 @@ Rectangle{
                 anchors.bottom : parent.bottom
                 anchors.bottomMargin : 30
                 anchors.horizontalCenter : parent.horizontalCenter
-                    // Обработчик изменения состояния переключателя
                     onToggled : {
-                        isContactInfoShown = !isContactInfoShown
                 }
              }
 
@@ -128,7 +132,6 @@ Rectangle{
                 anchors.bottom : parent.bottom
                 anchors.bottomMargin : 10
                 anchors.horizontalCenter : parent.horizontalCenter
-                // Обработчик изменения состояния переключателя
                 onToggled : {
                     isDark = isDark ? false : true;
                     settingsManager.setSetting("appTheme", isDark.toString())
@@ -142,11 +145,10 @@ Rectangle{
                 anchors.bottom : parent.bottom
                 anchors.bottomMargin : 70
                 anchors.horizontalCenter : parent.horizontalCenter
-                // Обработчик нажатия на текст "Выход"
                 MouseArea {
                     anchors.fill: parent
                     onClicked : {
-                // Ваш код для выхода
+                // Код
             }
         }
     }

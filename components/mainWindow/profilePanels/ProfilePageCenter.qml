@@ -19,6 +19,7 @@ Rectangle{
         height: parent.height
         property int varRadius: 20
         anchors.horizontalCenter: parent.horizontalCenter
+        color: isDark ? backgroundColor : whiteBackgroundColor
 
         Image {
             id: image

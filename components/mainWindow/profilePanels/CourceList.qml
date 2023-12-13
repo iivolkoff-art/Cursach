@@ -26,8 +26,8 @@ Item {
 
 
             subItems: [
-                ListElement { itemName: "Java,15" },
-                ListElement { itemName: "Python,35" },
+                //ListElement { itemName: "Java,15" },
+                //ListElement { itemName: "Python,35" },
                 ListElement { itemName: "C++,95" }
             ]
         }
