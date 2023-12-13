@@ -62,9 +62,13 @@ Rectangle{
         anchors.horizontalCenter : parent.horizontalCenter
         height : parent.height * 0.5
         color: isDark ? backgroundColor : whiteBackgroundColor
-        Item {
+        Rectangle {
             id: myDataContent
-            anchors.fill : parent
+            width: parent.width
+            height: parent.height
+            anchors.top : parent.top
+            anchors.left : parent.left
+            anchors.right : parent.right
             visible : !isContactInfoShown
 
             Column {
@@ -72,45 +76,55 @@ Rectangle{
                 spacing : 10
 
                 TextField {
+                    id: second_name
+                    width: parent.width / 2
+                    anchors.top: parent.top
                     placeholderText: "Фамилия"
                 }
 
                 TextField {
+                    id: first_name
+                    width: parent.width / 2
+                    anchors.top: second_name.bottom
+                    anchors.bottom: third_name.bottom
                     placeholderText: "Имя"
+                    anchors.topMargin: 5
                 }
 
                 TextField {
+                    id: third_name
+                    width: parent.width / 2
+                    anchors.top: first_name.bottom
+                    anchors.bottom: parent.bottom
                     placeholderText: "Отчество"
+                    anchors.topMargin: 5
                  }
              }
         }
         Rectangle {
             id: contactDataContent
-            anchors.fill : parent
+            width: parent.width
+            height: parent.height / 3
+            anchors.top : parent.top
+            anchors.left : parent.left
+            anchors.right : parent.right
             visible : isContactInfoShown
-
-            anchors.centerIn: parent
+            //color: isDark ? backgroundColor : whiteBackgroundColor
+            color: "white"
 
             TextField {
-                id: text1
+                id: number
+                width: parent.width / 2
                 anchors.top: parent.top
                 placeholderText: "Номер телефона"
-                height: parent.height * 0.33
             }
 
             TextField {
-                id: text2
-                anchors.top: text1.bottom
-                placeholderText: "Электронная почта"
-                height: parent.height * 0.33
-                anchors.topMargin: 5
-            }
-
-            TextField {
-                anchors.top: text2.bottom
+                id: email
+                width: parent.width / 2
+                anchors.top: number.bottom
                 anchors.bottom: parent.bottom
-                placeholderText: "Дата рождения"
-                height: parent.height * 0.33
+                placeholderText: "Электронная почта"
                 anchors.topMargin: 5
             }
         }
@@ -119,15 +133,17 @@ Rectangle{
 
 
             Switch {
+                id: sw1
                 text: "Персональные предложения и акции"
-                anchors.bottom : parent.bottom
+                anchors.bottom : sw2.bottom
                 anchors.bottomMargin : 30
-                anchors.horizontalCenter : parent.horizontalCenter
+                anchors.left : sw2.left
                     onToggled : {
                 }
              }
 
             Switch {
+                id: sw2
                 text: "Тема"
                 anchors.bottom : parent.bottom
                 anchors.bottomMargin : 10
