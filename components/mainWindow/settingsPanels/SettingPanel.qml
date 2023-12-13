@@ -6,8 +6,11 @@ Rectangle{
     id: settingPanel
     anchors.fill: parent
     color: isDark ? backgroundColor : whiteBackgroundColor
+    property bool isContactInfoShown: false
+
     Row {
         spacing: 5
+        anchors.fill: parent
 
         Rectangle {
             id: myDataTab
@@ -22,8 +25,7 @@ Rectangle{
             MouseArea {
                 anchors.fill: parent
                 onClicked : {
-                    myDataContent.visible = true
-                    contactDataContent.visible = false
+                    isContactInfoShown = false
                 }
             }
         }
@@ -41,8 +43,7 @@ Rectangle{
             MouseArea {
                 anchors.fill: parent
                 onClicked : {
-                    contactDataContent.visible = true
-                    myDataContent.visible = false
+                    isContactInfoShown = true
                 }
             }
         }
@@ -51,13 +52,14 @@ Rectangle{
     Rectangle {
         id: contentArea
         width : parent.width
+        anchors.top: settingPanel.bottom
         height : 200
 
         // Контент для вкладки "Мои данные"
         Item {
             id: myDataContent
             anchors.fill : parent
-            visible : myDataTab.active
+            visible : isContactInfoShown
 
             Column {
                 anchors.centerIn: parent
@@ -84,7 +86,7 @@ Rectangle{
         Item {
             id: contactDataContent
             anchors.fill : parent
-            visible : contactDataTab.active
+            visible : !isContactInfoShown
 
             Column {
                 anchors.centerIn: parent
@@ -117,8 +119,7 @@ Rectangle{
                 anchors.horizontalCenter : parent.horizontalCenter
                     // Обработчик изменения состояния переключателя
                     onToggled : {
-                        myDataContent.visible = true
-                        contactDataContent.visible = false
+                        isContactInfoShown = !isContactInfoShown
                 }
              }
 
@@ -129,8 +130,8 @@ Rectangle{
                 anchors.horizontalCenter : parent.horizontalCenter
                 // Обработчик изменения состояния переключателя
                 onToggled : {
-                    contactDataContent.visible = true
-                    myDataContent.visible = false
+                    isDark = isDark ? false : true;
+                    settingsManager.setSetting("appTheme", isDark.toString())
                  }
              }
 
