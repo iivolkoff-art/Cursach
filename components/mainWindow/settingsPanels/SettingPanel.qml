@@ -77,13 +77,72 @@ Rectangle{
             visible : !isContactInfoShown
 
             Rectangle{
+                id: filds
                 anchors.fill: parent
-                color: "red"
+                anchors.margins: (parent.width + parent.height) * 0.01
+                color: "transparent"
                 Rectangle{
+                    id: name
                     anchors.top: parent.top
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width * 0.6
                     height: parent.height * 0.2
+                    color: "transparent"
+                    TextField{
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        color: isDark ? "white" : "black"
+                        placeholderText: "Имя"
+                    }
+                }
+                Rectangle{
+                    id: lastName
+                    anchors.top: name.bottom
+                    anchors.topMargin: (parent.width + parent.height) * 0.01
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
+                    TextField{
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        color: isDark ? "white" : "black"
+                        placeholderText: "Фамилия"
+                    }
+                }
+                Rectangle{
+                    id: mail
+                    anchors.top: lastName.bottom
+                    anchors.topMargin: (parent.width + parent.height) * 0.01
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
+                    TextField{
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        color: isDark ? "white" : "black"
+                        placeholderText: "Mail"
+                    }
+                }
+            }
+            Rectangle{
+                anchors.top: filds.bottom
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: name.width
+                height: name.height
+                color: "red"
+                radius: 15
+
+                Text {
+                    anchors.fill: parent
+                    font.pixelSize: parent.height * 0.5
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+                    color: isDark ? "white" : "black"
+                    text: "Сохранить изменения"
+                }
+
+                MouseArea {
+
                 }
             }
         }
