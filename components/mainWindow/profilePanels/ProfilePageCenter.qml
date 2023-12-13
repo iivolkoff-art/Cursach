@@ -191,7 +191,7 @@ Rectangle{
             anchors.top: big.bottom
             height: parent.height * 0.1
             width: profilePage.rowWidth
-            radius: layout.varRadius
+            property int varRadius: layout.varRadius
             color: "#4E7CE2"
             fsize: (layout.height + layout.width * 0.2) * 0.03
         }
