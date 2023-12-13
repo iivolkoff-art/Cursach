@@ -44,5 +44,6 @@
         <file>components/mainWindow/settingsPanels/ContactDataPanel.qml</file>
         <file>components/mainWindow/settingsPanels/MyDataPanel.qml</file>
         <file>components/mainWindow/settingsPanels/SettingPanel.qml</file>
+        <file>components/mainWindow/profilePanels/CourceList.qml</file>
     </qresource>
 </RCC>
