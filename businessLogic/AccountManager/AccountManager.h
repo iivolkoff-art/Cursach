@@ -14,11 +14,12 @@ public:
     Q_INVOKABLE bool userdataExists();
     Q_INVOKABLE QJsonDocument getJSON();
     Q_INVOKABLE QString getPasswordFromJson(const QString& accountName);
-    Q_INVOKABLE void setData(const QString& accountName, const QString& firstName, const QString& secondName, const QString& thirdName, const QString& telephone);
+    Q_INVOKABLE void setData(const QString& accountName, const QString& firstName, const QString& secondName, const QString& thirdName, const QString& telephone, const QString& email);
     Q_INVOKABLE QString getFirstNameFromJson(const QString& accountName);
     Q_INVOKABLE QString getSecondNameFromJson(const QString& accountName);
     Q_INVOKABLE QString getThirdNameFromJson(const QString& accountName);
     Q_INVOKABLE QString getTelephoneFromJson(const QString& accountName);
+    Q_INVOKABLE QString getEmailFromJson(const QString& accountName);
 };
 
 #endif // ACCOUNTMANAGER_H

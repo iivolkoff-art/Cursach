@@ -7,7 +7,11 @@ Rectangle{
     AccountManager{
         id: accountManager
     }
-
+    property string fname: fnameField.text
+    property string sname: snameField.text
+    property string tname: tnameField.text
+    property string tel: number.text
+    property string em: email.text
     id: settingPanel
     anchors.fill: parent
     color: isDark ? backgroundColor : whiteBackgroundColor
@@ -89,6 +93,7 @@ Rectangle{
                     height: parent.height * 0.2
                     color: "transparent"
                     TextField{
+                        id: fnameField
                         anchors.fill: parent
                         font.pixelSize: parent.height * 0.65
                         color: isDark ? "white" : "black"
@@ -103,6 +108,7 @@ Rectangle{
                     width: parent.width * 0.6
                     height: parent.height * 0.2
                     TextField{
+                        id: snameField
                         anchors.fill: parent
                         font.pixelSize: parent.height * 0.65
                         color: isDark ? "white" : "black"
@@ -110,39 +116,19 @@ Rectangle{
                     }
                 }
                 Rectangle{
-                    id: mail
+                    id: thirdName
                     anchors.top: lastName.bottom
                     anchors.topMargin: (parent.width + parent.height) * 0.01
                     anchors.horizontalCenter: parent.horizontalCenter
                     width: parent.width * 0.6
                     height: parent.height * 0.2
                     TextField{
+                        id: tnameField
                         anchors.fill: parent
                         font.pixelSize: parent.height * 0.65
                         color: isDark ? "white" : "black"
-                        placeholderText: "Mail"
+                        placeholderText: "Отчество"
                     }
-                }
-            }
-            Rectangle{
-                anchors.top: filds.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: name.width
-                height: name.height
-                color: "red"
-                radius: 15
-
-                Text {
-                    anchors.fill: parent
-                    font.pixelSize: parent.height * 0.5
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    color: isDark ? "white" : "black"
-                    text: "Сохранить изменения"
-                }
-
-                MouseArea {
-
                 }
             }
         }
@@ -174,7 +160,30 @@ Rectangle{
             }
         }
      }
+    Rectangle{
+        anchors.top: contentArea.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: name.width
+        height: name.height
+        color: "red"
+        radius: 15
 
+        Text {
+            anchors.fill: parent
+            font.pixelSize: parent.height * 0.5
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            color: isDark ? "white" : "black"
+            text: "Сохранить изменения"
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                submit();
+            }
+        }
+    }
 
 
             Switch {
@@ -212,5 +221,8 @@ Rectangle{
                 windowsVisibleNumber = "2"
             }
         }
+    }
+    function submit(){
+        accountManager.setData(accountLogin.toString(), fname.toString(), sname.toString(), tname.toString(), tel.toString(), em.toString());
     }
 }

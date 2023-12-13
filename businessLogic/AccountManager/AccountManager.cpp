@@ -6,6 +6,7 @@
 #include <qDebug>
 #include <QVector>
 #include <QJsonArray>
+#include <qDebug>
 
 AccountManager::AccountManager() {}
 
@@ -52,7 +53,7 @@ QJsonDocument AccountManager::getJSON() {
     return QJsonDocument::fromJson(jsonString.toUtf8());
 }
 
-void AccountManager::setData(const QString& accountName, const QString& firstName, const QString& secondName, const QString& thirdName, const QString& telephone) {
+void AccountManager::setData(const QString& accountName, const QString& firstName, const QString& secondName, const QString& thirdName, const QString& telephone, const QString& email) {
     QJsonDocument jsonDoc = getJSON();
     QJsonObject innerObject;
     if (!jsonDoc.isNull() && jsonDoc.isObject()) {
@@ -67,7 +68,7 @@ void AccountManager::setData(const QString& accountName, const QString& firstNam
 
     QJsonObject regDetails;
     regDetails["password"] = innerObject["password"];
-    regDetails["email"] = innerObject["email"];
+    regDetails["email"] = email;
     regDetails["firstName"] = firstName;
     regDetails["secondName"] = secondName;
     regDetails["thirdName"] = thirdName;
@@ -154,6 +155,22 @@ QString AccountManager::getTelephoneFromJson(const QString& accountName) {
             QJsonObject innerObject = rootObject[accountName].toObject();
             if (innerObject.contains("telephone")) {
                 QString password = innerObject["telephone"].toString();
+                return password;
+            }
+        }
+    }
+    return QString();
+}
+
+QString AccountManager::getEmailFromJson(const QString& accountName) {
+    QJsonDocument jsonDoc = getJSON();
+    if (!jsonDoc.isNull() && jsonDoc.isObject()) {
+        QJsonObject rootObject = jsonDoc.object();
+
+        if (rootObject.contains(accountName)) {
+            QJsonObject innerObject = rootObject[accountName].toObject();
+            if (innerObject.contains("email")) {
+                QString password = innerObject["email"].toString();
                 return password;
             }
         }
