@@ -148,7 +148,7 @@ Rectangle{
                 MouseArea {
                     anchors.fill: parent
                     onClicked : {
-                // Код
+                windowsVisibleNumber = "2"
             }
         }
     }
