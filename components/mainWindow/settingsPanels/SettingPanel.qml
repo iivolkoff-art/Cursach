@@ -80,6 +80,8 @@ Rectangle{
             anchors.right : parent.right
             visible : !isContactInfoShown
 
+            color: isDark ? backgroundColor : whiteBackgroundColor
+
             Rectangle{
                 id: filds
                 anchors.fill: parent
@@ -140,8 +142,7 @@ Rectangle{
             anchors.left : parent.left
             anchors.right : parent.right
             visible : isContactInfoShown
-            //color: isDark ? backgroundColor : whiteBackgroundColor
-            color: "white"
+            color: isDark ? backgroundColor : whiteBackgroundColor
 
             TextField {
                 id: number
