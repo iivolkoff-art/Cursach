@@ -3,7 +3,7 @@ import QtQuick 2.12
 Item {
     id: courceList
     property string color: 'while'
-    property int radius: 0
+    property int radius1: 20
 
     property variant courses: ["Java,15",""]
     property var fsize
@@ -26,8 +26,8 @@ Item {
 
 
             subItems: [
-                ListElement { itemName: "Java,15" },
-                ListElement { itemName: "Python,35" },
+                //ListElement { itemName: "Java,15" },
+                //ListElement { itemName: "Python,35" },
                 ListElement { itemName: "C++,95" }
             ]
         }
@@ -45,7 +45,7 @@ Item {
 //                color: "transparent"
                 height: courceList.height
                 width: courceList.width
-                radius: courceList.radius
+                radius: courceList.radius1
 
                 Text {
                     anchors.left: parent.left
@@ -101,9 +101,11 @@ Item {
                 delegate: Rectangle {
                     height: courceList.height
                     width: courceList.width
-                    radius: courceList.radius
+                    radius: courceList.radius1
                     border.color: courceList.color
                     border.width: 1
+                    color: isDark ? backgroundColor : whiteBackgroundColor
+
 
                     Text {
                         anchors.left: parent.left
@@ -111,6 +113,7 @@ Item {
                         anchors.leftMargin: 15
                         font.pixelSize: fsize
                         font.family: "Jost"
+                        color: isDark ? "white": "black"
 //                        color: "#FFFFFF"
                         text: qsTr(itemName.split(',')[0])
                     }

@@ -17,8 +17,9 @@ Rectangle{
         id: layout
         width: rowWidth
         height: parent.height
-        property int radius: 20
+        property int radius1: 20
         anchors.horizontalCenter: parent.horizontalCenter
+        color: isDark ? backgroundColor : whiteBackgroundColor
 
         Image {
             id: image
@@ -57,7 +58,7 @@ Rectangle{
                 id: startField
                 height: parent.height
                 width: profilePage.rowWidth / 2
-                radius: layout.radius
+                radius: layout.radius1
                 color: "#4E7CE2"
                 ColumnLayout  {
                     spacing: 0
@@ -98,7 +99,7 @@ Rectangle{
                 anchors.left: startField.right
                 height: parent.height
                 width: profilePage.rowWidth / 2
-                radius: layout.radius
+                radius: layout.radius1
                 color: "#4E7CE2"
                 ColumnLayout  {
                     spacing: 0
@@ -139,7 +140,7 @@ Rectangle{
             Rectangle{
                 height: parent.height
                 width: profilePage.rowWidth
-                radius: layout.radius
+                radius: layout.radius1
                 color: "#4E7CE2"
                 Text {
                     anchors.left: status.left
@@ -191,38 +192,9 @@ Rectangle{
             anchors.top: big.bottom
             height: parent.height * 0.1
             width: profilePage.rowWidth
-            radius: layout.radius
             color: "#4E7CE2"
             fsize: (layout.height + layout.width * 0.2) * 0.03
         }
-
-
-//        Item{
-//            id: t
-//            anchors.top: l.bottom
-//            width: number.width
-//            height: number.paintedHeight
-//            Text {
-//                id: text
-//                font.pixelSize: 20
-//                font.family: "Jost"
-//                color: isDark ? "white" : "black"
-//                text: qsTr("ID пользователя")
-//            }
-//        }
-
-
-//        Item{
-//            anchors.top: t.bottom
-//            width: number.width
-//            height: number.paintedHeight
-//            Text {
-//                font.pixelSize: 16
-//                font.family: "Jost"
-//                color: isDark ? "#878787" : "#CFCFCF"
-//                text: qsTr(userId)
-//            }
-//        }
 
     }
 
