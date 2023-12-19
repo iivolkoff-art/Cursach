@@ -358,5 +358,7 @@ Item {
         if (windowsVisibleNumber == 0)
             accountLogin = loginInput.toString();
         loginError = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? false : true;
+        loginTextField.text = ""
+        passwordTextField.text = ""
     }
 }

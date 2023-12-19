@@ -82,7 +82,7 @@ void TestsCreater::getFilesFromServer(){
     std::thread t1([=]{
         QFile newFile("TestsPartOneCPlus.json");
         QTcpSocket socket;
-        socket.connectToHost("192.168.43.24", 55555);
+        socket.connectToHost("127.0.0.1", 55555);
         if (socket.waitForConnected(3000)){
             socket.write("File");
             if(socket.waitForReadyRead(3000)) {

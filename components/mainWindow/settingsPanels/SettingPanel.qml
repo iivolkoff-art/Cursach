@@ -12,6 +12,7 @@ Rectangle{
     property string tname: tnameField.text
     property string tel: number.text
     property string em: email.text
+    property string pass: passwordField.text
     property string fnameText: accountManager.getFirstNameFromJson(accountLogin.toString())
     property string snameText: accountManager.getSecondNameFromJson(accountLogin.toString())
     property string tnameText: accountManager.getThirdNameFromJson(accountLogin.toString())
@@ -20,7 +21,8 @@ Rectangle{
     id: settingPanel
     anchors.fill: parent
     color: isDark ? backgroundColor : whiteBackgroundColor
-    property bool isContactInfoShown: false
+    property string activeTab: "1"
+    property bool success: false
 
     Item {
         height: parent.height * 0.1
@@ -34,7 +36,7 @@ Rectangle{
 
             Rectangle {
                 id: myDataTab
-                width : parent.width / 2
+                width : parent.width / 3
                 height : parent.height
                 visible: true
                 color : myDataContent.visible ? "lightgrey" : "lightblue"
@@ -45,14 +47,18 @@ Rectangle{
                 MouseArea {
                     anchors.fill: parent
                     onClicked : {
-                        isContactInfoShown = false
+                        passwordField.text = ""
+                        passwordField2.text = ""
+                        error.text =""
+                        success = false
+                        activeTab = "1"
                     }
                 }
             }
 
             Rectangle {
                 id: contactDataTab
-                width : parent.width / 2
+                width : parent.width / 3
                 height : parent.height
                 visible: true
                 color : contactDataContent.visible ? "lightgrey" : "lightblue"
@@ -63,7 +69,33 @@ Rectangle{
                 MouseArea {
                     anchors.fill: parent
                     onClicked : {
-                        isContactInfoShown = true
+                        passwordField.text = ""
+                        passwordField2.text = ""
+                        error.text =""
+                        success = false
+                        activeTab = "2"
+                    }
+                }
+            }
+
+            Rectangle {
+                id: changePasswordTab
+                width : parent.width / 3
+                height : parent.height
+                visible: true
+                color : changePasswordContent.visible ? "lightgrey" : "lightblue"
+                Text {
+                    anchors.centerIn: parent
+                    text : "Смена пароля"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked : {
+                        passwordField.text = ""
+                        passwordField2.text = ""
+                        error.text =""
+                        success = false
+                        activeTab = "3"
                     }
                 }
             }
@@ -83,7 +115,7 @@ Rectangle{
             anchors.top : parent.top
             anchors.left : parent.left
             anchors.right : parent.right
-            visible : !isContactInfoShown
+            visible : activeTab == "1" ? true : false
 
             color: isDark ? backgroundColor : whiteBackgroundColor
 
@@ -146,7 +178,7 @@ Rectangle{
             anchors.top : parent.top
             anchors.left : parent.left
             anchors.right : parent.right
-            visible : isContactInfoShown
+            visible : activeTab == "2" ? true : false
             color: isDark ? backgroundColor : whiteBackgroundColor
 
             Rectangle{
@@ -186,7 +218,103 @@ Rectangle{
                 }
             }
         }
+        Rectangle {
+            id: changePasswordContent
+            width: parent.width
+            height: parent.height
+            anchors.top : parent.top
+            anchors.left : parent.left
+            anchors.right : parent.right
+            visible : activeTab == "3" ? true : false
+            color: isDark ? backgroundColor : whiteBackgroundColor
+
+            Rectangle{
+                id: filds3
+                anchors.fill: parent
+                anchors.margins: (parent.width + parent.height) * 0.01
+                color: "transparent"
+                Rectangle{
+                    id: passwordRect
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
+                    color: "transparent"
+                    TextField{
+                        id: passwordField
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        placeholderText: "Пароль"
+                        echoMode: TextInput.Password
+                        onPressed: {
+                            error.text = ""
+                            success = false
+                        }
+                    }
+                }
+                Rectangle{
+                    id: passwordRect2
+                    anchors.top: passwordRect.bottom
+                    anchors.topMargin: (parent.width + parent.height) * 0.01
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
+                    TextField{
+                        id: passwordField2
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        placeholderText: "Подтвердите пароль"
+                        echoMode: TextInput.Password
+                        onPressed: {
+                            error.text = ""
+                            success = false
+                        }
+                    }
+                }
+            }
+        }
      }
+    Text {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: contentArea.bottom
+        anchors.topMargin: -parent.height * 0.15
+
+        font.bold: false
+        font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.07
+        text: (passwordField.text != passwordField2.text) ? "Пароли не совпадают!" : ""
+        color: "red"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        id: error
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: contentArea.bottom
+        anchors.topMargin: -parent.height * 0.15
+
+        font.bold: false
+        font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.07
+        text: ""
+        color: "red"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
+    Text {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: contentArea.bottom
+        anchors.topMargin: -parent.height * 0.15
+
+        visible: success
+        font.bold: false
+        font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.07
+        text: "Изменения сохранены"
+        color: "green"
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+    }
+
     Rectangle{
         anchors.top: contentArea.bottom
         anchors.horizontalCenter: parent.horizontalCenter
@@ -258,8 +386,8 @@ Rectangle{
                         }
 
                         Switch {
-                            anchors.verticalCenter: parent.verticalCenter // Выравнивание переключателя по вертикали
-                            anchors.left: parent.horizontalCenter // Установка переключателя слева от горизонтального центра
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.horizontalCenter
                             checked: isDark
                             onToggled : {
                                 isDark = isDark ? false : true;
@@ -309,7 +437,7 @@ Rectangle{
                 anchors.bottomMargin : 20
                 anchors.rightMargin : 20
                 font.underline: true
-                font.pixelSize: 16
+                font.pixelSize: (parent.height * 0.57169 + parent.width * 0.2) * 0.05
                 MouseArea {
                     anchors.fill: parent
                     onClicked : {
@@ -320,6 +448,17 @@ Rectangle{
         }
     }
     function submit(){
-        accountManager.setData(accountLogin.toString(), fname.toString(), sname.toString(), tname.toString(), tel.toString(), em.toString());
+        success = true;
+        if (passwordField.text == passwordField2.text) {
+            accountManager.setData(accountLogin.toString(), fname.toString(), sname.toString(), tname.toString(), tel.toString(), em.toString(), pass.toString());
+        }
+        else {
+            accountManager.setData(accountLogin.toString(), fname.toString(), sname.toString(), tname.toString(), tel.toString(), em.toString(), "");
+            success = false;
+        }
+        if(activeTab == "3" && passwordField.text == "" && passwordField2.text == "") {
+            error.text = "Введите пароль"
+            success = false;
+        }
     }
 }
