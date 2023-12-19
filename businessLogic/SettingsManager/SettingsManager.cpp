@@ -12,11 +12,14 @@ SettingsManager::SettingsManager() : file("Settings.json")
 
 void SettingsManager::loadSettings() {
     isDarkTheme = "false";
+    isForcedTheme = "false";
+    qDebug() << isForcedTheme;
+    qDebug() << isDarkTheme;
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QJsonObject jsonData;
         jsonData["appTheme"] = "false";
 
-        file.close();  // Убедитесь, что файл закрыт перед его повторным открытием
+        file.close();
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
             QJsonDocument jsonDoc(jsonData);
@@ -28,6 +31,7 @@ void SettingsManager::loadSettings() {
         }
     }
     else {
+        file.close();
         isForcedTheme = getJsonSetting("forcedTheme");
         if (isForcedTheme == "true") {
             isDarkTheme = getJsonSetting("appTheme");
@@ -43,6 +47,8 @@ void SettingsManager::loadSettings() {
                 isDarkTheme = "true";
             }
         }
+        qDebug() << isForcedTheme;
+        qDebug() << isDarkTheme;
         file.close();
     }
 }
@@ -50,6 +56,11 @@ void SettingsManager::loadSettings() {
 
 
 QString SettingsManager::getJsonSetting(const QString& settingName){
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Failed to open file for read/write.";
+        return QString();
+    }
+    qDebug() << settingName;
     QString jsonString = file.readAll();
 
     file.close();
@@ -95,10 +106,12 @@ void SettingsManager::setSetting(const QString& settingName, const QString& valu
 
 
 bool SettingsManager::getIsDarkTheme(){
+    qDebug() << isDarkTheme;
     return isDarkTheme == "true" ? true : false;
 }
 
 bool SettingsManager::getIsForcedTheme(){
+    qDebug() << isForcedTheme;
     return isForcedTheme == "true" ? true : false;
 }
 

@@ -53,7 +53,7 @@ QJsonDocument AccountManager::getJSON() {
     return QJsonDocument::fromJson(jsonString.toUtf8());
 }
 
-void AccountManager::setData(const QString& accountName, const QString& firstName, const QString& secondName, const QString& thirdName, const QString& telephone, const QString& email) {
+void AccountManager::setData(const QString& accountName, const QString& firstName, const QString& secondName, const QString& thirdName, const QString& telephone, const QString& email, const QString& password) {
     QJsonDocument jsonDoc = getJSON();
     QJsonObject innerObject;
     if (!jsonDoc.isNull() && jsonDoc.isObject()) {
@@ -67,7 +67,12 @@ void AccountManager::setData(const QString& accountName, const QString& firstNam
     QJsonObject rootObject = jsonDoc.object();
 
     QJsonObject regDetails;
-    regDetails["password"] = innerObject["password"];
+    if (password == "") {
+        regDetails["password"] = innerObject["password"];
+    }
+    else {
+        regDetails["password"] = password;
+    }
     regDetails["email"] = email;
     regDetails["firstName"] = firstName;
     regDetails["secondName"] = secondName;
@@ -107,7 +112,6 @@ QString AccountManager::getFirstNameFromJson(const QString& accountName) {
             QJsonObject innerObject = rootObject[accountName].toObject();
             if (innerObject.contains("firstName")) {
                 QString password = innerObject["firstName"].toString();
-                qDebug() << password;
                 return password;
             }
         }
