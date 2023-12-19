@@ -12,11 +12,11 @@ Rectangle{
     property string tname: tnameField.text
     property string tel: number.text
     property string em: email.text
-    property string fnameText: accountManager.getFirstNameFromJson()
-    property string snameText: accountManager.getSecondNameFromJson()
-    property string tnameText: accountManager.getThirdNameFromJson()
-    property string telText: accountManager.getTelephoneFromJson()
-    property string emText: accountManager.getEmailFromJson()
+    property string fnameText: accountManager.getFirstNameFromJson(accountLogin.toString())
+    property string snameText: accountManager.getSecondNameFromJson(accountLogin.toString())
+    property string tnameText: accountManager.getThirdNameFromJson(accountLogin.toString())
+    property string telText: accountManager.getTelephoneFromJson(accountLogin.toString())
+    property string emText: accountManager.getEmailFromJson(accountLogin.toString())
     id: settingPanel
     anchors.fill: parent
     color: isDark ? backgroundColor : whiteBackgroundColor
