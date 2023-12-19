@@ -107,6 +107,7 @@ QString AccountManager::getFirstNameFromJson(const QString& accountName) {
             QJsonObject innerObject = rootObject[accountName].toObject();
             if (innerObject.contains("firstName")) {
                 QString password = innerObject["firstName"].toString();
+                qDebug() << password;
                 return password;
             }
         }

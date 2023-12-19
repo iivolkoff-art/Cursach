@@ -10,9 +10,11 @@ class SettingsManager : public QObject
 private:
     QFile file;
     QString isDarkTheme;
+    QString isForcedTheme;
 public:
     SettingsManager();
     Q_INVOKABLE bool getIsDarkTheme();
+    Q_INVOKABLE bool getIsForcedTheme();
     Q_INVOKABLE void setSetting(const QString& settingName, const QString& value);
 
 protected:

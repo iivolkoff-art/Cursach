@@ -12,6 +12,11 @@ Rectangle{
     property string tname: tnameField.text
     property string tel: number.text
     property string em: email.text
+    property string fnameText: accountManager.getFirstNameFromJson()
+    property string snameText: accountManager.getSecondNameFromJson()
+    property string tnameText: accountManager.getThirdNameFromJson()
+    property string telText: accountManager.getTelephoneFromJson()
+    property string emText: accountManager.getEmailFromJson()
     id: settingPanel
     anchors.fill: parent
     color: isDark ? backgroundColor : whiteBackgroundColor
@@ -98,8 +103,8 @@ Rectangle{
                         id: fnameField
                         anchors.fill: parent
                         font.pixelSize: parent.height * 0.65
-                        color: isDark ? "white" : "black"
                         placeholderText: "Имя"
+                        text: fnameText
                     }
                 }
                 Rectangle{
@@ -113,8 +118,8 @@ Rectangle{
                         id: snameField
                         anchors.fill: parent
                         font.pixelSize: parent.height * 0.65
-                        color: isDark ? "white" : "black"
                         placeholderText: "Фамилия"
+                        text: snameText
                     }
                 }
                 Rectangle{
@@ -128,8 +133,8 @@ Rectangle{
                         id: tnameField
                         anchors.fill: parent
                         font.pixelSize: parent.height * 0.65
-                        color: isDark ? "white" : "black"
                         placeholderText: "Отчество"
+                        text: tnameText
                     }
                 }
             }
@@ -137,27 +142,48 @@ Rectangle{
         Rectangle {
             id: contactDataContent
             width: parent.width
-            height: parent.height / 3
+            height: parent.height
             anchors.top : parent.top
             anchors.left : parent.left
             anchors.right : parent.right
             visible : isContactInfoShown
             color: isDark ? backgroundColor : whiteBackgroundColor
 
-            TextField {
-                id: number
-                width: parent.width / 2
-                anchors.top: parent.top
-                placeholderText: "Номер телефона"
-            }
-
-            TextField {
-                id: email
-                width: parent.width / 2
-                anchors.top: number.bottom
-                anchors.bottom: parent.bottom
-                placeholderText: "Электронная почта"
-                anchors.topMargin: 5
+            Rectangle{
+                id: filds2
+                anchors.fill: parent
+                anchors.margins: (parent.width + parent.height) * 0.01
+                color: "transparent"
+                Rectangle{
+                    id: telephoneRect
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
+                    color: "transparent"
+                    TextField{
+                        id: number
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        placeholderText: "Номер телефона"
+                        text: telText
+                    }
+                }
+                Rectangle{
+                    id: emailRect
+                    anchors.top: telephoneRect.bottom
+                    anchors.topMargin: (parent.width + parent.height) * 0.01
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    width: parent.width * 0.6
+                    height: parent.height * 0.2
+                    TextField{
+                        id: email
+                        anchors.fill: parent
+                        font.pixelSize: parent.height * 0.65
+                        placeholderText: "Электронная почта"
+                        text: emText
+                    }
+                }
             }
         }
      }
@@ -185,42 +211,112 @@ Rectangle{
             }
         }
     }
-
-
-            Switch {
+            Item {
                 id: sw1
-                text: "Персональные предложения и акции"
+                width: 300
+                height: 20
                 anchors.bottom : sw2.bottom
                 anchors.bottomMargin : 30
                 anchors.left : sw2.left
-                    onToggled : {
-                }
-             }
 
-            Switch {
+                Row {
+                        spacing: 10
+
+                        Text {
+                            text: "Персональные предложения и акции"
+                            color: isDark ? "white" : "black"
+                            verticalAlignment: Text.AlignVCenter
+                            width: contentWidth
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.right: parent.horizontalCenter
+                        }
+
+                        Switch {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.horizontalCenter
+                        }
+                    }
+            }
+            Item {
                 id: sw2
-                text: "Тема"
+                width: 10
+                height: 20
+                anchors.bottom : sw3.bottom
+                anchors.bottomMargin : 30
+                anchors.left : sw3.left
+
+                Row {
+                        spacing: 10
+
+                        Text {
+                            text: "Темная тема"
+                            color: isDark ? "white" : "black"
+                            verticalAlignment: Text.AlignVCenter
+                            width: contentWidth
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.right: parent.horizontalCenter
+                        }
+
+                        Switch {
+                            anchors.verticalCenter: parent.verticalCenter // Выравнивание переключателя по вертикали
+                            anchors.left: parent.horizontalCenter // Установка переключателя слева от горизонтального центра
+                            checked: isDark
+                            onToggled : {
+                                isDark = isDark ? false : true;
+                                settingsManager.setSetting("appTheme", isDark.toString())
+                            }
+                        }
+                    }
+            }
+            Item {
+                id: sw3
+                width: 10
+                height: 20
                 anchors.bottom : parent.bottom
-                anchors.bottomMargin : 10
+                anchors.bottomMargin : 5
                 anchors.horizontalCenter : parent.horizontalCenter
-                onToggled : {
-                    isDark = isDark ? false : true;
-                    settingsManager.setSetting("appTheme", isDark.toString())
-                 }
-             }
+
+                Row {
+                        spacing: 10
+
+                        Text {
+                            text: "Принудительная тема"
+                            color: isDark ? "white" : "black"
+                            verticalAlignment: Text.AlignVCenter
+                            width: contentWidth
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.right: parent.horizontalCenter
+                        }
+
+                        Switch {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.left: parent.horizontalCenter
+                            checked: isForcedTheme
+                            onToggled : {
+                                isForcedTheme = isForcedTheme ? false : true;
+                                settingsManager.setSetting("forcedTheme", isForcedTheme.toString())
+                            }
+                        }
+                    }
+            }
 
             Text {
                 text: "Выход"
                 font.bold : true
-                color : "blue"
+                color : isDark ? "white" : "blue"
                 anchors.bottom : parent.bottom
-                anchors.bottomMargin : 70
-                anchors.horizontalCenter : parent.horizontalCenter
+                anchors.right : parent.right
+                anchors.bottomMargin : 20
+                anchors.rightMargin : 20
+                font.underline: true
+                font.pixelSize: 16
                 MouseArea {
                     anchors.fill: parent
                     onClicked : {
-                windowsVisibleNumber = "2"
-            }
+                        windowsVisibleNumber = "2"
+                        mainVisibleWindows = "3"
+                        mainBottomPanel.visibleCircleBorder = "3"
+                    }
         }
     }
     function submit(){

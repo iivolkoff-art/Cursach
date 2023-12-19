@@ -22,7 +22,8 @@ Window {
     property string windowsVisibleNumber: "2" // mainWindow
     property string mainVisibleWindows: "3" // centerPage
     property bool isDark: settingsManager.getIsDarkTheme()
-    //visibility: Window.FullScreen
+    property bool isForcedTheme: settingsManager.getIsForcedTheme()
+    // visibility: Window.FullScreen
 
     property color backgroundColor: "#313131"
     property color whitePanelColor: "#4E7CE2"

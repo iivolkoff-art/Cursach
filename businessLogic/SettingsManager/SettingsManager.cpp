@@ -11,9 +11,10 @@ SettingsManager::SettingsManager() : file("Settings.json")
 
 
 void SettingsManager::loadSettings() {
+    isDarkTheme = "false";
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QJsonObject jsonData;
-        jsonData["appTheme"] = "true";
+        jsonData["appTheme"] = "false";
 
         file.close();  // Убедитесь, что файл закрыт перед его повторным открытием
 
@@ -25,8 +26,23 @@ void SettingsManager::loadSettings() {
         } else {
             qWarning() << "Failed to open file for write.";
         }
-    } else {
-        isDarkTheme = getJsonSetting("appTheme");
+    }
+    else {
+        isForcedTheme = getJsonSetting("forcedTheme");
+        if (isForcedTheme == "true") {
+            isDarkTheme = getJsonSetting("appTheme");
+        }
+        else {
+            time_t currentTime;
+            struct tm *localTime;
+            currentTime = time(NULL);
+            localTime = localtime(&currentTime);
+            int hour = localTime->tm_hour;
+            bool isNightTime = (hour >= 19 || hour < 7);
+            if (isNightTime) {
+                isDarkTheme = "true";
+            }
+        }
         file.close();
     }
 }
@@ -70,6 +86,9 @@ void SettingsManager::setSetting(const QString& settingName, const QString& valu
     if(settingName == "appTheme"){
         isDarkTheme = value;
     }
+    if(settingName == "forcedTheme"){
+        isForcedTheme = value;
+    }
 
     qDebug() << "Setting " << settingName << " changed to " << isDarkTheme;
 }
@@ -77,6 +96,10 @@ void SettingsManager::setSetting(const QString& settingName, const QString& valu
 
 bool SettingsManager::getIsDarkTheme(){
     return isDarkTheme == "true" ? true : false;
+}
+
+bool SettingsManager::getIsForcedTheme(){
+    return isForcedTheme == "true" ? true : false;
 }
 
 
