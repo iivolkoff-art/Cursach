@@ -43,6 +43,7 @@ Rectangle{
                 Text {
                     anchors.centerIn: parent
                     text : "Мои данные"
+                    font.pixelSize: (parent.height * 0.6 + parent.width * 0.4) * 0.13
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -65,6 +66,7 @@ Rectangle{
                 Text {
                     anchors.centerIn: parent
                     text : "Контактные данные"
+                    font.pixelSize: (parent.height * 0.6 + parent.width * 0.4) * 0.13
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -87,6 +89,7 @@ Rectangle{
                 Text {
                     anchors.centerIn: parent
                     text : "Смена пароля"
+                    font.pixelSize: (parent.height * 0.6 + parent.width * 0.4) * 0.13
                 }
                 MouseArea {
                     anchors.fill: parent

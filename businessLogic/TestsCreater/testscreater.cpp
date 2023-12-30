@@ -78,35 +78,56 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
     return QString();
 }
 
-void TestsCreater::getFilesFromServer(){
-    std::thread t1([=]{
+void TestsCreater::getFilesFromServer() {
+    std::thread t1([=] {
         QFile newFile("TestsPartOneCPlus.json");
         QTcpSocket socket;
         socket.connectToHost("127.0.0.1", 55555);
-        if (socket.waitForConnected(3000)){
+
+        if (socket.waitForConnected(3000)) {
             socket.write("File");
-            if(socket.waitForReadyRead(3000)) {
-                //From server
-                QByteArray fileData = socket.readAll();
-                if (newFile.open(QIODevice::WriteOnly)) {
-                    newFile.write(fileData);
-                    newFile.close();
-                    qDebug() << "File successfully received and saved.";
+
+            if (socket.waitForReadyRead(3000)) {
+
+                QByteArray sizeBytes = socket.read(sizeof(qint64));
+                qint64 fileSize = 0;
+                QDataStream dataSizeStream(&sizeBytes, QIODevice::ReadOnly);
+                dataSizeStream.setByteOrder(QDataStream::LittleEndian);
+                dataSizeStream >> fileSize;
+                qDebug() << fileSize;
+                QByteArray fileData;
+                while (fileData.size() < fileSize) {
+                    if (socket.waitForReadyRead(3000)) {
+                        fileData.append(socket.read(fileSize - fileData.size()));
+                    } else {
+                        qDebug() << "Timeout waiting for more data";
+                        break;
+                    }
+                }
+                qDebug() << fileData.size();
+                if (fileData.size() == fileSize) {
+                    if (newFile.open(QIODevice::WriteOnly)) {
+                        newFile.write(fileData);
+                        newFile.close();
+                        qDebug() << "File successfully received and saved.";
+                    } else {
+                        qDebug() << "Error creating or writing to the file.";
+                    }
                 } else {
-                    qDebug() << "Error creating or writing to the file.";
+                    qDebug() << "Error: Received incorrect file size.";
                 }
                 socket.disconnectFromHost();
-            }
-            else {
+            } else {
                 qDebug() << "Timeout waiting for response";
             }
-        }
-        else{
+        } else {
             qDebug() << "Connection failed";
         }
     });
     t1.detach();
 }
+
+
 
 uint8_t TestsCreater::getTestsCount(){
     QFile file("TestsPartOneCPlus.json");

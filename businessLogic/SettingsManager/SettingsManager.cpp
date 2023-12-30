@@ -17,7 +17,7 @@ void SettingsManager::loadSettings() {
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QJsonObject jsonData;
         jsonData["appTheme"] = "false";
-
+        jsonData["forcedTheme"] = "false";
         file.close();
 
         if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
