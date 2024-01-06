@@ -1,14 +1,16 @@
 #ifndef TESTSCREATER_H
 #define TESTSCREATER_H
-#include <QString>
-#include <QObject>
-#include <QVector>
 
+#include <QObject>
+#include <QFile>
+#include "ServerReader.h"
 
 class TestsCreater : public QObject
 {
     Q_OBJECT
 private:
+    QFile file;
+    ServerReader serverReader;
 
 public:
     TestsCreater();

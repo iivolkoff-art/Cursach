@@ -8,6 +8,7 @@ SOURCES += \
         businessLogic/LoginManager/LoginManager.cpp \
         businessLogic/NetworkChecker/NetworkChecker.cpp\
         businessLogic/SettingsManager/SettingsManager.cpp \
+        businessLogic/TestsCreater/ServerReader.cpp \
         businessLogic/TextHelper/TextHelper.cpp \
         main.cpp \
         businessLogic/TestsCreater/testscreater.cpp
@@ -54,5 +55,6 @@ HEADERS += \
     businessLogic/LoginManager/LoginManager.h \
     businessLogic/NetworkChecker/NetworkChecker.h \
     businessLogic/SettingsManager/SettingsManager.h \
+    businessLogic/TestsCreater/ServerReader.h \
     businessLogic/TextHelper/TextHelper.h \
     businessLogic/TestsCreater/testscreater.h

@@ -2,23 +2,20 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QFile>
-#include <QString>
 #include <qDebug>
-#include <QVector>
 #include <QJsonArray>
 #include <QTcpSocket>
 #include <QVariant>
 #include <thread>
 
-
-TestsCreater::TestsCreater()
+TestsCreater::TestsCreater() : file("TestsPartOneCPlus.json"), serverReader(ServerReader(QHostAddress("127.0.0.1"), 55555))
 {
 
 }
 
 
+
 QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, const QString& id) {
-    QFile file("TestsPartOneCPlus.json");
     QVector<QString> parameters;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -49,8 +46,6 @@ QVector<QString> TestsCreater::getParametersOfId(const QString& testNumber, cons
 }
 
 QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString& id, const QString& objectJSON) {
-    QFile file("TestsPartOneCPlus.json");
-
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return QString();
     }
@@ -80,37 +75,12 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
 
 void TestsCreater::getFilesFromServer(){
     std::thread t1([=]{
-        QFile newFile("TestsPartOneCPlus.json");
-        QTcpSocket socket;
-        socket.connectToHost("127.0.0.1", 55555);
-        if (socket.waitForConnected(3000)){
-            socket.write("File");
-            if(socket.waitForReadyRead(3000)) {
-                //From server
-                QByteArray fileData = socket.readAll();
-                if (newFile.open(QIODevice::WriteOnly)) {
-                    newFile.write(fileData);
-                    newFile.close();
-                    qDebug() << "File successfully received and saved.";
-                } else {
-                    qDebug() << "Error creating or writing to the file.";
-                }
-                socket.disconnectFromHost();
-            }
-            else {
-                qDebug() << "Timeout waiting for response";
-            }
-        }
-        else{
-            qDebug() << "Connection failed";
-        }
+        serverReader.getFilesFromServer(file);
     });
     t1.detach();
 }
 
 uint8_t TestsCreater::getTestsCount(){
-    QFile file("TestsPartOneCPlus.json");
-
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return uint8_t();
     }
