@@ -81,6 +81,7 @@ void SettingsManager::setSetting(const QString& settingName, const QString& valu
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonString.toUtf8());
     QJsonObject obj = jsonDoc.object();
+    qDebug() << "123 " + value;
     obj[settingName] = value;
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
