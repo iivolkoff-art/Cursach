@@ -8,7 +8,7 @@
 #include <QVariant>
 #include <thread>
 
-TestsCreater::TestsCreater() : file("TestsPartOneCPlus.json"), serverReader(ServerReader(QHostAddress("127.0.0.1"), 55555))
+TestsCreater::TestsCreater() : file("TestsPartOneCPlus.json")
 {
 
 }

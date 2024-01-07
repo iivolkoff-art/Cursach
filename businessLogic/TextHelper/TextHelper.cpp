@@ -6,12 +6,13 @@
 
 TextHelper::TextHelper()
 {
-
+    this->ip = serverData.ip;
+    this->port = serverData.port;
 }
 
 QString TextHelper::getDataFromScripFroServer() {
     QTcpSocket socket;
-    socket.connectToHost("127.0.0.1", 55555); // IP адрес и порт сервера
+    socket.connectToHost(ip, port); // IP адрес и порт сервера
     QString result;
     if(socket.waitForConnected(3000)) {
         qDebug() << "Connected to server";

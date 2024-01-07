@@ -2,23 +2,20 @@
 #include <QTcpSocket>
 #include "ServerReader.h"
 
+
 ServerReader::ServerReader()
 {
-
+    this->ip = serverData.ip;
+    this->port = serverData.port;
 }
 
-
-ServerReader::ServerReader(QHostAddress ip, uint16_t port) : ip(ip), port(port)
-{
-
-}
 
 void ServerReader::getFilesFromServer(QFile& newFile){
     QTcpSocket socket;
     socket.connectToHost(ip, port);
     if (socket.waitForConnected(3000)){
         socket.write("File");
-        if(socket.waitForReadyRead(3000)) {
+        if(socket.waitForReadyRead(5000)) {
             //From server
             QByteArray fileData = socket.readAll();
             if (newFile.open(QIODevice::WriteOnly)) {

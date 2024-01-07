@@ -3,17 +3,17 @@
 
 #include <QHostAddress>
 #include <QFile>
+#include "../Structs/ServerStruct.h"
 
 class ServerReader
 {
 private:
     QHostAddress ip;
     uint16_t port;
-
+    ServerData serverData;
 
 public:
     ServerReader();
-    ServerReader(QHostAddress ip, quint16 port);
     void getFilesFromServer(QFile& newFile);
 };
 
