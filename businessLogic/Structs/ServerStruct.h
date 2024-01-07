@@ -4,8 +4,8 @@
 #include <QHostAddress>
 
 struct ServerData{
-    QHostAddress ip;
-    uint16_t port;
+    const QHostAddress ip = QHostAddress("127.0.0.1");
+    const uint16_t port = 55555;
 
     ServerData();
 };
