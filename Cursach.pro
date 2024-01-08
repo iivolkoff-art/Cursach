@@ -7,9 +7,9 @@ QT += network gui
 SOURCES += \
         businessLogic/LoginManager/LoginManager.cpp \
         businessLogic/NetworkChecker/NetworkChecker.cpp\
+        businessLogic/ServerDataProccesor/ServerDataProccesor.cpp \
         businessLogic/SettingsManager/SettingsManager.cpp \
         businessLogic/Structs/ServerStruct.cpp \
-        businessLogic/TestsCreater/ServerReader.cpp \
         businessLogic/TextHelper/TextHelper.cpp \
         main.cpp \
         businessLogic/TestsCreater/testscreater.cpp
@@ -54,9 +54,12 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
 
 HEADERS += \
     businessLogic/LoginManager/LoginManager.h \
+    businessLogic/NetworkChecker/CheckerConection.h \
     businessLogic/NetworkChecker/NetworkChecker.h \
+    businessLogic/ServerDataProccesor/ServerDataProccesor.h \
     businessLogic/SettingsManager/SettingsManager.h \
     businessLogic/Structs/ServerStruct.h \
-    businessLogic/TestsCreater/ServerReader.h \
+    businessLogic/TestsCreater/CreaterTestsFileFromServer.h \
+    businessLogic/TextHelper/GetterPyScriptData.h \
     businessLogic/TextHelper/TextHelper.h \
     businessLogic/TestsCreater/testscreater.h

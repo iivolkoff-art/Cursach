@@ -7,10 +7,12 @@
 #include <QTcpSocket>
 #include <QVariant>
 #include <thread>
+#include "../ServerDataProccesor/ServerDataProccesor.h"
+
 
 TestsCreater::TestsCreater() : file("TestsPartOneCPlus.json")
 {
-
+    createrTestsFileFromServer = new ServerDataProccesor();
 }
 
 
@@ -75,7 +77,7 @@ QString TestsCreater::getObjectFromJson(const QString& testNumber, const QString
 
 void TestsCreater::getFilesFromServer(){
     std::thread t1([=]{
-        serverReader.getFilesFromServer(file);
+        createrTestsFileFromServer->createTestsFileFromServer();
     });
     t1.detach();
 }

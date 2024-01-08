@@ -3,14 +3,14 @@
 
 #include <QObject>
 #include <QFile>
-#include "ServerReader.h"
+#include "CreaterTestsFileFromServer.h"
 
 class TestsCreater : public QObject
 {
     Q_OBJECT
 private:
     QFile file;
-    ServerReader serverReader;
+    CreaterTestsFileFromServer* createrTestsFileFromServer;
 
 public:
     TestsCreater();

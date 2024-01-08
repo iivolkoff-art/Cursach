@@ -1,26 +1,16 @@
 #include "NetworkChecker.h"
 #include <thread>
 #include <QNetworkAccessManager>
-
+#include "../ServerDataProccesor/ServerDataProccesor.h"
 
 NetworkChecker::NetworkChecker()
 {
-
+    checkerConnection = new ServerDataProccesor();
 }
 
 bool NetworkChecker::check(){
-    bool result;
     std::thread t([&](){
-        QTcpSocket sock;
-        sock.connectToHost("www.google.com", 80);
-        bool connected = sock.waitForConnected(3000);//ms
-        if (connected) {
-            sock.abort();
-            result = true;
-        } else{
-            sock.abort();
-            result = false;
-        }
+        result = checkerConnection->checkConnection();
     });
     t.detach();
     return result;

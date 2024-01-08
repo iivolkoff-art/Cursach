@@ -22,7 +22,7 @@ Item {
             id: textConnectionStatus
             anchors.centerIn: parent
             color: isDark ? "white" : "black"
-            text: "Нет сети"
+            text: "Сервер не отвечает"
             font.pixelSize: parent.height * 0.06
         }
     }
