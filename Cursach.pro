@@ -11,6 +11,12 @@ SOURCES += \
         businessLogic/SettingsManager/SettingsManager.cpp \
         businessLogic/Structs/ServerStruct.cpp \
         businessLogic/TextHelper/TextHelper.cpp \
+        businessLogic/component/MainWindow/ProfilePage.cpp \
+        businessLogic/component/MainWindow/SettingPage.cpp \
+        businessLogic/component/MainWindow/TestsWayPage.cpp \
+        businessLogic/component/MainWindow/TextHelper.cpp \
+        businessLogic/component/TestWindow/TestsWindow.cpp \
+        businessLogic/component/authorizationWindow/AuthorizationWindow.cpp \
         main.cpp \
         businessLogic/TestsCreater/testscreater.cpp
 
@@ -62,4 +68,10 @@ HEADERS += \
     businessLogic/TestsCreater/CreaterTestsFileFromServer.h \
     businessLogic/TextHelper/GetterPyScriptData.h \
     businessLogic/TextHelper/TextHelper.h \
-    businessLogic/TestsCreater/testscreater.h
+    businessLogic/TestsCreater/testscreater.h \
+    businessLogic/component/MainWindow/ProfilePage.h \
+    businessLogic/component/MainWindow/SettingPage.h \
+    businessLogic/component/MainWindow/TestsWayPage.h \
+    businessLogic/component/MainWindow/TextHelper.h \
+    businessLogic/component/TestWindow/TestsWindow.h \
+    businessLogic/component/authorizationWindow/AuthorizationWindow.h
