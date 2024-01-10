@@ -2,14 +2,23 @@
 #define TEXTHELPER_H
 
 #include <QObject>
+#include <QHostAddress>
+#include <QFile>
 
 class TextHelper : public QObject
 {
     Q_OBJECT
-public:
-    explicit TextHelper(QObject *parent = nullptr);
+private:
+    bool result;
 
-signals:
+    QHostAddress ip;
+    uint16_t port;
+    QFile newFile;
+
+public:
+    TextHelper();
+    Q_INVOKABLE QString getDataFromScripFroServer();
+    Q_INVOKABLE bool check();
 
 };
 

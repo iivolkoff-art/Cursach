@@ -1,16 +1,13 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import networkChecker
+
 
 Item {
     id: chatField
     property color messageColor: "#4166B7"
     property string message: ""
-    property bool networkStatus: networkChecker.check()
+    property bool networkStatus: textHelper.check()
 
-    NetworkChecker{
-        id: networkChecker
-    }
 
     Rectangle{
         id: blockTextHelper
@@ -33,7 +30,7 @@ Item {
         running: mainVisibleWindows === "5"
 
         onTriggered: {
-            networkStatus = networkChecker.check()
+            networkStatus = textHelper.check()
             console.log(networkStatus)
             repeatTimer.restart();
         }

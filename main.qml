@@ -6,7 +6,7 @@ import 'pages/mainWindow'
 import 'pages/testWindow'
 import 'pages/authWindow'
 
-import settingsManager
+import settingPage
 
 Window {
     width: 640
@@ -15,13 +15,13 @@ Window {
     title: qsTr("GenDev")
 
 
-    SettingsManager{
-        id: settingsManager
+    SettingPage{
+        id: settingPage
     }
 
     property string windowsVisibleNumber: "2" // mainWindow
     property string mainVisibleWindows: "3" // centerPage
-    property bool isDark: settingsManager.getIsDarkTheme()
+    property bool isDark: settingPage.getIsDarkTheme()
     //visibility: Window.FullScreen
 
     property color backgroundColor: "#313131"

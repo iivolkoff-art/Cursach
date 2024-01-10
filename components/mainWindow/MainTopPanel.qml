@@ -1,13 +1,9 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
-import testsCreater
 
 
 Item{
     id: mainTopPanel
-    TestsCreater{
-        id: testsCreater
-    }
 
 
     Rectangle{
@@ -33,19 +29,10 @@ Item{
                    horizontalAlignment: Text.AlignHCenter
                    verticalAlignment: Text.AlignBaseline
                 }
-               Timer{
-                  id: timer
-                  interval: 500
-                  onTriggered: {
-                       testsCircleCount = testsCreater.getTestsCount()
-                  }
-              }
-
               MouseArea{
                   anchors.fill: parent
                   onClicked: {
-                      testsCreater.getFilesFromServer()
-                      timer.start()
+                      mainWindowClass.getFilesFromServer()
                    }
               }
            }

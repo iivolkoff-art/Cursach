@@ -1,25 +1,36 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import 'qrc:/pages/testWindow/resultPage'
-import testsCreater
 import 'qrc:/pages/testWindow'
+
+import testsWayPage
 
 
 Item {
     id: testsPage
 
-    TestsCreater{
-        id: testsCreater
+    TestsWayPage{
+        id: testsWayPage
     }
 
     property int constHeight: 640
     property int constWidth: 480
     property int heightCircle: (height / constHeight) * constHeight * 0.1
     property int widthCircle: (height / constHeight) * constHeight * 0.1
+    property int testsCircleCount: testsWayPage.getTestsCount()
 
     Rectangle{
         anchors.fill: parent
         color: isDark ? backgroundColor : whiteBackgroundColor
+        Timer{
+            id: timer
+            interval: 2000
+            running: true
+            repeat: true
+            onTriggered: {
+                testsCircleCount = testsWayPage.getTestsCount()
+            }
+        }
 
         Repeater {
             model: testsCircleCount

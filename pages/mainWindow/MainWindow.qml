@@ -1,15 +1,16 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import 'qrc:/components/mainWindow'
-import testsCreater
+import mainWindowClass
 
 
 Item{
     id: mainWindow
-    TestsCreater{
-        id: testsCreater
+
+    MainWindowClass{
+        id: mainWindowClass
     }
-    property int testsCircleCount: testsCreater.getTestsCount()
+
     Rectangle{
         anchors.fill: parent
         color: isDark ? backgroundColor : whiteBackgroundColor

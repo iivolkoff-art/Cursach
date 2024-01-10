@@ -2,14 +2,17 @@
 #define TESTSWAYPAGE_H
 
 #include <QObject>
+#include <QFile>
+
 
 class TestsWayPage : public QObject
 {
     Q_OBJECT
+private:
+    QFile file;
 public:
-    explicit TestsWayPage(QObject *parent = nullptr);
-
-signals:
+    TestsWayPage();
+    Q_INVOKABLE uint8_t getTestsCount();
 
 };
 

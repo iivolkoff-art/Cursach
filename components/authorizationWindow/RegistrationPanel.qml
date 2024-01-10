@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
-import loginManager
+
 
 Item {
     id: registrationPanel
@@ -23,9 +23,6 @@ Item {
     property bool password2Shown: false
     property bool passwordErrorShown: false
 
-    LoginManager{
-        id: loginManager
-    }
 
     Rectangle {
         id: registerForm
@@ -447,8 +444,8 @@ Item {
 
     function submitRegistration()
     {
-        if ((password2TextField.text == passwordTextField.text && !loginManager.accountExists(registerInput.toString())) && (registerInput != "" && password2Input != "")) {
-            loginManager.createAccount(registerInput, passwordInput, emailInput);
+        if ((password2TextField.text == passwordTextField.text && !authorizationWindow.accountExists(registerInput.toString())) && (registerInput != "" && password2Input != "")) {
+            authorizationWindow.createAccount(registerInput, passwordInput, emailInput);
             isRegistering = false;
         }
         else {

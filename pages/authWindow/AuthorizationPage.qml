@@ -1,11 +1,15 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import 'qrc:/components/authorizationWindow'
+import authorizationWindow
 
 
 Item{
     id: authWindow
     property bool isRegistering: false
+    AuthorizationWindow{
+        id: authorizationWindow
+    }
 
     Rectangle {
         anchors.fill: parent

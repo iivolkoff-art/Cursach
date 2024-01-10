@@ -5,12 +5,7 @@ QT += network gui
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        businessLogic/LoginManager/LoginManager.cpp \
-        businessLogic/NetworkChecker/NetworkChecker.cpp\
-        businessLogic/ServerDataProccesor/ServerDataProccesor.cpp \
-        businessLogic/SettingsManager/SettingsManager.cpp \
-        businessLogic/Structs/ServerStruct.cpp \
-        businessLogic/TextHelper/TextHelper.cpp \
+        businessLogic/component/MainWindow/MainWindow.cpp \
         businessLogic/component/MainWindow/ProfilePage.cpp \
         businessLogic/component/MainWindow/SettingPage.cpp \
         businessLogic/component/MainWindow/TestsWayPage.cpp \
@@ -18,7 +13,6 @@ SOURCES += \
         businessLogic/component/TestWindow/TestsWindow.cpp \
         businessLogic/component/authorizationWindow/AuthorizationWindow.cpp \
         main.cpp \
-        businessLogic/TestsCreater/testscreater.cpp
 
 RESOURCES += qml.qrc
 
@@ -59,16 +53,7 @@ contains(ANDROID_TARGET_ARCH,armeabi-v7a) {
 
 
 HEADERS += \
-    businessLogic/LoginManager/LoginManager.h \
-    businessLogic/NetworkChecker/CheckerConection.h \
-    businessLogic/NetworkChecker/NetworkChecker.h \
-    businessLogic/ServerDataProccesor/ServerDataProccesor.h \
-    businessLogic/SettingsManager/SettingsManager.h \
-    businessLogic/Structs/ServerStruct.h \
-    businessLogic/TestsCreater/CreaterTestsFileFromServer.h \
-    businessLogic/TextHelper/GetterPyScriptData.h \
-    businessLogic/TextHelper/TextHelper.h \
-    businessLogic/TestsCreater/testscreater.h \
+    businessLogic/component/MainWindow/MainWindow.h \
     businessLogic/component/MainWindow/ProfilePage.h \
     businessLogic/component/MainWindow/SettingPage.h \
     businessLogic/component/MainWindow/TestsWayPage.h \

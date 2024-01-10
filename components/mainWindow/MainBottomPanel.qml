@@ -39,7 +39,7 @@ Item{
                    visibleCircleBorder = firstButton.firstCircle
                    mainVisibleWindows = firstButton.firstCircle
                    isDark = isDark ? false : true;
-                   settingsManager.setSetting("appTheme", isDark.toString())
+                   settingPage.setSetting("appTheme", isDark.toString())
                }
            }
        }

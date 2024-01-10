@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import 'qrc:/components/testWindow'
 import './resultPage'
-
+import testsWindow
 
 Item{
     id:testsWindows
@@ -13,6 +13,10 @@ Item{
     property int points: 0
     property string mainTestNumber: "0"
     property var answersArray: []
+
+    TestsWindow{
+        id: testsWindow
+    }
 
     Rectangle{
         anchors.fill: parent

@@ -1,16 +1,14 @@
-#ifndef PROFILEPAGE_H
-#define PROFILEPAGE_H
+//#ifndef PROFILEPAGE_H
+//#define PROFILEPAGE_H
 
-#include <QObject>
+//#include <QObject>
 
-class ProfilePage : public QObject
-{
-    Q_OBJECT
-public:
-    explicit ProfilePage(QObject *parent = nullptr);
+//class ProfilePage : public QObject
+//{
+//    Q_OBJECT
+//public:
+//    ProfilePage();
 
-signals:
+//};
 
-};
-
-#endif // PROFILEPAGE_H
+//#endif // PROFILEPAGE_H

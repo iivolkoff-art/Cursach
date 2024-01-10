@@ -1,15 +1,25 @@
 #ifndef SETTINGPAGE_H
 #define SETTINGPAGE_H
 
+#include <QFile>
 #include <QObject>
 
 class SettingPage : public QObject
 {
     Q_OBJECT
-public:
-    explicit SettingPage(QObject *parent = nullptr);
+private:
+    QFile file;
+    QString isDarkTheme;
 
-signals:
+public:
+    SettingPage();
+    Q_INVOKABLE bool getIsDarkTheme();
+    Q_INVOKABLE void setSetting(const QString& settingName, const QString& value);
+
+protected:
+    void loadSettings();
+    QString getJsonSetting(const QString& settingName);
+
 
 };
 

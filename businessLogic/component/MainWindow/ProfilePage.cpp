@@ -1,7 +1,6 @@
-#include "ProfilePage.h"
+//#include "ProfilePage.h"
 
-ProfilePage::ProfilePage(QObject *parent)
-    : QObject{parent}
-{
+//ProfilePage::ProfilePage()
+//{
 
-}
+//}

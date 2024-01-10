@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.15
-import loginManager
+
 
 Item {
     id: authorizationPanelMiddle
@@ -20,9 +20,6 @@ Item {
     property bool passwordShown: false
     property bool loginError: false
 
-    LoginManager{
-        id: loginManager
-    }
 
     Rectangle {
         id: authForm
@@ -354,7 +351,7 @@ Item {
 
     function submitAuthorization()
     {
-        windowsVisibleNumber = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? 0 : 2;
-        loginError = !loginManager.userdataExists() || (loginManager.accountExists(loginInput.toString()) && loginManager.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? false : true;
+        windowsVisibleNumber = !authorizationWindow.userdataExists() || (authorizationWindow.accountExists(loginInput.toString()) && authorizationWindow.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? 0 : 2;
+        loginError = !authorizationWindow.userdataExists() || (authorizationWindow.accountExists(loginInput.toString()) && authorizationWindow.getPasswordFromJson(loginInput.toString()).toString() === passwordInput.toString()) ? false : true;
     }
 }
